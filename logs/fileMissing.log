@@ -1,0 +1,244 @@
+Traced on 2021-07-05 07:32:03
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-05 08:32:04
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-05 09:32:06
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-05 10:32:05
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-05 11:48:05
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-05 12:48:04
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-05 14:16:03
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-05 15:16:04
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-05 16:16:05
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-05 17:32:04
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-05 18:32:05
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-05 19:48:04
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-05 21:16:03
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-05 22:16:03
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-05 23:16:04
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-06 00:32:04
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-06 01:48:04
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-06 02:48:04
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-07-06 03:48:07
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::checkFileAccessForInclusion::25<br>
+/home4/kalpdeep/public_html/internalcrm/vtlib/Vtiger/AccessControl.php::loadUserPrivilegesWithId::44<br>
+/home4/kalpdeep/public_html/internalcrm/modules/Users/Users.php::loadUserPrivileges::646<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::retrieveCurrentUserInfoFromFile::222<br>
+/home4/kalpdeep/public_html/internalcrm/modules/com_vtiger_workflow/tasks/VTEmailTask.inc::getContents::31<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::doTask::65<br>
+/home4/kalpdeep/public_html/internalcrm/cron/modules/com_vtiger_workflow/com_vtiger_workflow.service::vtRunTaskJob::72<br>
+/home4/kalpdeep/public_html/internalcrm/vtigercron.php::require_once::84<br>
+Traced on 2021-10-18 04:40:51
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrmold/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrmold/includes/Loader.php::checkFileAccessForInclusion::65<br>
+/home4/kalpdeep/public_html/internalcrmold/includes/Loader.php::includeOnce::191<br>
+/home4/kalpdeep/public_html/internalcrmold/includes/main/WebUI.php::vimport::15<br>
+/home4/kalpdeep/public_html/internalcrmold/index.php::include_once::18<br>
+Traced on 2021-10-18 04:40:51
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrmold/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrmold/includes/Loader.php::checkFileAccessForInclusion::65<br>
+/home4/kalpdeep/public_html/internalcrmold/includes/Loader.php::includeOnce::191<br>
+/home4/kalpdeep/public_html/internalcrmold/includes/main/WebUI.php::vimport::15<br>
+/home4/kalpdeep/public_html/internalcrmold/index.php::include_once::18<br>
+Traced on 2021-10-18 04:40:51
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrmold/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrmold/includes/Loader.php::checkFileAccessForInclusion::65<br>
+/home4/kalpdeep/public_html/internalcrmold/includes/Loader.php::includeOnce::191<br>
+/home4/kalpdeep/public_html/internalcrmold/includes/main/WebUI.php::vimport::15<br>
+/home4/kalpdeep/public_html/internalcrmold/index.php::include_once::18<br>
+Traced on 2021-10-18 04:40:52
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrmold/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrmold/includes/Loader.php::checkFileAccessForInclusion::65<br>
+/home4/kalpdeep/public_html/internalcrmold/includes/Loader.php::includeOnce::191<br>
+/home4/kalpdeep/public_html/internalcrmold/includes/main/WebUI.php::vimport::15<br>
+/home4/kalpdeep/public_html/internalcrmold/index.php::include_once::18<br>
+Traced on 2021-11-15 06:35:51
+FileAccessForInclusion - 
+/home4/kalpdeep/public_html/internalcrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/home4/kalpdeep/public_html/internalcrm/includes/Loader.php::checkFileAccessForInclusion::65<br>
+/home4/kalpdeep/public_html/internalcrm/includes/Loader.php::includeOnce::191<br>
+/home4/kalpdeep/public_html/internalcrm/includes/main/WebUI.php::vimport::15<br>
+/home4/kalpdeep/public_html/internalcrm/index.php::include_once::18<br>

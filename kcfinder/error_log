@@ -1,0 +1,89 @@
+[10-Mar-2021 00:46:23 America/Chicago] PHP Deprecated:  __autoload() is deprecated, use spl_autoload_register() instead in /home4/kalpdeep/public_html/chemicaltestcrm/kcfinder/core/autoload.php on line 15
+[10-Mar-2021 00:46:23 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function vtlib_purify() in /home4/kalpdeep/public_html/chemicaltestcrm/kcfinder/core/uploader.php:50
+Stack trace:
+#0 /home4/kalpdeep/public_html/chemicaltestcrm/kcfinder/upload.php(16): uploader->__construct()
+#1 {main}
+  thrown in /home4/kalpdeep/public_html/chemicaltestcrm/kcfinder/core/uploader.php on line 50
+[10-Mar-2021 00:47:11 America/Chicago] PHP Deprecated:  __autoload() is deprecated, use spl_autoload_register() instead in /home4/kalpdeep/public_html/chemicaltestcrm/kcfinder/core/autoload.php on line 15
+[10-Mar-2021 00:47:11 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function vtlib_purify() in /home4/kalpdeep/public_html/chemicaltestcrm/kcfinder/core/uploader.php:50
+Stack trace:
+#0 /home4/kalpdeep/public_html/chemicaltestcrm/kcfinder/upload.php(16): uploader->__construct()
+#1 {main}
+  thrown in /home4/kalpdeep/public_html/chemicaltestcrm/kcfinder/core/uploader.php on line 50
+[10-Mar-2021 00:48:53 America/Chicago] PHP Deprecated:  __autoload() is deprecated, use spl_autoload_register() instead in /home4/kalpdeep/public_html/chemicaltestcrm/kcfinder/core/autoload.php on line 15
+[10-Mar-2021 00:48:53 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function vtlib_purify() in /home4/kalpdeep/public_html/chemicaltestcrm/kcfinder/core/uploader.php:50
+Stack trace:
+#0 /home4/kalpdeep/public_html/chemicaltestcrm/kcfinder/upload.php(16): uploader->__construct()
+#1 {main}
+  thrown in /home4/kalpdeep/public_html/chemicaltestcrm/kcfinder/core/uploader.php on line 50
+[16-Dec-2021 23:50:38 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function vtlib_purify() in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php:50
+Stack trace:
+#0 /home4/kalpdeep/public_html/internalcrm/kcfinder/core/browser.php(21): uploader->__construct()
+#1 /home4/kalpdeep/public_html/internalcrm/kcfinder/browse.php(16): browser->__construct()
+#2 {main}
+  thrown in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php on line 50
+[16-Dec-2021 23:50:44 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function vtlib_purify() in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php:50
+Stack trace:
+#0 /home4/kalpdeep/public_html/internalcrm/kcfinder/core/browser.php(21): uploader->__construct()
+#1 /home4/kalpdeep/public_html/internalcrm/kcfinder/browse.php(16): browser->__construct()
+#2 {main}
+  thrown in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php on line 50
+[16-Dec-2021 23:50:46 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function vtlib_purify() in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php:50
+Stack trace:
+#0 /home4/kalpdeep/public_html/internalcrm/kcfinder/core/browser.php(21): uploader->__construct()
+#1 /home4/kalpdeep/public_html/internalcrm/kcfinder/browse.php(16): browser->__construct()
+#2 {main}
+  thrown in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php on line 50
+[16-Dec-2021 23:51:20 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function vtlib_purify() in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php:50
+Stack trace:
+#0 /home4/kalpdeep/public_html/internalcrm/kcfinder/upload.php(16): uploader->__construct()
+#1 {main}
+  thrown in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php on line 50
+[16-Dec-2021 23:51:29 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function vtlib_purify() in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php:50
+Stack trace:
+#0 /home4/kalpdeep/public_html/internalcrm/kcfinder/core/browser.php(21): uploader->__construct()
+#1 /home4/kalpdeep/public_html/internalcrm/kcfinder/browse.php(16): browser->__construct()
+#2 {main}
+  thrown in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php on line 50
+[16-Dec-2021 23:52:03 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function vtlib_purify() in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php:50
+Stack trace:
+#0 /home4/kalpdeep/public_html/internalcrm/kcfinder/core/browser.php(21): uploader->__construct()
+#1 /home4/kalpdeep/public_html/internalcrm/kcfinder/browse.php(16): browser->__construct()
+#2 {main}
+  thrown in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php on line 50
+[16-Dec-2021 23:52:16 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function vtlib_purify() in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php:50
+Stack trace:
+#0 /home4/kalpdeep/public_html/internalcrm/kcfinder/core/browser.php(21): uploader->__construct()
+#1 /home4/kalpdeep/public_html/internalcrm/kcfinder/browse.php(16): browser->__construct()
+#2 {main}
+  thrown in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php on line 50
+[16-Dec-2021 23:52:47 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function vtlib_purify() in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php:50
+Stack trace:
+#0 /home4/kalpdeep/public_html/internalcrm/kcfinder/core/browser.php(21): uploader->__construct()
+#1 /home4/kalpdeep/public_html/internalcrm/kcfinder/browse.php(16): browser->__construct()
+#2 {main}
+  thrown in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php on line 50
+[16-Dec-2021 23:52:54 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function vtlib_purify() in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php:50
+Stack trace:
+#0 /home4/kalpdeep/public_html/internalcrm/kcfinder/core/browser.php(21): uploader->__construct()
+#1 /home4/kalpdeep/public_html/internalcrm/kcfinder/browse.php(16): browser->__construct()
+#2 {main}
+  thrown in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php on line 50
+[16-Dec-2021 23:55:25 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function vtlib_purify() in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php:50
+Stack trace:
+#0 /home4/kalpdeep/public_html/internalcrm/kcfinder/core/browser.php(21): uploader->__construct()
+#1 /home4/kalpdeep/public_html/internalcrm/kcfinder/browse.php(16): browser->__construct()
+#2 {main}
+  thrown in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php on line 50
+[16-Dec-2021 23:58:30 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function vtlib_purify() in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php:50
+Stack trace:
+#0 /home4/kalpdeep/public_html/internalcrm/kcfinder/core/browser.php(21): uploader->__construct()
+#1 /home4/kalpdeep/public_html/internalcrm/kcfinder/browse.php(16): browser->__construct()
+#2 {main}
+  thrown in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php on line 50
+[16-Dec-2021 23:59:28 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function vtlib_purify() in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php:50
+Stack trace:
+#0 /home4/kalpdeep/public_html/internalcrm/kcfinder/core/browser.php(21): uploader->__construct()
+#1 /home4/kalpdeep/public_html/internalcrm/kcfinder/browse.php(16): browser->__construct()
+#2 {main}
+  thrown in /home4/kalpdeep/public_html/internalcrm/kcfinder/core/uploader.php on line 50
