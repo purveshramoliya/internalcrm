@@ -242,3 +242,39 @@ FileAccessForInclusion -
 /home4/kalpdeep/public_html/internalcrm/includes/Loader.php::includeOnce::191<br>
 /home4/kalpdeep/public_html/internalcrm/includes/main/WebUI.php::vimport::15<br>
 /home4/kalpdeep/public_html/internalcrm/index.php::include_once::18<br>
+Traced on 2022-02-14 05:56:09
+FileAccessForInclusion - 
+D:\wamp\www\internalcrm\include\utils\CommonUtils.php::checkFileAccessForInclusion::388<br>
+D:\wamp\www\internalcrm\vtlib\Vtiger\AccessControl.php::checkFileAccessForInclusion::25<br>
+D:\wamp\www\internalcrm\vtlib\Vtiger\AccessControl.php::loadUserPrivilegesWithId::44<br>
+D:\wamp\www\internalcrm\modules\Users\Users.php::loadUserPrivileges::646<br>
+D:\wamp\www\internalcrm\includes\main\WebUI.php::retrieveCurrentUserInfoFromFile::47<br>
+D:\wamp\www\internalcrm\includes\main\WebUI.php::getLogin::104<br>
+D:\wamp\www\internalcrm\index.php::process::21<br>
+Traced on 2022-02-14 05:57:08
+FileAccessForInclusion - 
+D:\wamp\www\internalcrm\include\utils\CommonUtils.php::checkFileAccessForInclusion::388<br>
+D:\wamp\www\internalcrm\vtlib\Vtiger\AccessControl.php::checkFileAccessForInclusion::25<br>
+D:\wamp\www\internalcrm\vtlib\Vtiger\AccessControl.php::loadUserPrivilegesWithId::44<br>
+D:\wamp\www\internalcrm\modules\Users\Users.php::loadUserPrivileges::646<br>
+D:\wamp\www\internalcrm\includes\main\WebUI.php::retrieveCurrentUserInfoFromFile::47<br>
+D:\wamp\www\internalcrm\includes\main\WebUI.php::getLogin::104<br>
+D:\wamp\www\internalcrm\index.php::process::21<br>
+Traced on 2022-02-14 05:58:09
+FileAccessForInclusion - 
+D:\wamp\www\internalcrm\include\utils\CommonUtils.php::checkFileAccessForInclusion::388<br>
+D:\wamp\www\internalcrm\vtlib\Vtiger\AccessControl.php::checkFileAccessForInclusion::25<br>
+D:\wamp\www\internalcrm\vtlib\Vtiger\AccessControl.php::loadUserPrivilegesWithId::44<br>
+D:\wamp\www\internalcrm\modules\Users\Users.php::loadUserPrivileges::646<br>
+D:\wamp\www\internalcrm\includes\main\WebUI.php::retrieveCurrentUserInfoFromFile::47<br>
+D:\wamp\www\internalcrm\includes\main\WebUI.php::getLogin::104<br>
+D:\wamp\www\internalcrm\index.php::process::21<br>
+Traced on 2022-02-14 05:59:10
+FileAccessForInclusion - 
+D:\wamp\www\internalcrm\include\utils\CommonUtils.php::checkFileAccessForInclusion::388<br>
+D:\wamp\www\internalcrm\vtlib\Vtiger\AccessControl.php::checkFileAccessForInclusion::25<br>
+D:\wamp\www\internalcrm\vtlib\Vtiger\AccessControl.php::loadUserPrivilegesWithId::44<br>
+D:\wamp\www\internalcrm\modules\Users\Users.php::loadUserPrivileges::646<br>
+D:\wamp\www\internalcrm\includes\main\WebUI.php::retrieveCurrentUserInfoFromFile::47<br>
+D:\wamp\www\internalcrm\includes\main\WebUI.php::getLogin::104<br>
+D:\wamp\www\internalcrm\index.php::process::21<br>

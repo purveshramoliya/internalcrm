@@ -939,16 +939,20 @@ class CRMEntity {
 		require_once("include/events/include.inc");
 
 		//In Bulk mode stop triggering events
-		if(!self::isBulkSaveMode()) {
-			$em = new VTEventsManager($adb);
-			// Initialize Event trigger cache
-			$em->initTriggerCache();
-			$entityData = VTEntityData::fromCRMEntity($this);
+		//create user using webservice purvesh 14-02-2022
+		if($module_name !='Users')
+		{
+			if(!self::isBulkSaveMode()) {
+				$em = new VTEventsManager($adb);
+				// Initialize Event trigger cache
+				$em->initTriggerCache();
+				$entityData = VTEntityData::fromCRMEntity($this);
 
-			$em->triggerEvent("vtiger.entity.beforesave.modifiable", $entityData);
-			$em->triggerEvent("vtiger.entity.beforesave", $entityData);
-			$em->triggerEvent("vtiger.entity.beforesave.final", $entityData);
-        }
+				$em->triggerEvent("vtiger.entity.beforesave.modifiable", $entityData);
+				$em->triggerEvent("vtiger.entity.beforesave", $entityData);
+				$em->triggerEvent("vtiger.entity.beforesave.final", $entityData);
+	        }
+	    }
 		//Event triggering code ends
 
 		//GS Save entity being called with the modulename as parameter

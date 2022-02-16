@@ -1,13 +1,10 @@
 <?php
 
-class VendorsSupplierActiveHandler extends VTEventHandler
+class JoineeActiveHandler extends VTEventHandler
 {
 
 	function handleEvent($eventName, $entityData)
 	{
-// 		ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
 
 		global $log, $adb;
 
@@ -15,15 +12,17 @@ class VendorsSupplierActiveHandler extends VTEventHandler
 
 			$moduleName = $entityData->getModuleName();
 			
-			if ($moduleName == 'Vendors') {
+			if ($moduleName == 'Joinee') {
 
-				$active=$_REQUEST['active'];
+				$active=$_REQUEST['cf_1326'];
 				$crmid=$_REQUEST['record'];
-				$currentid=$_REQUEST['currentid'];
-				$suppliername=$_REQUEST['vendorname'];
-				$email=$_REQUEST['email'];
+				$username=$_REQUEST['joinee_tks_lastname'];
+			    $password=$_REQUEST['joinee_tks_reportto'];
+			    $email=$_REQUEST['joinee_tks_emailid'];
 
 				require_once 'config.inc.php';
+				include_once 'modules/Emails/Models/Mailer.php';
+				require_once("modules/Emails/mail.php");
 				global $site_URL,$HELPDESK_SUPPORT_EMAIL_ID,$HELPDESK_SUPPORT_NAME;
 				$from=$HELPDESK_SUPPORT_EMAIL_ID;
 				$fromName=$HELPDESK_SUPPORT_NAME;
@@ -33,7 +32,7 @@ class VendorsSupplierActiveHandler extends VTEventHandler
 					$crmid=$currentid;
 				}
 
-				$prjquery=$adb->pquery("SELECT * FROM `vtiger_users` where first_name='$suppliername' and email1='$email'");
+				$prjquery=$adb->pquery("SELECT * FROM `vtiger_users` where last_name='$username' and email1='$email'");
 			    $userid=$adb->query_result($prjquery,0,'id');
 			    $status=$adb->query_result($prjquery,0,'status');
 			    if(isset($userid))
@@ -44,30 +43,25 @@ class VendorsSupplierActiveHandler extends VTEventHandler
                 {
 			    $adb->pquery("update `vtiger_users` set status='Active' where id=".$userid); 
 
-			    $subject = "Joining Request Approved by Basico"; 
+			    $subject = "Joining Request Approved by BizTechnoSys"; 
  
 				$htmlContent = ' 
 				    <html> 
 				    <head> 
-				        <title>('.$username.') supplier login has been Approved</title> 
+				        <title>('.$username.') User login has been Approved</title> 
 				    </head> 
 				    <body> 
 				    <p>Hi There!</p>
-				        <p>Thank you for Joining basico as Supplier,<br>
-				         Your request has been approved and now you can login with the username and password you have added at the time of Sign up by clicking on the link provided.</p>
+				        <p>Thank you for Joining BizTechnoSys,<br>
+				         Your Joining request has been approved and now you can login with the username and password by clicking on the link provided.</p>
+				         <p>Username : '.$username.' </p>
+				         <p>Password : '.$password.' </p>
 				         <a href="'.$site_URL.'">Login</a><br><br>
 				    Thanks<br>
 				     </body> 
 				    </html>'; 
  
-				// Set content-type header for sending HTML email 
-				$headers = "MIME-Version: 1.0" . "\r\n"; 
-				$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
-				 
-				// Additional headers 
-				$headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n"; 
-
-				mail($email, $subject, $htmlContent, $headers);
+				send_mail('Joinee',$email, $fromName, $from, $subject, $htmlContent,'','','','','',true);
 			    }
 			  }	
 			}

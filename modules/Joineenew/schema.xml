@@ -1,0 +1,17 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_joinee</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_joinee` (`joineeid` int(11) NOT NULL, `joineeno` varchar(100) default NULL, `joinee_tks_firstname` varchar(32) default NULL ,`joinee_tks_lastname` varchar(32) default NULL ,`joinee_tks_birthdate` date default NULL ,`joinee_tks_mobileno` varchar(100) default NULL ,`joinee_tks_emailid` varchar(100) default NULL ,`joinee_tks_positiontitle` varchar(32) default NULL ,`joinee_tks_reportto` varchar(32) default NULL ,`joinee_tks_employmenttype` varchar(100) default NULL ,`joinee_tks_contractstartdate` date default NULL ,`joinee_tks_contractenddate-ifa` date default NULL ,`joinee_tks_department` varchar(100) default NULL ,`joinee_tks_address` varchar(250) default NULL ,`joinee_tks_city` varchar(32) default NULL ,`joinee_tks_state` varchar(32) default NULL ,`joinee_tks_pincode` int(32) default NULL ,`joinee_tks_emergencycontactnam` varchar(32) default NULL ,`joinee_tks_emergencycontactmob` varchar(100) default NULL   , PRIMARY KEY (`joineeid`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vtiger_joineecf</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_joineecf` (`joineeid` int(11) NOT NULL, PRIMARY KEY (`joineeid`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vtiger_joinee_user_field</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_joinee_user_field` (`recordid` int(25) NOT NULL, `userid` int(25) NOT NULL, `starred` varchar(100) default NULL , KEY (`vtiger_joinee_user_field`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+	</tables>
+</schema>

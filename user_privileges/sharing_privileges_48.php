@@ -6,11 +6,11 @@ $defaultOrgSharingPermission=array('2'=>3,'4'=>3,'6'=>3,'7'=>3,'9'=>3,'13'=>3,'1
 
 $related_module_share=array(2=>array(6,),13=>array(6,),20=>array(6,2,),22=>array(6,2,20,),23=>array(6,22,),);
 
-$Leads_share_read_permission=array('ROLE'=>array('H19'=>array(),'H15'=>array(38,),),'GROUP'=>array());
+$Leads_share_read_permission=array('ROLE'=>array('H19'=>array(),'H15'=>array(38,102,),),'GROUP'=>array());
 
-$Leads_share_write_permission=array('ROLE'=>array('H15'=>array(38,),),'GROUP'=>array());
+$Leads_share_write_permission=array('ROLE'=>array('H15'=>array(38,102,),),'GROUP'=>array());
 
-$Leads_Emails_share_read_permission=array('ROLE'=>array('H19'=>array(),'H15'=>array(38,),),'GROUP'=>array());
+$Leads_Emails_share_read_permission=array('ROLE'=>array('H19'=>array(),'H15'=>array(38,102,),),'GROUP'=>array());
 
 $Leads_Emails_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
 

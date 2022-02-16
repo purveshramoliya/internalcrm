@@ -1,8 +1,8 @@
 <?php
 // Turn off error reporting
  ini_set('display_errors', '1');
- ini_set('display_startup_errors', '1');
- error_reporting(E_ALL);
+ //ini_set('display_startup_errors', '1');
+// error_reporting(E_ALL);
 require_once 'vtwsclib/third-party/Zend/Json.php';
 require_once 'includes/HTTP_Client/HTTP_Client/Client.php';
 require_once 'modules/Emails/class.smtp.php';
