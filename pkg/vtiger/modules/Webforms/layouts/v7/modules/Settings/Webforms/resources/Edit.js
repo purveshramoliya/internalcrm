@@ -321,7 +321,7 @@ Settings_Vtiger_Edit_Js('Settings_Webforms_Edit_Js', {}, {
 		this.registerFileFieldRemoveEvent(editViewForm);
 	},
 
-	fileFieldsLimit: 5,
+	fileFieldsLimit: 20,
 	/**
 	 * Function to handle add file field click event
 	 * @param form - Edit view form.

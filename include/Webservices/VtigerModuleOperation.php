@@ -39,7 +39,10 @@ class VtigerModuleOperation extends WebserviceEntityOperation {
 		$element = DataTransform::sanitizeForInsert($element,$this->meta);
 		
 		$error = $crmObject->create($element);
-		if(!$error){
+		$sourceModule = $this->webserviceObject->getEntityName();		
+        global $currentModule;
+        $currentModule = $sourceModule;
+		if(!$error && $sourceModule != 'Joinee'){
 			throw new WebServiceException(WebServiceErrorCode::$DATABASEQUERYERROR,
 					vtws_getWebserviceTranslatedString('LBL_'.
 							WebServiceErrorCode::$DATABASEQUERYERROR));

@@ -84,4 +84,11 @@
         </div>
     </div>
 </div>
-      
+     {if $MODULE eq 'Joinee'}
+            <div style="width:100%;float:right">
+                <center> <i class="fa"></i> </center>
+                <p><b>Documents upload link :</b> {$site_URL}UploadDocuments.php?record_id={$RECORD->getId()}</p>
+            </div>
+    {/if}
+           
+     

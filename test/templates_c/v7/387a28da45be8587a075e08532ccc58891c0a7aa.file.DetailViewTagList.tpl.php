@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2022-02-14 11:38:49
+<?php /* Smarty version Smarty-3.1.7, created on 2022-02-21 06:58:15
          compiled from "D:\wamp\www\internalcrm\includes\runtime/../../layouts/v7\modules\Vtiger\DetailViewTagList.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:31185620a3f491164f4-23056450%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '387a28da45be8587a075e08532ccc58891c0a7aa' => 
     array (
       0 => 'D:\\wamp\\www\\internalcrm\\includes\\runtime/../../layouts/v7\\modules\\Vtiger\\DetailViewTagList.tpl',
-      1 => 1620058878,
+      1 => 1645426689,
       2 => 'file',
     ),
   ),
@@ -15,16 +15,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_620a3f4925a8b',
   'variables' => 
   array (
     'TAGS_LIST' => 0,
     'TAG_MODEL' => 0,
     'MODULE' => 0,
     'RECORD' => 0,
+    'site_URL' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_620a3f4925a8b',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_620a3f4925a8b')) {function content_620a3f4925a8b($_smarty_tpl) {?>
 <div class="tagContainer">
@@ -129,4 +130,14 @@ $_smarty_tpl->tpl_vars['TAG_MODEL']->_loop = true;
         </div>
     </div>
 </div>
-      <?php }} ?>
+     <?php if ($_smarty_tpl->tpl_vars['MODULE']->value=='Joinee'){?>
+            <div style="width:100%;float:right">
+                <center> <i class="fa"></i> </center>
+                <p><b>Documents upload link :</b> <?php echo $_smarty_tpl->tpl_vars['site_URL']->value;?>
+UploadDocuments.php?record_id=<?php echo $_smarty_tpl->tpl_vars['RECORD']->value->getId();?>
+</p>
+            </div>
+    <?php }?>
+           
+     
+<?php }} ?>

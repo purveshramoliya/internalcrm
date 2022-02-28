@@ -18,7 +18,7 @@ class Settings_Webforms_Module_Model extends Settings_Vtiger_Module_Model {
 	var $allowedAllFilesSize = 52428800; //50MB
 
 	public static function getSupportedModulesList() {
-		$webformModules = array('Contacts', 'Accounts', 'Leads', 'Potentials', 'HelpDesk', 'Vendors');
+		$webformModules = array('Contacts', 'Accounts', 'Leads', 'Potentials', 'HelpDesk', 'Vendors', 'Joinee');
 		$sourceModule = array();
 		foreach ($webformModules as $key => $moduleName) {
 			$moduleModel = Vtiger_Module_Model::getInstance($moduleName);

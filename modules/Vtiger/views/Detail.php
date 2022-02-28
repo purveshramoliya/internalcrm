@@ -74,7 +74,7 @@ class Vtiger_Detail_View extends Vtiger_Index_View {
 
 	function preProcess(Vtiger_Request $request, $display=true) {
 		parent::preProcess($request, false);
-
+        global $site_URL;
 		$recordId = $request->get('record');
 		$moduleName = $request->getModule();
 		if(!$this->record){
@@ -146,6 +146,7 @@ class Vtiger_Detail_View extends Vtiger_Index_View {
 		$linkModels = $this->record->getSideBarLinks($linkParams);
 		$viewer->assign('QUICK_LINKS', $linkModels);
 		$viewer->assign('MODULE_NAME', $moduleName);
+		$viewer->assign('site_URL', $site_URL);
 
 		$currentUserModel = Users_Record_Model::getCurrentUserModel();
 		$viewer->assign('DEFAULT_RECORD_VIEW', $currentUserModel->get('default_record_view'));

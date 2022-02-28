@@ -130,17 +130,17 @@ $ProjectMilestone_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
 
 $ProjectMilestone_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
 
-$ProjectTask_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
+$ProjectTask_share_read_permission=array('ROLE'=>array('H2'=>array(1,),'H12'=>array(22,),'H15'=>array(38,),'H19'=>array(),'H39'=>array(41,),'H18'=>array(48,99,),'H20'=>array(51,),'H32'=>array(69,),'H21'=>array(34,),'H22'=>array(46,),'H34'=>array(26,),'H23'=>array(47,),'H24'=>array(31,63,71,72,82,102,),'H40'=>array(40,92,93,),'H25'=>array(33,),'H26'=>array(37,),'H30'=>array(36,),'H38'=>array(10,23,25,27,28,29,32,35,42,43,44,49,50,56,57,64,65,66,73,74,75,76,77,78,79,80,81,83,87,88,89,90,91,97,),'H42'=>array(67,85,),'H45'=>array(98,),'H41'=>array(70,),'H44'=>array(),'H43'=>array(96,),),'GROUP'=>array());
 
-$ProjectTask_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
+$ProjectTask_share_write_permission=array('ROLE'=>array('H2'=>array(1,),'H12'=>array(22,),'H15'=>array(38,),'H19'=>array(),'H39'=>array(41,),'H18'=>array(48,99,),'H20'=>array(51,),'H32'=>array(69,),'H21'=>array(34,),'H22'=>array(46,),'H34'=>array(26,),'H23'=>array(47,),'H24'=>array(31,63,71,72,82,102,),'H40'=>array(40,92,93,),'H25'=>array(33,),'H26'=>array(37,),'H30'=>array(36,),'H38'=>array(10,23,25,27,28,29,32,35,42,43,44,49,50,56,57,64,65,66,73,74,75,76,77,78,79,80,81,83,87,88,89,90,91,97,),'H42'=>array(67,85,),'H45'=>array(98,),'H41'=>array(70,),'H44'=>array(),'H43'=>array(96,),),'GROUP'=>array());
 
-$Project_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
+$Project_share_read_permission=array('ROLE'=>array('H2'=>array(1,),'H12'=>array(22,),'H15'=>array(38,),'H19'=>array(),'H39'=>array(41,),'H18'=>array(48,99,),'H20'=>array(51,),'H32'=>array(69,),'H21'=>array(34,),'H22'=>array(46,),'H34'=>array(26,),'H23'=>array(47,),'H24'=>array(31,63,71,72,82,102,),'H40'=>array(40,92,93,),'H25'=>array(33,),'H26'=>array(37,),'H30'=>array(36,),'H38'=>array(10,23,25,27,28,29,32,35,42,43,44,49,50,56,57,64,65,66,73,74,75,76,77,78,79,80,81,83,87,88,89,90,91,97,),'H42'=>array(67,85,),'H45'=>array(98,),'H41'=>array(70,),'H44'=>array(),'H43'=>array(96,),),'GROUP'=>array());
 
-$Project_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
+$Project_share_write_permission=array('ROLE'=>array('H2'=>array(1,),'H12'=>array(22,),'H15'=>array(38,),'H19'=>array(),'H39'=>array(41,),'H18'=>array(48,99,),'H20'=>array(51,),'H32'=>array(69,),'H21'=>array(34,),'H22'=>array(46,),'H34'=>array(26,),'H23'=>array(47,),'H24'=>array(31,63,71,72,82,102,),'H40'=>array(40,92,93,),'H25'=>array(33,),'H26'=>array(37,),'H30'=>array(36,),'H38'=>array(10,23,25,27,28,29,32,35,42,43,44,49,50,56,57,64,65,66,73,74,75,76,77,78,79,80,81,83,87,88,89,90,91,97,),'H42'=>array(67,85,),'H45'=>array(98,),'H41'=>array(70,),'H44'=>array(),'H43'=>array(96,),),'GROUP'=>array());
 
-$Interviewprofiles_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
+$Interviewprofiles_share_read_permission=array('ROLE'=>array('H2'=>array(1,),'H12'=>array(22,),'H15'=>array(38,),'H19'=>array(),'H39'=>array(41,),'H18'=>array(48,99,),'H20'=>array(51,),'H32'=>array(69,),'H21'=>array(34,),'H22'=>array(46,),'H34'=>array(26,),'H23'=>array(47,),'H24'=>array(31,63,71,72,82,102,),'H40'=>array(40,92,93,),'H25'=>array(33,),'H26'=>array(37,),'H30'=>array(36,),'H38'=>array(10,23,25,27,28,29,32,35,42,43,44,49,50,56,57,64,65,66,73,74,75,76,77,78,79,80,81,83,87,88,89,90,91,97,),'H42'=>array(67,85,),'H45'=>array(98,),'H41'=>array(70,),'H44'=>array(),'H43'=>array(96,),),'GROUP'=>array());
 
-$Interviewprofiles_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
+$Interviewprofiles_share_write_permission=array('ROLE'=>array('H2'=>array(1,),'H12'=>array(22,),'H15'=>array(38,),'H19'=>array(),'H39'=>array(41,),'H18'=>array(48,99,),'H20'=>array(51,),'H32'=>array(69,),'H21'=>array(34,),'H22'=>array(46,),'H34'=>array(26,),'H23'=>array(47,),'H24'=>array(31,63,71,72,82,102,),'H40'=>array(40,92,93,),'H25'=>array(33,),'H26'=>array(37,),'H30'=>array(36,),'H38'=>array(10,23,25,27,28,29,32,35,42,43,44,49,50,56,57,64,65,66,73,74,75,76,77,78,79,80,81,83,87,88,89,90,91,97,),'H42'=>array(67,85,),'H45'=>array(98,),'H41'=>array(70,),'H44'=>array(),'H43'=>array(96,),),'GROUP'=>array());
 
 $Expense_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
 

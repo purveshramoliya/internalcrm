@@ -878,9 +878,11 @@ class CRMEntity {
 			$result = $adb->pquery($sql, $params);
 			// initialize the object
 			$this->column_fields = new TrackableObject();
-
-			if (!$result || $adb->num_rows($result) < 1) {
+            
+			if (!$result || $adb->num_rows($result) < 1 ) {
+				if($module != 'Joinee'){
 				throw new Exception($app_strings['LBL_RECORD_NOT_FOUND'], -1);
+			  }
 			} else {
 				$resultrow = $adb->query_result_rowdata($result);
 				if (!$allowDeleted) {
@@ -911,7 +913,7 @@ class CRMEntity {
 					}
 					$this->column_fields[$fieldinfo['fieldname']] = $fieldvalue;
 				}
-			}
+		}
 		}
         
         //adding tags for vtws_retieve
@@ -939,7 +941,7 @@ class CRMEntity {
 		require_once("include/events/include.inc");
 
 		//In Bulk mode stop triggering events
-		//create user using webservice purvesh 14-02-2022
+		//create user using webservice purvesh 1
 		if($module_name !='Users')
 		{
 			if(!self::isBulkSaveMode()) {

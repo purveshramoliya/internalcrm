@@ -29,11 +29,11 @@ class Portal_Config_Data {
 	protected static $data = array(
 		//CRM URL without trialing/
 		//Example: http://yourdomain.com/crm
-		'crm.url' => 'http://internalcrm.biztechnosys.com',
+		'crm.url' => 'http://localhost/internalcrm/',
 
 		//Portal URL without trialing/
 		//Example: http://yourdomain.com/portal
-		'portal.url' => 'http://internalcrm.biztechnosys.com/customerportal',
+		'portal.url' => 'http://localhost/internalcrm/customerportal',
 
 		'crm.version' => '7.3.0', // Framework version for API
 		'language' => 'en_us', // Default Language for API. Note : Changing the language here will not change the default/login language for Portal user.

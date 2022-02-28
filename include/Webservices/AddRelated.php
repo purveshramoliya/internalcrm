@@ -23,9 +23,10 @@ function vtws_add_related($sourceRecordId, $relatedRecordId, $relationIdLabel = 
 
 	$sourceRecordIdParts = vtws_getIdComponents($sourceRecordId);
 	$relatedRecordIdParts = vtws_getIdComponents($relatedRecordId[0]);
-	if (!isRecordExists($sourceRecordIdParts[1])) {
-		throw new Exception("Source record $sourceRecordIdParts is deleted");
-	}
+	//add custom upload document to related module purvesh 17-02-2022
+	// if (!isRecordExists($sourceRecordIdParts[1])) {
+	// 	throw new Exception("Source record $sourceRecordIdParts is deleted");
+	// }
 
 	try {
 		$sourceRecordWsObject = VtigerWebserviceObject::fromId($db, $sourceRecordIdParts[0]);
@@ -48,7 +49,7 @@ function vtws_add_related($sourceRecordId, $relatedRecordId, $relationIdLabel = 
 				foreach ($relatedRecordId as $id) {
 					$idParts = vtws_getIdComponents($id);
 					if ($idParts[0] == $relatedRecordIdParts[0]) {
-						$relationModel->addRelation($sourceRecordIdParts[1], $idParts[1]);
+						$relationModel->addRelation($_REQUEST['record_id'], $idParts[1]);
 					}
 				}
 			}
