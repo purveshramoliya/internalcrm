@@ -28,6 +28,10 @@ class Contacts_Record_Model extends Vtiger_Record_Model {
 		return $calendarModuleModel->getCreateTaskRecordUrl().'&contact_id='.$this->getId();
 	}
 
+	public function getxDownloadFileUrl() {
+		return "index.php?module=".$this->getModuleName()."&action=xDownloadFile&record=".$this->getId();
+	}
+
 
 	/**
 	 * Function to get List of Fields which are related from Contacts to Inventory Record

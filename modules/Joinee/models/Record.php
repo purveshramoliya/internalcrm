@@ -11,36 +11,52 @@
 class Joinee_Record_Model extends Vtiger_Record_Model {
 
 	/**
-	 * Function to get the Display Name for the record
-	 * @return <String> - Entity Display Name for the record
+	 * Function returns the url for create event
+	 * @return <String>
 	 */
-	public function getDisplayName() {
-		return Vtiger_Util_Helper::getRecordName($this->getId());
+	function getCreateEventUrl() {
+		$calendarModuleModel = Vtiger_Module_Model::getInstance('Calendar');
+		return $calendarModuleModel->getCreateEventRecordUrl().'&contact_id='.$this->getId();
 	}
 
 	/**
-	 * Function to get URL for Convert FAQ
+	 * Function returns the url for create todo
 	 * @return <String>
 	 */
-	public function getConvertFAQUrl() {
-		return "index.php?module=".$this->getModuleName()."&action=ConvertFAQ&record=".$this->getId();
+	function getCreateTaskUrl() {
+		$calendarModuleModel = Vtiger_Module_Model::getInstance('Calendar');
+		return $calendarModuleModel->getCreateTaskRecordUrl().'&contact_id='.$this->getId();
 	}
+
+	public function getxDownloadFileUrl() {
+		return "index.php?module=".$this->getModuleName()."&action=xDownloadFile&record=".$this->getId();
+	}
+
 
 	/**
-	 * Function to get Comments List of this Record
-	 * @return <String>
+	 * Function to get List of Fields which are related from Contacts to Inventory Record
+	 * @return <array>
 	 */
-	public function getCommentsList() {
-		$db = PearDatabase::getInstance();
-		$commentsList = array();
+	public function getInventoryMappingFields() {
+		return array(
+				array('parentField'=>'account_id', 'inventoryField'=>'account_id', 'defaultValue'=>''),
 
-		$result = $db->pquery("SELECT commentcontent AS comments FROM vtiger_modcomments WHERE related_to = ?", array($this->getId()));
-		$numOfRows = $db->num_rows($result);
+				//Billing Address Fields
+				array('parentField'=>'mailingcity', 'inventoryField'=>'bill_city', 'defaultValue'=>''),
+				array('parentField'=>'mailingstreet', 'inventoryField'=>'bill_street', 'defaultValue'=>''),
+				array('parentField'=>'mailingstate', 'inventoryField'=>'bill_state', 'defaultValue'=>''),
+				array('parentField'=>'mailingzip', 'inventoryField'=>'bill_code', 'defaultValue'=>''),
+				array('parentField'=>'mailingcountry', 'inventoryField'=>'bill_country', 'defaultValue'=>''),
+				array('parentField'=>'mailingpobox', 'inventoryField'=>'bill_pobox', 'defaultValue'=>''),
 
-		for ($i=0; $i<$numOfRows; $i++) {
-			array_push($commentsList, $db->query_result($result, $i, 'comments'));
-		}
-
-		return $commentsList;
+				//Shipping Address Fields
+				array('parentField'=>'otherstreet', 'inventoryField'=>'ship_street', 'defaultValue'=>''),
+				array('parentField'=>'othercity', 'inventoryField'=>'ship_city', 'defaultValue'=>''),
+				array('parentField'=>'otherstate', 'inventoryField'=>'ship_state', 'defaultValue'=>''),
+				array('parentField'=>'otherzip', 'inventoryField'=>'ship_code', 'defaultValue'=>''),
+				array('parentField'=>'othercountry', 'inventoryField'=>'ship_country', 'defaultValue'=>''),
+				array('parentField'=>'otherpobox', 'inventoryField'=>'ship_pobox', 'defaultValue'=>'')
+		);
 	}
+
 }

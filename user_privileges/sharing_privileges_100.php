@@ -58,9 +58,9 @@ $Potentials_SalesOrder_share_read_permission=array('ROLE'=>array(),'GROUP'=>arra
 
 $Potentials_SalesOrder_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
 
-$HelpDesk_share_read_permission=array('ROLE'=>array('H15'=>array(38,),),'GROUP'=>array());
+$HelpDesk_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
 
-$HelpDesk_share_write_permission=array('ROLE'=>array('H15'=>array(38,),),'GROUP'=>array());
+$HelpDesk_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
 
 $Emails_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
 

@@ -31,7 +31,46 @@ class Joinee_ListView_Model extends Vtiger_ListView_Model {
 			$massActionLinks['LISTVIEWMASSACTION'][] = Vtiger_Link_Model::getInstanceFromValues($massActionLink);
 		}
 
+		$SMSNotifierModuleModel = Vtiger_Module_Model::getInstance('SMSNotifier');
+		if($SMSNotifierModuleModel && $currentUserModel->hasModulePermission($SMSNotifierModuleModel->getId())) {
+			$massActionLink = array(
+				'linktype' => 'LISTVIEWMASSACTION',
+				'linklabel' => 'LBL_SEND_SMS',
+				'linkurl' => 'javascript:Vtiger_List_Js.triggerSendSms("index.php?module='.$this->getModule()->getName().'&view=MassActionAjax&mode=showSendSMSForm","SMSNotifier");',
+				'linkicon' => ''
+			);
+			$massActionLinks['LISTVIEWMASSACTION'][] = Vtiger_Link_Model::getInstanceFromValues($massActionLink);
+		}
+		
+		$moduleModel = $this->getModule();
+		if($currentUserModel->hasModuleActionPermission($moduleModel->getId(), 'EditView')) {
+			$massActionLink = array(
+				'linktype' => 'LISTVIEWMASSACTION',
+				'linklabel' => 'LBL_TRANSFER_OWNERSHIP',
+				'linkurl' => 'javascript:Vtiger_List_Js.triggerTransferOwnership("index.php?module='.$moduleModel->getName().'&view=MassActionAjax&mode=transferOwnership")',
+				'linkicon' => ''
+			);
+			$massActionLinks['LISTVIEWMASSACTION'][] = Vtiger_Link_Model::getInstanceFromValues($massActionLink);
+		}
+
 		return $massActionLinks;
 	}
+
+	/**
+	 * Function to get the list of listview links for the module
+	 * @param <Array> $linkParams
+	 * @return <Array> - Associate array of Link Type to List of Vtiger_Link_Model instances
+	 */
+	function getListViewLinks($linkParams) {
+		$links = parent::getListViewLinks($linkParams);
+
+		$index=0;
+		foreach($links['LISTVIEWBASIC'] as $link) {
+			if($link->linklabel == 'Send SMS') {
+				unset($links['LISTVIEWBASIC'][$index]);
+			}
+			$index++;
+		}
+		return $links;
+	}
 }
-?>
