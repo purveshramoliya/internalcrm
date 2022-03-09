@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2022-02-25 12:09:38
+<?php /* Smarty version Smarty-3.1.7, created on 2022-03-09 05:53:38
          compiled from "D:\wamp\www\internalcrm\includes\runtime/../../layouts/v7\modules\Vtiger\DetailViewActions.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4344620a3f48e609f1-19978381%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fe0f5989f7d31e4e68c538e76ff7be61975128c1' => 
     array (
       0 => 'D:\\wamp\\www\\internalcrm\\includes\\runtime/../../layouts/v7\\modules\\Vtiger\\DetailViewActions.tpl',
-      1 => 1645790973,
+      1 => 1646805207,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'RECORD' => 0,
-    'MODULE' => 0,
-    'site_URL' => 0,
     'MODULE_MODEL' => 0,
     'STARRED' => 0,
+    'MODULE' => 0,
     'DETAILVIEW_LINKS' => 0,
     'MODULE_NAME' => 0,
     'DETAIL_VIEW_BASIC_LINK' => 0,
@@ -36,16 +35,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_620a3f490e76e')) {function content_620a3f490e76e($_smarty_tpl) {?>
-<div class="col-lg-6 detailViewButtoncontainer"><div class="pull-right btn-toolbar"><div class="btn-group"><?php $_smarty_tpl->tpl_vars['STARRED'] = new Smarty_variable($_smarty_tpl->tpl_vars['RECORD']->value->get('starred'), null, 0);?><?php if ($_smarty_tpl->tpl_vars['MODULE']->value=='Joinee'){?><div class="btn btn-default" id="offer" style="width:100px;"><a href="<?php echo $_smarty_tpl->tpl_vars['site_URL']->value;?>
-modules\Joinee\ExDocuments\offerletter.php?record_id=<?php echo $_smarty_tpl->tpl_vars['RECORD']->value->getId();?>
-" ><?php echo vtranslate('LBL_OFFERLETTER',$_smarty_tpl->tpl_vars['MODULE']->value);?>
-</a></div><div class="btn btn-default" id="offer" style="width:150px;"><a href="<?php echo $_smarty_tpl->tpl_vars['site_URL']->value;?>
-modules\Joinee\ExDocuments\internofferletter.php?record_id=<?php echo $_smarty_tpl->tpl_vars['RECORD']->value->getId();?>
-" ><?php echo vtranslate('LBL_INTERNOFFERLETTER',$_smarty_tpl->tpl_vars['MODULE']->value);?>
-</a></div><div class="btn btn-default" id="offer" style="width:100px;"><a href="<?php echo $_smarty_tpl->tpl_vars['site_URL']->value;?>
-modules\Joinee\ExDocuments\bondletter.php?record_id=<?php echo $_smarty_tpl->tpl_vars['RECORD']->value->getId();?>
-" ><?php echo vtranslate('LBL_BONDLETTER',$_smarty_tpl->tpl_vars['MODULE']->value);?>
-</a></div><?php }?><?php if ($_smarty_tpl->tpl_vars['MODULE_MODEL']->value->isStarredEnabled()){?><button class="btn btn-default markStar <?php if ($_smarty_tpl->tpl_vars['STARRED']->value){?> active <?php }?>" id="starToggle" style="width:100px;"><div class='starredStatus' title="<?php echo vtranslate('LBL_STARRED',$_smarty_tpl->tpl_vars['MODULE']->value);?>
+<div class="col-lg-6 detailViewButtoncontainer"><div class="pull-right btn-toolbar"><div class="btn-group"><?php $_smarty_tpl->tpl_vars['STARRED'] = new Smarty_variable($_smarty_tpl->tpl_vars['RECORD']->value->get('starred'), null, 0);?><?php if ($_smarty_tpl->tpl_vars['MODULE_MODEL']->value->isStarredEnabled()){?><button class="btn btn-default markStar <?php if ($_smarty_tpl->tpl_vars['STARRED']->value){?> active <?php }?>" id="starToggle" style="width:100px;"><div class='starredStatus' title="<?php echo vtranslate('LBL_STARRED',$_smarty_tpl->tpl_vars['MODULE']->value);?>
 "><div class='unfollowMessage'><i class="fa fa-star-o"></i> &nbsp;<?php echo vtranslate('LBL_UNFOLLOW',$_smarty_tpl->tpl_vars['MODULE']->value);?>
 </div><div class='followMessage'><i class="fa fa-star active"></i> &nbsp;<?php echo vtranslate('LBL_FOLLOWING',$_smarty_tpl->tpl_vars['MODULE']->value);?>
 </div></div><div class='unstarredStatus' title="<?php echo vtranslate('LBL_NOT_STARRED',$_smarty_tpl->tpl_vars['MODULE']->value);?>

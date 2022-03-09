@@ -21,9 +21,9 @@ $languageStrings = Array(
 	'LBL_MODULEBLOCK_INFORMATION' => 'ModuleBlock Information',
 
 	'ModuleFieldLabel' => 'ModuleFieldLabel Text',
-	'LBL_OFFERLETTER' => 'Offer Latter',
-	'LBL_INTERNOFFERLETTER' => 'Intern Offer Latter',
-	'LBL_BONDLETTER' => 'Bond Latter',
+	'LBL_OFFERLETTER' => 'Offer Letter',
+	'LBL_INTERNOFFERLETTER' => 'Intern Offer Letter',
+	'LBL_BONDLETTER' => 'Bond Letter',
 
 	
 

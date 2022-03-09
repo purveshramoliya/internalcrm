@@ -54,7 +54,7 @@ function vtlib_getModuleNameById($tabid) {
 function vtlib_getModuleNameForSharing() {
 	global $adb;
 	$std_modules = array('Calendar','Leads','Accounts','Contacts','Potentials',
-			'HelpDesk','Campaigns','Quotes','PurchaseOrder','SalesOrder','Invoice','Events');
+			'HelpDesk','Campaigns','Quotes','PurchaseOrder','SalesOrder','Invoice','Events','Joinee');
 	$modulesList = getSharingModuleList($std_modules);
 	return $modulesList;
 }
@@ -314,6 +314,12 @@ function __vtlib_get_modulevar_value($module, $varname) {
 					'vtiger_contactscf' => Array('contactid', 'vtiger_contactdetails', 'contactid')
 					),
 				'popup_fields' => Array ('lastname'),
+			),
+			'Joinee' =>
+			Array(
+				'IsCustomModule'=>false,
+				'table_name'  => 'vtiger_joinee',
+				'table_index' => 'joineeid',	
 			),
 			'Leads' =>
 			Array(

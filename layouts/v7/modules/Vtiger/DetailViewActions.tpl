@@ -14,17 +14,6 @@
         <div class="pull-right btn-toolbar">
             <div class="btn-group">
             {assign var=STARRED value=$RECORD->get('starred')}
-            {if $MODULE eq 'Joinee'}
-             <div class="btn btn-default" id="offer" style="width:100px;">
-                    <a href="{$site_URL}modules\Joinee\ExDocuments\offerletter.php?record_id={$RECORD->getId()}" >{vtranslate('LBL_OFFERLETTER',$MODULE)}</a>
-                </div>
-             <div class="btn btn-default" id="offer" style="width:150px;">
-                    <a href="{$site_URL}modules\Joinee\ExDocuments\internofferletter.php?record_id={$RECORD->getId()}" >{vtranslate('LBL_INTERNOFFERLETTER',$MODULE)}</a>
-                </div>
-             <div class="btn btn-default" id="offer" style="width:100px;">
-                    <a href="{$site_URL}modules\Joinee\ExDocuments\bondletter.php?record_id={$RECORD->getId()}" >{vtranslate('LBL_BONDLETTER',$MODULE)}</a>
-                </div>
-            {/if}
             {if $MODULE_MODEL->isStarredEnabled()}
                 <button class="btn btn-default markStar {if $STARRED} active {/if}" id="starToggle" style="width:100px;">
                     <div class='starredStatus' title="{vtranslate('LBL_STARRED', $MODULE)}">

@@ -28,8 +28,15 @@ class Joinee_Record_Model extends Vtiger_Record_Model {
 		return $calendarModuleModel->getCreateTaskRecordUrl().'&contact_id='.$this->getId();
 	}
 
-	public function getxDownloadFileUrl() {
-		return "index.php?module=".$this->getModuleName()."&action=xDownloadFile&record=".$this->getId();
+	public function getOfferLetterUrl() {
+		return "index.php?module=".$this->getModuleName()."&action=OfferLetter&record=".$this->getId();
+	}
+
+	public function getHoliday() {
+
+		 $body='hello';
+		
+		return $body; 
 	}
 
 

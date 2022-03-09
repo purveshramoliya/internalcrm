@@ -1457,7 +1457,7 @@ function getCallerInfo($number){
 	$caller = "Unknown Number (Unknown)"; //declare caller as unknown in beginning
 
 	$params = array();
-	$name = array('Contacts', 'Accounts', 'Leads');
+	$name = array('Contacts', 'Accounts', 'Leads','Joinee');
 	foreach ($name as $module) {
 		$focus = CRMEntity::getInstance($module);
 		$query = $focus->buildSearchQueryForFieldTypes(11, $number);

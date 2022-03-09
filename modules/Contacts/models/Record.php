@@ -28,8 +28,8 @@ class Contacts_Record_Model extends Vtiger_Record_Model {
 		return $calendarModuleModel->getCreateTaskRecordUrl().'&contact_id='.$this->getId();
 	}
 
-	public function getxDownloadFileUrl() {
-		return "index.php?module=".$this->getModuleName()."&action=xDownloadFile&record=".$this->getId();
+	public function getDownloadFileUrl() {
+		return "index.php?module=".$this->getModuleName()."&action=ConvertFAQ&record=".$this->getId();
 	}
 
 

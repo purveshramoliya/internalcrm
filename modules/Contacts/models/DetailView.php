@@ -11,24 +11,24 @@
 //Same as Accounts Detail View
 class Contacts_DetailView_Model extends Accounts_DetailView_Model {
 
-	public function getDetailViewLinks($linkParams) {
+	/*public function getDetailViewLinks($linkParams) {
 		$currentUserModel = Users_Privileges_Model::getCurrentUserPrivilegesModel();
 
 		$linkModelList = parent::getDetailViewLinks($linkParams);
 		$recordModel = $this->getRecord();
 
-		$joineeModuleModel = Vtiger_Module_Model::getInstance('Joinee');
-		if($currentUserModel->hasModuleActionPermission($joineeModuleModel->getId(), 'CreateView')) {
+		$ContactsModuleModel = Vtiger_Module_Model::getInstance('Contacts');
+		if($currentUserModel->hasModuleActionPermission($ContactsModuleModel->getId(), 'CreateView')) {
 			$basicActionLink = array(
 				'linktype' => 'DETAILVIEW',
-				'linklabel' => 'OFFER_LETTER',
-				'linkurl' => $recordModel->getxDownloadFileUrl(),
+				'linklabel' => 'LBL_OFFERLETTER',
+				'linkurl' => $recordModel->getDownloadFileUrl(),
 				'linkicon' => ''
 			);
 			$linkModelList['DETAILVIEW'][] = Vtiger_Link_Model::getInstanceFromValues($basicActionLink);
 		}
 
 		return $linkModelList;
-	}
+	}*/
 
 }
