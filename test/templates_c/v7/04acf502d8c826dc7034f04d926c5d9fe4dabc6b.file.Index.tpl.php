@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2022-01-25 06:17:22
+<?php /* Smarty version Smarty-3.1.7, created on 2022-03-22 08:43:51
          compiled from "D:\wamp\www\internalcrm\includes\runtime/../../layouts/v7\modules\Settings\LayoutEditor\Index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1864661ef95f25f2a06-75483918%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:3178962398c47eca313-36126868%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1864661ef95f25f2a06-75483918',
+  'nocache_hash' => '3178962398c47eca313-36126868',
   'function' => 
   array (
   ),
@@ -28,9 +28,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_61ef95f285bd9',
+  'unifunc' => 'content_62398c48348ef',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_61ef95f285bd9')) {function content_61ef95f285bd9($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_62398c48348ef')) {function content_62398c48348ef($_smarty_tpl) {?>
 
 
 <div class="container-fluid main-scroll paddingTop15" id="layoutEditorContainer"><input id="selectedModuleName" type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['SELECTED_MODULE_NAME']->value;?>

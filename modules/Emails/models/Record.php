@@ -52,8 +52,10 @@ class Emails_Record_Model extends Vtiger_Record_Model {
 		$mailer = Emails_Mailer_Model::getInstance();
 		$mailer->IsHTML(true);
 
-		$fromEmail = $this->getFromEmailAddress();
-		$replyTo = $this->getReplyToEmail();
+		//$fromEmail = $this->getFromEmailAddress();
+		//$replyTo = $this->getReplyToEmail();
+		$fromEmail= $currentUserModel->get('email1');
+		$replyTo = $currentUserModel->get('email1');
 		$userName = $currentUserModel->getName();
 
 		// To eliminate the empty value of an array
@@ -184,7 +186,7 @@ class Emails_Record_Model extends Vtiger_Record_Model {
                 foreach($attachments as $attachment) {
                     $fileNameWithPath = $rootDirectory.$attachment['path'].$attachment['fileid']."_".$attachment['storedname'];
                     if(is_file($fileNameWithPath)) {
-                        $mailer->AddAttachment($fileNameWithPath, $attachment['attachment']);
+                        $mailer->AddAttachment($fileNameWithPath, $attachment['storedname']);
                     }
                 }
             }

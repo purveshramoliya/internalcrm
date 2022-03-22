@@ -11,14 +11,14 @@ class JoineeActiveHandler extends VTEventHandler
 		if ($eventName == 'vtiger.entity.aftersave') {
 
 			$moduleName = $entityData->getModuleName();
+			$entityId = $entityData->getId();
 			
 			if ($moduleName == 'Joinee') {
 
-				$active=$_REQUEST['cf_1326'];
-				$crmid=$_REQUEST['record'];
-				$username=$_REQUEST['joinee_tks_lastname'];
-			    $password=$_REQUEST['joinee_tks_reportto'];
-			    $email=$_REQUEST['joinee_tks_emailid'];
+				$joineestatus = $entityData->get('cf_1340');
+				$username = $entityData->get('joinee_tks_lastname');
+			    $password = $entityData->get('joinee_tks_reportto');
+			    $email = $entityData->get('joinee_tks_emailid');
 
 				require_once 'config.inc.php';
 				include_once 'modules/Emails/Models/Mailer.php';
@@ -26,20 +26,15 @@ class JoineeActiveHandler extends VTEventHandler
 				global $site_URL,$HELPDESK_SUPPORT_EMAIL_ID,$HELPDESK_SUPPORT_NAME;
 				$from=$HELPDESK_SUPPORT_EMAIL_ID;
 				$fromName=$HELPDESK_SUPPORT_NAME;
-				
-				if(empty($crmid))
-				{
-					$crmid=$currentid;
-				}
 
 				$prjquery=$adb->pquery("SELECT * FROM `vtiger_users` where last_name='$username' and email1='$email'");
 			    $userid=$adb->query_result($prjquery,0,'id');
 			    $status=$adb->query_result($prjquery,0,'status');
 			    if(isset($userid))
 			    {
-			    $adb->pquery("UPDATE `vtiger_crmentity` SET `smownerid` = '$userid' WHERE `vtiger_crmentity`.`crmid` =".$crmid); 
+			    $adb->pquery("UPDATE `vtiger_crmentity` SET `smownerid` = '$userid' WHERE `vtiger_crmentity`.`crmid` =".$entityId); 
                 
-                if($active == 'on' && $status == 'Inactive')
+                if($joineestatus == 'Active' && $status == 'Inactive')
                 {
 			    $adb->pquery("update `vtiger_users` set status='Active' where id=".$userid); 
 

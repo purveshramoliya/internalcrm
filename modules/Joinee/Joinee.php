@@ -133,6 +133,87 @@ class Joinee extends Vtiger_CRMEntity {
 			$adb->pquery($q1,array());
 		}
 	}
+
+
+	//type argument included when when addin customizable tempalte for sending offer letter
+	 public static function getOfferLetterEmailContents($entityData, $type='') {
+        require_once 'config.inc.php';
+	 	global $site_URL, $HELPDESK_SUPPORT_EMAIL_ID;
+
+	 	$adb = PearDatabase::getInstance();
+	 	$moduleName = $entityData->getModuleName();
+	 	$entityId = $entityData->getId();
+	 	if(isset($entityId))
+	 	{
+	 		$Link=$site_URL.'UploadDocuments.php?record_id='.$joineeid;
+	 	}
+	 	
+	 	$DocumentLink = vtranslate('Please ',$moduleName).'<a href="'.$Link.'" style="font-family:Arial, Helvetica, sans-serif;font-size:13px;">'.  vtranslate('click here', $moduleName).'</a>';
+	 	//here id is hardcoded with 5. it is for support start notification in vtiger_notificationscheduler
+	 	$query='SELECT vtiger_emailtemplates.subject,vtiger_emailtemplates.body
+	 				FROM vtiger_emailtemplates WHERE vtiger_emailtemplates.templateid=26';
+
+	 	$result = $adb->pquery($query, array());
+	 	$body=decode_html($adb->query_result($result,0,'body'));
+	 	$contents=$body;
+	 	$contents = str_replace('$joinee-joinee_tks_firstname$',$entityData->get('joinee_tks_firstname')." ".$entityData->get('joinee_tks_lastname'),$contents);
+	 	$contents = str_replace('$joinee-joinee_tks_positiontitle$',$entityData->get('joinee_tks_positiontitle'),$contents);
+	 	$contents = str_replace('$joinee-cf_1334$',$entityData->get('cf_1334'),$contents);
+	 	$contents = str_replace('$URL$',$DocumentLink,$contents);
+	 	// $contents = str_replace('$support_team$',getTranslatedString('Support Team', $moduleName),$contents);
+	 	// $contents = str_replace('$logo$','<img src="cid:logo" />',$contents);
+
+	 	if($type == "OfferLetter") {
+	 		$temp=$contents;
+	 		$value["subject"]=decode_html($adb->query_result($result,0,'subject'));
+	 		$value["body"]=$temp;
+	 		return $value;
+	 	}
+	 	return $contents;
+	 }
+
+	 //type argument included when when addin customizable tempalte for sending appointment letter
+	 public static function getAppointmentLetterEmailContents($entityData, $type='') {
+        require_once 'config.inc.php';
+	 	global $site_URL, $HELPDESK_SUPPORT_EMAIL_ID;
+
+	 	$adb = PearDatabase::getInstance();
+	 	$moduleName = $entityData->getModuleName();
+	 	$entityId = $entityData->getId();
+
+	 	if(isset($entityId))
+	 	{
+	 	$Link ='<form name="form1" method="post" action="'.$site_URL.'process.php">'
+        .'<div>'
+        .'<input type="hidden" name="record" value='.$entityId.'>'
+        .'<input type="submit" name="Accept" value="Accept" style=" background-color: #0066ff;color: #f2f2f2;font: bolder 1.0em Tahoma; border: 1px solid #001a66;padding: 5px;margin-right:10px;margin-top:10px;"/>'
+        .'<input type="submit" name="Reject" value="Reject" style=" background-color: #0066ff;color: #f2f2f2;font: bolder 1.0em Tahoma; border: 1px solid #001a66;padding: 5px;margin-right:10px;margin-top:10px;"/>'
+        .'</div>'
+        .'</form>';
+	 	}
+	 
+	 	//here id is hardcoded with 27. it is for support start notification in vtiger_notificationscheduler
+	 	$query='SELECT vtiger_emailtemplates.subject,vtiger_emailtemplates.body FROM vtiger_emailtemplates WHERE vtiger_emailtemplates.templateid=27';
+
+	 	$result = $adb->pquery($query, array());
+	 	$body=decode_html($adb->query_result($result,0,'body'));
+	 	$contents=$body;
+	 	$contents = str_replace('$joinee-joinee_tks_firstname$',$entityData->get('joinee_tks_firstname')." ".$entityData->get('joinee_tks_lastname'),$contents);
+	 	$contents = str_replace('$joinee-joinee_tks_positiontitle$',$entityData->get('joinee_tks_positiontitle'),$contents);
+	 	$contents = str_replace('$joinee-cf_1334$',$entityData->get('cf_1334'),$contents);
+	 	$contents = str_replace('$Link$',$Link,$contents);
+	 	// $contents = str_replace('$support_team$',getTranslatedString('Support Team', $moduleName),$contents);
+	 	// $contents = str_replace('$logo$','<img src="cid:logo" />',$contents);
+
+	 	if($type == "AppointmentLetter") {
+	 		$temp=$contents;
+	 		$value["subject"]=decode_html($adb->query_result($result,0,'subject'));
+	 		$value["body"]=$temp;
+	 		return $value;
+	 	}
+	 	return $contents;
+	 }
+
 	/**
 	 * Function to check if entry exsist in webservices if not then enter the entry
 	 */

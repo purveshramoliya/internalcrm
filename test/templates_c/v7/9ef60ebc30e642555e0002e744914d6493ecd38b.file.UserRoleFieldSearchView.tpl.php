@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2022-01-25 12:20:08
+<?php /* Smarty version Smarty-3.1.7, created on 2022-03-22 08:29:48
          compiled from "D:\wamp\www\internalcrm\includes\runtime/../../layouts/v7\modules\Users\uitypes\UserRoleFieldSearchView.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:656661efeaf85c9ee2-07732408%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:25214623988fc157be8-30126550%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '656661efeaf85c9ee2-07732408',
+  'nocache_hash' => '25214623988fc157be8-30126550',
   'function' => 
   array (
   ),
@@ -26,9 +26,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_61efeaf866630',
+  'unifunc' => 'content_623988fc1b57f',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_61efeaf866630')) {function content_61efeaf866630($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_623988fc1b57f')) {function content_623988fc1b57f($_smarty_tpl) {?>
 
 <?php $_smarty_tpl->tpl_vars["FIELD_INFO"] = new Smarty_variable(Zend_Json::encode($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->getFieldInfo()), null, 0);?>
 <?php $_smarty_tpl->tpl_vars['FIELD_NAME'] = new Smarty_variable($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->get('name'), null, 0);?>

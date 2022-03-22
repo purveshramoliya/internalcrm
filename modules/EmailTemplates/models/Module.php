@@ -51,6 +51,7 @@ class EmailTemplates_Module_Model extends Vtiger_Module_Model {
         
         
         $systemtemplate = $recordModel->get('systemtemplate');
+
         if (empty($systemtemplate)) {
             $systemtemplate = '0';
         }

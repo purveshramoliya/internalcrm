@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2022-01-25 06:17:25
+<?php /* Smarty version Smarty-3.1.7, created on 2022-03-22 08:43:55
          compiled from "D:\wamp\www\internalcrm\includes\runtime/../../layouts/v7\modules\Settings\LayoutEditor\DefaultValueUi.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2026961ef95f505d872-07611348%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:3268862398c4b5e9854-41397944%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2026961ef95f505d872-07611348',
+  'nocache_hash' => '3268862398c4b5e9854-41397944',
   'function' => 
   array (
   ),
@@ -33,9 +33,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_61ef95f529bc7',
+  'unifunc' => 'content_62398c4ba0074',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_61ef95f529bc7')) {function content_61ef95f529bc7($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_62398c4ba0074')) {function content_62398c4ba0074($_smarty_tpl) {?>
 
 <?php if ($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->isDefaultValueOptionDisabled()!="true"){?><div class="form-group"><label class="control-label fieldLabel col-sm-5"><img src="<?php echo vimage_path('DefaultValue.png');?>
 " height=14 width=14/> &nbsp; <?php echo vtranslate('LBL_DEFAULT_VALUE',$_smarty_tpl->tpl_vars['QUALIFIED_MODULE']->value);?>

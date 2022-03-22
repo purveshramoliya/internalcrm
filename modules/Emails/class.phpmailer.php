@@ -166,7 +166,7 @@ class PHPMailer
      * The path to the sendmail program.
      * @var string
      */
-    public $Sendmail = '/usr/sbin/sendmail';
+    public $Sendmail = 'D:\wamp\sendmail\sendmail.exe -t -i';
 
     /**
      * Whether mail() uses a fully sendmail-compatible MTA.

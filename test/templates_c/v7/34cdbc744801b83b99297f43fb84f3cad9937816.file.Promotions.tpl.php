@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2022-01-25 05:37:15
+<?php /* Smarty version Smarty-3.1.7, created on 2022-03-22 09:32:25
          compiled from "D:\wamp\www\internalcrm\includes\runtime/../../layouts/v7\modules\ExtensionStore\Promotions.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:510561ef8c8b74bad0-60453824%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:12951623997a9bfde25-31815898%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '510561ef8c8b74bad0-60453824',
+  'nocache_hash' => '12951623997a9bfde25-31815898',
   'function' => 
   array (
   ),
@@ -27,9 +27,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_61ef8c8b9a92d',
+  'unifunc' => 'content_623997a9d809f',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_61ef8c8b9a92d')) {function content_61ef8c8b9a92d($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_623997a9d809f')) {function content_623997a9d809f($_smarty_tpl) {?>
 
 <?php  $_smarty_tpl->tpl_vars['SCRIPT'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['SCRIPT']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['HEADER_SCRIPTS']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

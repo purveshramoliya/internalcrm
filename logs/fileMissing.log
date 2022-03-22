@@ -278,3 +278,13 @@ D:\wamp\www\internalcrm\modules\Users\Users.php::loadUserPrivileges::646<br>
 D:\wamp\www\internalcrm\includes\main\WebUI.php::retrieveCurrentUserInfoFromFile::47<br>
 D:\wamp\www\internalcrm\includes\main\WebUI.php::getLogin::104<br>
 D:\wamp\www\internalcrm\index.php::process::21<br>
+Traced on 2022-03-21 11:41:04
+FileAccessForInclusion - 
+D:\wamp\www\internalcrm\include\utils\CommonUtils.php::checkFileAccessForInclusion::388<br>
+D:\wamp\www\internalcrm\data\CRMEntity.php::checkFileAccessForInclusion::56<br>
+D:\wamp\www\internalcrm\modules\Vtiger\models\Record.php::getInstance::300<br>
+D:\wamp\www\internalcrm\modules\Documents\actions\Save.php::getInstanceById::28<br>
+D:\wamp\www\internalcrm\modules\Vtiger\actions\Save.php::saveRecord::54<br>
+D:\wamp\www\internalcrm\modules\Documents\actions\Save.php::process::19<br>
+D:\wamp\www\internalcrm\includes\main\WebUI.php::process::215<br>
+D:\wamp\www\internalcrm\index.php::process::24<br>

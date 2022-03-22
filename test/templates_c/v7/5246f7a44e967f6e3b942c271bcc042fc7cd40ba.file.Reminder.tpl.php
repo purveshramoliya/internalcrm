@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2022-01-25 05:37:09
+<?php /* Smarty version Smarty-3.1.7, created on 2022-03-22 08:29:50
          compiled from "D:\wamp\www\internalcrm\includes\runtime/../../layouts/v7\modules\Settings\ITS4YouInstaller\Reminder.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2624161ef8c85677622-65706226%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:23690623988fe315872-78047569%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2624161ef8c85677622-65706226',
+  'nocache_hash' => '23690623988fe315872-78047569',
   'function' => 
   array (
   ),
@@ -25,9 +25,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_61ef8c85790a6',
+  'unifunc' => 'content_623988fe44e0c',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_61ef8c85790a6')) {function content_61ef8c85790a6($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_623988fe44e0c')) {function content_623988fe44e0c($_smarty_tpl) {?>
 <li class="its4you_installer_menu"><div class="dropdown pull-left"><div class="dropdown-toggle displayInlineBlock" data-toggle="dropdown" aria-expanded="true"><a href="#" class="<?php echo $_smarty_tpl->tpl_vars['MODULE']->value;?>
 _menu_icon fa installer_icon"><div class="its4you_installer_badge numberCircle hide"></div></a></div><ul class="dropdown-menu its4you_installer_dropdown"><div id="its4you_installer_title"><div class="its4you_installer_icon"></div><div class="its4you_installer_text"><b><?php echo vtranslate($_smarty_tpl->tpl_vars['MODULE']->value,$_smarty_tpl->tpl_vars['MODULE']->value);?>
  <?php echo vtranslate('LBL_ALERTS',$_smarty_tpl->tpl_vars['QUALIFIED_MODULE']->value);?>

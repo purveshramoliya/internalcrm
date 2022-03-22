@@ -187,6 +187,31 @@ Vtiger_Edit_Js("Joinee_Edit_Js",{},{
 
 	},
 
+	JoineeDocumentsHandler: function() {
+		var offer = jQuery('#Joinee_editView_fieldName_cf_1336').val();
+		var verified = jQuery('#Joinee_editView_fieldName_cf_1346').val();
+		var status = $('.cf_1340 :selected').text();
+
+		jQuery('.cf_1340').on('change', function(){
+			var status = $('.cf_1340 :selected').text();
+
+			if(status == 'Active' && offer != 'on') {
+				app.helper.showAlertNotification({'message': app.vtranslate('Offer Letter Not Send')});
+			}
+
+			if(status == 'Active' && verified != 'on') {
+				app.helper.showAlertNotification({'message': app.vtranslate('Documents not verified')});
+			}
+		});
+	},
+
+	registerEvents: function(){
+		 	this._super();	
+		 	this.JoineeDocumentsHandler();
+		 	// jQuery('#EditView').find('[name="cf_1336"]').parent().css('pointer-events', 'none');
+		 	// jQuery('#EditView').find('[name="cf_1336"]').css('background-color' , '#DEDEDE');
+		 },
+
 	registerBasicEvents: function (container) {
 		this._super(container);
 		this.registerEventForCopyingAddress(container);

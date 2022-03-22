@@ -46,9 +46,6 @@ class Vtiger_Mailer extends PHPMailer {
 	 * Initialize this instance
 	 * @access private
 	 */
-	 
-	
-	
 	function initialize() {
 		$this->Timeout = 30; /* Issue #155: to allow anti-spam tech be successful */
 		$this->IsSMTP();
@@ -57,17 +54,8 @@ class Vtiger_Mailer extends PHPMailer {
 		$result = $adb->pquery("SELECT * FROM vtiger_systems WHERE server_type=?", Array('email'));
 		if($adb->num_rows($result)) {
 			$this->Host = $adb->query_result($result, 0, 'server');
-			
-// 			$uandPass = $this->getUserName();
-// 			$this->Username = $uandPass['uname'];
-// 			$this->Password = $uandPass['pd'];
-			
 			$this->Username = decode_html($adb->query_result($result, 0, 'server_username'));
 			$this->Password = Vtiger_Functions::fromProtectedText(decode_html($adb->query_result($result, 0, 'server_password')));
-			
-// 			$this->Username = 'lokesh.s@biztechnosys.com';
-// 			$this->Password = 'loki3789';
-			
 			$this->SMTPAuth = $adb->query_result($result, 0, 'smtp_auth');
 
 			// To support TLS
@@ -151,8 +139,6 @@ class Vtiger_Mailer extends PHPMailer {
 	 * Overriding default send
 	 */
 	function Send($sync=false, $linktoid=false) {
-	    print_r($this);
-	    die();
 		if(!$this->_serverConfigured) return;
 
 		if($sync) return parent::Send();

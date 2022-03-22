@@ -10,9 +10,8 @@
 
 //Overrides GetRelatedList : used to get related query
 //TODO : Eliminate below hacking solution
-
- error_reporting(E_ALL);
- ini_set('display_errors', '1');
+// ini_set('display_errors', '1');
+// error_reporting(E_ALL);
 
 include_once 'config.php';
 include_once 'include/Webservices/Relation.php';

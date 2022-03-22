@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2022-01-25 06:17:24
+<?php /* Smarty version Smarty-3.1.7, created on 2022-03-22 08:43:55
          compiled from "D:\wamp\www\internalcrm\includes\runtime/../../layouts/v7\modules\Settings\LayoutEditor\FieldCreate.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1286861ef95f4a6f933-53537328%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:587562398c4b05b903-29893401%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1286861ef95f4a6f933-53537328',
+  'nocache_hash' => '587562398c4b05b903-29893401',
   'function' => 
   array (
   ),
@@ -42,9 +42,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_61ef95f501b1e',
+  'unifunc' => 'content_62398c4b59b64',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_61ef95f501b1e')) {function content_61ef95f501b1e($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_62398c4b59b64')) {function content_62398c4b59b64($_smarty_tpl) {?>
 
 <div class="modal-dialog createFieldModal modelContainer <?php if (!$_smarty_tpl->tpl_vars['IS_FIELD_EDIT_MODE']->value){?>hide<?php }?>"><?php if (!$_smarty_tpl->tpl_vars['IS_FIELD_EDIT_MODE']->value){?><?php ob_start();?><?php echo vtranslate('LBL_CREATE_CUSTOM_FIELD',$_smarty_tpl->tpl_vars['QUALIFIED_MODULE']->value);?>
 <?php $_tmp1=ob_get_clean();?><?php $_smarty_tpl->tpl_vars['TITLE'] = new Smarty_variable($_tmp1, null, 0);?><?php }else{ ?><?php ob_start();?><?php echo vtranslate('LBL_EDIT_FIELD',$_smarty_tpl->tpl_vars['QUALIFIED_MODULE']->value,vtranslate($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->get('label'),$_smarty_tpl->tpl_vars['SELECTED_MODULE_NAME']->value));?>

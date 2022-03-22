@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2022-01-25 12:20:07
+<?php /* Smarty version Smarty-3.1.7, created on 2022-03-22 08:29:47
          compiled from "D:\wamp\www\internalcrm\includes\runtime/../../layouts/v7\modules\Users\ListViewHeader.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2992861efeaf7f14c09-69882531%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:17027623988fbc77577-03987768%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2992861efeaf7f14c09-69882531',
+  'nocache_hash' => '17027623988fbc77577-03987768',
   'function' => 
   array (
   ),
@@ -22,9 +22,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_61efeaf80a95b',
+  'unifunc' => 'content_623988fbcc190',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_61efeaf80a95b')) {function content_61efeaf80a95b($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_623988fbcc190')) {function content_623988fbcc190($_smarty_tpl) {?>
 
 <div class="listViewPageDiv" id="listViewContent"><div class="col-sm-12 col-xs-12 full-height"><div id="listview-actions" class="listview-actions-container"><div class = "row"><div class="btn-group col-md-2"></div><div class='col-md-7' style="padding-top: 5px;text-align: center;"><div class="btn-group userFilter" style="text-align: center;"><button class="btn btn-default btn-primary" id="activeUsers" data-searchvalue="Active"><?php echo vtranslate('LBL_ACTIVE_USERS',$_smarty_tpl->tpl_vars['MODULE']->value);?>
 </button><button class="btn btn-default" id="inactiveUsers" data-searchvalue="Inactive"><?php echo vtranslate('LBL_INACTIVE_USERS',$_smarty_tpl->tpl_vars['MODULE']->value);?>

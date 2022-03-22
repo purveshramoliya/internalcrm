@@ -6,10 +6,10 @@ $body='<html>
 <body>
    <div>
        <div>
-           <img  class="logo" src="header.png" alt="header">
+           <img  class="logo" src="includes/mpdf/header.png" alt="header">
        </div>
        <div>
-           <div class="div-left"><p>Date:<p></div>           
+           <div class="div-left"><p>Date:'.$todaydate.'<p></div>           
            <div class="a">
               <h2><u>OFFER LETTER OF INTERNSHIP</u></h2>
            </div>
@@ -17,28 +17,28 @@ $body='<html>
             <tr>
                 <td>
                 <div class="div-left">
-                    <p>Dear Candidate Name,<p>
+                    <p>Dear '.$firstname.' '.$lastname.',<p>
                     </div>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p>
-                            With reference to your application and subsequent interview with us,we are pleased to extend an offer of Internship to you in our organization at the position of “Designation”,at a stipend of INR 00,00,000 Per Annum (INR Ten Lakh Only).
+                            With reference to your application and subsequent interview with us,we are pleased to extend an offer of Internship to you in our organization at the position of <b> “'.$position.'” <b/>,at a <b>stipend of INR '.$thsvalue.' Per Annum ('.$thsword.')</b>.
                         </p>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p>
-                            The first 3 months of your service will be on Internship, at the end of which, the company may confirm your services, subject to your performance meeting our requisite standards. You will be on Internship till the time you receive the confirmation letter. You have to serve 3 months’ notice period from the date of resignation Internship confirmation letter from the HR.
+                            The first <b>3</b> months of your service will be on <b>Internship</b>, at the end of which, the company may confirm your services, subject to your performance meeting our requisite standards. You will be on <b>Internship</b> till the time you receive the confirmation letter. You have to serve <b>3</b> months’ notice period from the date of resignation <b>Internship confirmation letter</b> from the HR.
                         </p>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p>
-                            On the date Internship Confirmation, you will receive your Appointment letter. You may need to submit the essential documents requested by the HR.Kindly sign the copy as a token of your acceptance of the offer and return us the same.
+                            On the date Internship Confirmation, you will receive your <b>Appointment letter</b>. You may need to submit the essential documents requested by the HR.Kindly sign the copy as a token of your acceptance of the offer and return us the same.
                         </p>
                     </td>
                 </tr>

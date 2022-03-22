@@ -21,8 +21,8 @@ class Joinee_DetailView_Model extends Vtiger_DetailView_Model {
 		if($currentUserModel->hasModuleActionPermission($joineeModuleModel->getId(), 'CreateView')) {
 			$basicActionLink = array(
 				'linktype' => 'DETAILVIEW',
-				'linklabel' => 'LBL_OFFERLETTER',
-				'linkurl' => $recordModel->getOfferLetterUrl(),
+				'linklabel' => 'LBL_BONDLETTER',
+				'linkurl' => $recordModel->getBondLetterUrl(),
 				'linkicon' => ''
 			);
 			$linkModelList['DETAILVIEW'][] = Vtiger_Link_Model::getInstanceFromValues($basicActionLink);

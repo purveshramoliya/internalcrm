@@ -1,17 +1,4 @@
 <?php
-include_once('../../../config.inc.php');
-
-include_once('../../../include/database/PearDatabase.php');
-echo "Dd";
-exit();
-
-
-global $adb;
-
-$query=$adb->pquery('select * from vtiger_joinee where joineeid=15522');
-$name=$adb->query_result($query,0,'joinee_tks_lastname');
-echo $name;
-exit();
 
 $body='<html>
 <head>

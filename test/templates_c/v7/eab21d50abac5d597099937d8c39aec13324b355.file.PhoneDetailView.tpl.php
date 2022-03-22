@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2022-01-25 12:20:16
+<?php /* Smarty version Smarty-3.1.7, created on 2022-03-22 09:55:01
          compiled from "D:\wamp\www\internalcrm\includes\runtime/../../layouts/v7\modules\Vtiger\uitypes\PhoneDetailView.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1726961efeb007890e7-99415244%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:3183762399cf51d65a2-31498702%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1726961efeb007890e7-99415244',
+  'nocache_hash' => '3183762399cf51d65a2-31498702',
   'function' => 
   array (
   ),
@@ -28,9 +28,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_61efeb0087f2a',
+  'unifunc' => 'content_62399cf52b11d',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_61efeb0087f2a')) {function content_61efeb0087f2a($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_regex_replace')) include 'D:\\wamp\\www\\internalcrm\\libraries\\Smarty\\libs\\plugins\\modifier.regex_replace.php';
+<?php if ($_valid && !is_callable('content_62399cf52b11d')) {function content_62399cf52b11d($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_regex_replace')) include 'D:\\wamp\\www\\internalcrm\\libraries\\Smarty\\libs\\plugins\\modifier.regex_replace.php';
 ?>
 
 <?php $_smarty_tpl->tpl_vars['MODULE'] = new Smarty_variable('PBXManager', null, 0);?>
