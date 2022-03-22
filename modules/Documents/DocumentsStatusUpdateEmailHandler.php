@@ -29,11 +29,11 @@ class DocumentsStatusUpdateEmailHandler extends VTEventHandler
 
 				if($status != "Approved")
 				{
-					$adb->pquery("update vtiger_joineecf set cf_1346=0 where joineeid=".$recordId);
+					$adb->pquery("update vtiger_joineecf set cf_1344=0 where joineeid=".$recordId);
 				}
 
 				if ($totalNoOfAppDoc == $totalNoOfDoc ) {
-					$adb->pquery("update vtiger_joineecf set cf_1346=1 where joineeid=".$recordId);
+					$adb->pquery("update vtiger_joineecf set cf_1344=1 where joineeid=".$recordId);
 				} 
 
 				if($status == 'Rejected')

@@ -146,6 +146,15 @@ class Joinee extends Vtiger_CRMEntity {
 	 	if(isset($entityId))
 	 	{
 	 		$Link=$site_URL.'UploadDocuments.php?record_id='.$joineeid;
+
+	 	$OfferLink ='<form name="form1" method="post" action="'.$site_URL.'process.php">'
+        .'<div>'
+        .'<input type="hidden" name="record" value='.$entityId.'>'
+        .'<input type="hidden" name="DocumentType" value="Offer">'
+        .'<input type="submit" name="Accept" value="Accept" style=" background-color: #0066ff;color: #f2f2f2;font: bolder 1.0em Tahoma; border: 1px solid #001a66;padding: 5px;margin-right:10px;margin-top:10px;"/>'
+        .'<input type="submit" name="Reject" value="Reject" style=" background-color: #0066ff;color: #f2f2f2;font: bolder 1.0em Tahoma; border: 1px solid #001a66;padding: 5px;margin-right:10px;margin-top:10px;"/>'
+        .'</div>'
+        .'</form>';
 	 	}
 	 	
 	 	$DocumentLink = vtranslate('Please ',$moduleName).'<a href="'.$Link.'" style="font-family:Arial, Helvetica, sans-serif;font-size:13px;">'.  vtranslate('click here', $moduleName).'</a>';
@@ -160,6 +169,7 @@ class Joinee extends Vtiger_CRMEntity {
 	 	$contents = str_replace('$joinee-joinee_tks_positiontitle$',$entityData->get('joinee_tks_positiontitle'),$contents);
 	 	$contents = str_replace('$joinee-cf_1334$',$entityData->get('cf_1334'),$contents);
 	 	$contents = str_replace('$URL$',$DocumentLink,$contents);
+	 	$contents = str_replace('$OfferLink$',$OfferLink,$contents);
 	 	// $contents = str_replace('$support_team$',getTranslatedString('Support Team', $moduleName),$contents);
 	 	// $contents = str_replace('$logo$','<img src="cid:logo" />',$contents);
 
@@ -186,6 +196,7 @@ class Joinee extends Vtiger_CRMEntity {
 	 	$Link ='<form name="form1" method="post" action="'.$site_URL.'process.php">'
         .'<div>'
         .'<input type="hidden" name="record" value='.$entityId.'>'
+        .'<input type="hidden" name="DocumentType" value="Appointment">'
         .'<input type="submit" name="Accept" value="Accept" style=" background-color: #0066ff;color: #f2f2f2;font: bolder 1.0em Tahoma; border: 1px solid #001a66;padding: 5px;margin-right:10px;margin-top:10px;"/>'
         .'<input type="submit" name="Reject" value="Reject" style=" background-color: #0066ff;color: #f2f2f2;font: bolder 1.0em Tahoma; border: 1px solid #001a66;padding: 5px;margin-right:10px;margin-top:10px;"/>'
         .'</div>'

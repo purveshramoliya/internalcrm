@@ -24,6 +24,7 @@ $languageStrings = Array(
 	'LBL_OFFERLETTER' => 'Offer Letter',
 	'LBL_INTERNOFFERLETTER' => 'Intern Offer Letter',
 	'LBL_BONDLETTER' => 'Bond Letter',
-	'Take-Home Salary' => 'Take-Home Salary / Stipend '
+	'Take-Home Salary' => 'Take-Home Salary / Stipend ',
+	'Candidate Review Status ' => 'Candidate Offer Review',
 );	
 ?>
