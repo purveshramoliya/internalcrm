@@ -1,15 +1,13 @@
 <?php
 require_once("vtlib/Vtiger/Mailer.php");
-require_once('include/utils/utils.php');
-require_once('include/logging.php');
-global $adb,$site_URL,$HELPDESK_SUPPORT_EMAIL_ID,$HELPDESK_SUPPORT_NAME;
+global $adb,$site_URL,$HELPDESK_SUPPORT_EMAIL_ID,$HELPDESK_SUPPORT_NAME,$HR_SUPPORT_EMAIL_ID,$HR_SUPPORT_NAME;
 $from=$HELPDESK_SUPPORT_EMAIL_ID;
 $fromName=$HELPDESK_SUPPORT_NAME;
+$HRMail=$HR_SUPPORT_EMAIL_ID;
 
 $record=$_POST['record'];
-//$record=15523;
 
-$query=$adb->pquery("select joineeno,joinee_tks_firstname,joinee_tks_lastname,joinee_tks_emailid,joinee_tks_positiontitle from vtiger_Joinee inner join vtiger_crmentity on vtiger_crmentity.crmid=vtiger_Joinee.joineeid where vtiger_crmentity.deleted=0 and vtiger_Joinee.joineeid=".$record);
+$query=$adb->pquery("select joineeno,joinee_tks_firstname,joinee_tks_lastname,joinee_tks_emailid,joinee_tks_positiontitle from vtiger_joinee inner join vtiger_crmentity on vtiger_crmentity.crmid=vtiger_joinee.joineeid where vtiger_crmentity.deleted=0 and vtiger_joinee.joineeid=".$record);
 $joineeno=$adb->query_result($query,0,'joineeno');
 $firstname=$adb->query_result($query,0,'joinee_tks_firstname');
 $lastname=$adb->query_result($query,0,'joinee_tks_lastname');
@@ -37,14 +35,6 @@ $mailer->IsHTML(true);
 $mailer->ConfigSenderInfo($from,$fromName);
 $mailer->Subject =$subject;
 $mailer->Body = $description;
-$mailer->AddAddress("purveshramoliya@gmail.com");
- //$mailer->AddAttachment('attatchments/yourattachment.docx', decode_html('yourattachment.docx'));
+$mailer->AddAddress($HRMail);
 $status = $mailer->Send(true);
-
-if ( !$mailer->Send() ){
-	return false;
-}
-else{
-	return true;
-} 
 ?>

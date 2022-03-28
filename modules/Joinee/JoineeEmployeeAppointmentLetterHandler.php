@@ -114,7 +114,7 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 						</div>
 						<div>
 						<div class="rightdate"><p>Date:'.$todaydate.'<p></div>
-						<div class="a"><h2><u>Appointment Letter</u></h2></div>
+						<div class="a"><h2><u>APPOINTMENT LETTER</u></h2></div>
 						<table>
 						<tr><td>
 						<div class="div-left">
@@ -390,7 +390,7 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
          //write html to PDF
 						$m=$mpdf->WriteHTML($body,2);
          //output pdf
-						$attachment=$mpdf->Output('Offerlatter-'.$empno.'.pdf','S');
+						$attachment=$mpdf->Output('Appointment Letter-'.$empno.'.pdf','S');
 
 
 					//trigger send email
@@ -398,13 +398,13 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 						$emailData = Joinee::getAppointmentLetterEmailContents($entityData,'AppointmentLetter');
 						$subject = $emailData['subject'];
 						if(empty($subject)) {
-							$subject = 'Offer Letter';
+							$subject = 'Appointment Letter';
 						}
 						$subject = decode_html(getMergedDescription($subject, $entityId,'Joinee'));
 						$contents = $emailData['body'];
 						$contents= decode_html(getMergedDescription($contents, $entityId, 'Joinee'));
 						if(empty($contents)) {
-							$contents = 'AppointmentLetter';
+							$contents = 'Appointment Letter';
 						}
 
 
@@ -416,7 +416,7 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 						$mail->ConfigSenderInfo($fromEmail,$fromName);
 						$mail->Subject = $subject;
 						$mail->Body = $contents;
-						$mail->AddStringAttachment($attachment, 'Appointment Latter', 'base64', 'application/pdf');
+						$mail->AddStringAttachment($attachment, 'Appointment Letter', 'base64', 'application/pdf');
 						$mail->SendTo($to_email, 'Candidate', true, false, true);
 
 						if ($appointmentnotification == 0) {

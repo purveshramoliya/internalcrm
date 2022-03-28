@@ -16,7 +16,7 @@
 // Adjust error_reporting favourable to deployment.
 version_compare(PHP_VERSION, '5.5.0') <= 0 ? error_reporting(E_WARNING & ~E_NOTICE & ~E_DEPRECATED & E_ERROR) : error_reporting(E_WARNING & ~E_NOTICE & ~E_DEPRECATED  & E_ERROR & ~E_STRICT); // PRODUCTION
 //ini_set('display_errors','on'); version_compare(PHP_VERSION, '5.5.0') <= 0 ? error_reporting(E_WARNING & ~E_NOTICE & ~E_DEPRECATED) : error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT);   // DEBUGGING
-//ini_set('display_errors','on'); error_reporting(E_ALL); // STRICT DEVELOPMENT
+ini_set('display_errors','on'); error_reporting(E_ALL); // STRICT DEVELOPMENT
  // error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
  // ini_set('display_errors', '1');
 
@@ -36,6 +36,9 @@ $USE_RTE = 'true';
 $HELPDESK_SUPPORT_EMAIL_ID = 'lokesh.s@biztechnosys.com';
 $HELPDESK_SUPPORT_NAME = 'BizTechnoSys Team';
 $HELPDESK_SUPPORT_EMAIL_REPLY_ID = $HELPDESK_SUPPORT_EMAIL_ID;
+//$HR_SUPPORT_EMAIL_ID = 'hr@biztechnosys.com';
+$HR_SUPPORT_EMAIL_ID = 'purveshramoliya@gmail.com';
+$HR_SUPPORT_NAME = 'BizTechoSys HR Team';
 
 /* database configuration
       db_server

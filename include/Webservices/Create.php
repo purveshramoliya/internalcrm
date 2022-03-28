@@ -87,6 +87,9 @@ function vtws_create($elementType, $element, $user) {
 	}
 	$entity = $handler->create($elementType, $element);
 	VTWS_PreserveGlobal::flush();
+
+	print_r($entity);
+	exit();
 	return $entity;
 } else {
 

@@ -217,13 +217,13 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 						$emailData = Joinee::getAppointmentLetterEmailContents($entityData,'AppointmentLetter');
 						$subject = $emailData['subject'];
 						if(empty($subject)) {
-							$subject = 'Offer Letter';
+							$subject = 'Appointment Letter';
 						}
 						$subject = decode_html(getMergedDescription($subject, $entityId,'Joinee'));
 						$contents = $emailData['body'];
 						$contents= decode_html(getMergedDescription($contents, $entityId, 'Joinee'));
 						if(empty($contents)) {
-							$contents = 'AppointmentLetter';
+							$contents = 'Appointment Letter';
 						}
 
 
@@ -235,7 +235,7 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 						$mail->ConfigSenderInfo($fromEmail,$fromName);
 						$mail->Subject = $subject;
 						$mail->Body = $contents;
-						$mail->AddStringAttachment($attachment, 'Appointment Latter', 'base64', 'application/pdf');
+						$mail->AddStringAttachment($attachment, 'Appointment Letter', 'base64', 'application/pdf');
 						$mail->SendTo($to_email, 'Candidate', true, false, true);
 
 						if ($appointmentnotification == 0) {

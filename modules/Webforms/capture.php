@@ -112,7 +112,7 @@ class Webform_Capture {
 			$parameters['source'] = 'Webform';
 
 			// Create the record
-			$record = vtws_create($webform->getTargetModule(), $parameters, $user);
+			//$record = vtws_create($webform->getTargetModule(), $parameters, $user);
 			$webform->createDocuments($record);
 
 			$this->sendResponse($returnURL, 'ok');

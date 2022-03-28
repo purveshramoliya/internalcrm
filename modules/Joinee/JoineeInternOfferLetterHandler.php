@@ -169,7 +169,7 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
          //write html to PDF
 						$m=$mpdf->WriteHTML($body,2);
          //output pdf
-						$attachment=$mpdf->Output('Offerlatter-'.$empno.'.pdf','S');
+						$attachment=$mpdf->Output('Offer Letter-'.$empno.'.pdf','S');
 
 
 					//trigger send email
@@ -183,7 +183,7 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 						$contents = $emailData['body'];
 						$contents= decode_html(getMergedDescription($contents, $entityId, 'Joinee'));
 						if(empty($contents)) {
-							$contents = 'OfferLetter';
+							$contents = 'Offer Letter';
 						}
 
 						$mail = new Vtiger_Mailer();
@@ -194,7 +194,7 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 						$mail->ConfigSenderInfo($fromEmail,$fromName);
 						$mail->Subject = $subject;
 						$mail->Body = $contents;
-						$mail->AddStringAttachment($attachment, 'Offer Latter', 'base64', 'application/pdf');
+						$mail->AddStringAttachment($attachment, 'Offer Letter', 'base64', 'application/pdf');
 						$mail->SendTo($to_email, 'Candidate', true, false, true);
 
 						if ($offernotification == 0) {

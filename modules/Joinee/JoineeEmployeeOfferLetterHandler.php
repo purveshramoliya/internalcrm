@@ -136,7 +136,7 @@ class JoineeEmployeeOfferLetterHandler extends VTEventHandler
 						<img  class="logo" src="includes/mpdf/header.png" alt="header">
 						</div>
 						<div><div class="div-left"><p>Date:'.$todaydate.'<p></div><div class="a">
-						<h2><u>Offer Letter</u></h2>
+						<h2><u>OFFER LETTER</u></h2>
 						</div>
 						<table>
 						<tr><td>
@@ -161,7 +161,7 @@ class JoineeEmployeeOfferLetterHandler extends VTEventHandler
 						</td></tr>
 						<tr><td>
 						<p>
-						On the date of joining, you will receive your appointment letter. Please note that any false declaration of your documents mailed by you as a reply on Pre-Offer would result in cancellation of this offer.Kindlysign thecopy as atoken ofyouracceptanceoftheofferand returnus thesame.
+						On the date of joining, you will receive your appointment letter. Please note that any false declaration of your documents mailed by you as a reply on Pre-Offer would result in cancellation of this offer.Kindly sign thecopy as a token of your acceptance of the offer and returnus thesame.
 						</p>
 						</td></tr>
 						<tr><td>
@@ -204,7 +204,7 @@ class JoineeEmployeeOfferLetterHandler extends VTEventHandler
          //write html to PDF
 						$m=$mpdf->WriteHTML($body,2);
          //output pdf
-						$attachment=$mpdf->Output('Offerlatter-'.$empno.'.pdf','S');
+						$attachment=$mpdf->Output('Offer Letter-'.$empno.'.pdf','S');
 
 
 					//trigger send email
@@ -218,7 +218,7 @@ class JoineeEmployeeOfferLetterHandler extends VTEventHandler
 						$contents = $emailData['body'];
 						$contents= decode_html(getMergedDescription($contents, $entityId, 'Joinee'));
 						if(empty($contents)) {
-							$contents = 'OfferLetter';
+							$contents = 'Offer Letter';
 						}
 
 						$mail = new Vtiger_Mailer();
@@ -229,7 +229,7 @@ class JoineeEmployeeOfferLetterHandler extends VTEventHandler
 						$mail->ConfigSenderInfo($fromEmail,$fromName);
 						$mail->Subject = $subject;
 						$mail->Body = $contents;
-						$mail->AddStringAttachment($attachment, 'Offer Latter', 'base64', 'application/pdf');
+						$mail->AddStringAttachment($attachment, 'Offer Letter', 'base64', 'application/pdf');
 						$mail->SendTo($to_email, 'Candidate', true, false, true);
 
 						if ($offernotification == 0) {

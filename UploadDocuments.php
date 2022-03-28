@@ -15,8 +15,8 @@
 	<h1>Upload Documents</h1>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 		<form id="__vtigerWebForm" name="Upload Documents" action="http://localhost/internalcrm/modules/Webforms/capture.php" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-			<input type="hidden" name="__vtrftk" value="sid:0c2ac94ff3a68e8d3abf731969c951da9653635a,1645421973">
-			<input type="hidden" name="publicid" value="376e511d2d1f8f2040ae82723e075689">
+			<input type="hidden" name="__vtrftk" value="sid:2fe678d89eba4e9eab6d199cf7455c800cf58440,1648009232">
+			<input type="hidden" name="publicid" value="efffa9e6d5e1c0991a3370fd640d0b07">
 			<input type="hidden" name="urlencodeenable" value="1">
 			<!-- <input type="hidden" name="record_id" value="<?php $record_id; ?>"> --> 
 			<input type="hidden" name="record_id" id="record" value="<?php echo $_REQUEST['record_id']; ?>"> 
@@ -149,12 +149,14 @@
       <input type="submit" value="Submit" class="btn btn-success">
     </div>
 	</form>
+	<script src="libraries/jquery/jquery.min.js"></script>
 	 <script type="text/javascript">
 	   $('#__vtigerWebForm').submit(function(event){
                         var record = $('#record').val();
                         $.ajax({
                             type : "POST",
-                            url: "http://localhost/internalcrm/uploaddocumentsmail.php",
+                            cache:false,
+                            url: "UploadDocumentsMail.php",
 					        data: { record:record },
                             success: function (data) {
                             },

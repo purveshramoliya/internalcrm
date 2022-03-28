@@ -145,7 +145,7 @@ class Joinee extends Vtiger_CRMEntity {
 	 	$entityId = $entityData->getId();
 	 	if(isset($entityId))
 	 	{
-	 		$Link=$site_URL.'UploadDocuments.php?record_id='.$joineeid;
+	 		$Link=$site_URL.'UploadDocuments.php?record_id='.$entityId;
 
 	 	$OfferLink ='<form name="form1" method="post" action="'.$site_URL.'process.php">'
         .'<div>'
@@ -159,8 +159,7 @@ class Joinee extends Vtiger_CRMEntity {
 	 	
 	 	$DocumentLink = vtranslate('Please ',$moduleName).'<a href="'.$Link.'" style="font-family:Arial, Helvetica, sans-serif;font-size:13px;">'.  vtranslate('click here', $moduleName).'</a>';
 	 	//here id is hardcoded with 5. it is for support start notification in vtiger_notificationscheduler
-	 	$query='SELECT vtiger_emailtemplates.subject,vtiger_emailtemplates.body
-	 				FROM vtiger_emailtemplates WHERE vtiger_emailtemplates.templateid=26';
+	 	$query='SELECT vtiger_emailtemplates.subject,vtiger_emailtemplates.body FROM vtiger_emailtemplates WHERE vtiger_emailtemplates.templateid=26';
 
 	 	$result = $adb->pquery($query, array());
 	 	$body=decode_html($adb->query_result($result,0,'body'));

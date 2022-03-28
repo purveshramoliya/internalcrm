@@ -164,7 +164,7 @@ class Joinee_BondLetter_Action extends Vtiger_Action_Controller {
          //write html to PDF
         $m=$mpdf->WriteHTML($body,2);
          //output pdf
-        $xfile=$mpdf->Output('Offerlatter-'.$empno.'.pdf','D');
+        $xfile=$mpdf->Output('BondLetter-'.$empno.'.pdf','D');
 
         echo $xfile;
 
