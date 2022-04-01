@@ -1,0 +1,8 @@
+Project Task Name," ""Status"""," ""Project Task Phase"""," ""Scope Of Project Task"""," ""Creator"""," ""Progress"""," ""Worked Hours"""," ""Start Date"""," ""End Date"""," ""Description"""
+calender api,Live CRM(QA),,,Rajesh,,,,,calender api required
+relationship api,Live CRM(QA),,,Rajesh,,,,,Relationship API data listing required and supposed it is form then you to have give me one more API for form data submit and listing also
+make logout api,Live CRM(QA),,,Rajesh,,,,,required logout api
+make sign up api,Deferred,,,Rajesh,,,,,required signup api also
+convert the leads to opportunities api,Open,Phase 2,Back End,Rajesh,,,,,
+Remove filed (update describe api),Deferred,Phase 2,Back End,Rajesh,,,,,"There are many fields in the lead and other module also form that should populate by itself but its not. like lead number, created date, etc."
+crm field name and mobile field name should be same sequence,Live CRM(QA),Phase 2,Back End,Rajesh,,,,,"While adding new lead or on opening any of the lead, the fields order is wrong. After First Name, there is lead number, phone number and then last name."

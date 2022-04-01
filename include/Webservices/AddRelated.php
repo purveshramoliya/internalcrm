@@ -49,7 +49,10 @@ function vtws_add_related($sourceRecordId, $relatedRecordId, $relationIdLabel = 
 				foreach ($relatedRecordId as $id) {
 					$idParts = vtws_getIdComponents($id);
 					if ($idParts[0] == $relatedRecordIdParts[0]) {
+                         //upload documents add relatedlist in joinee module
+						//$relationModel->addRelation($sourceRecordIdParts[1], $idParts[1]);
 						$relationModel->addRelation($_REQUEST['record_id'], $idParts[1]);
+
 					}
 				}
 			}

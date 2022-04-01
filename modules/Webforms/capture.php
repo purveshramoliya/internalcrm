@@ -112,8 +112,10 @@ class Webform_Capture {
 			$parameters['source'] = 'Webform';
 
 			// Create the record
-			//$record = vtws_create($webform->getTargetModule(), $parameters, $user);
-			$webform->createDocuments($record);
+			// Uplaod documents without create joinee record
+			$record = vtws_create($webform->getTargetModule(), $parameters, $user);
+			$record_id=$_REQUEST['record_id'];
+			$webform->createDocuments($record_id);
 
 			$this->sendResponse($returnURL, 'ok');
 			return;
