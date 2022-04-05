@@ -10,9 +10,8 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 
 			$moduleName = $entityData->getModuleName();
 			$entityId = $entityData->getId();
-			$status = $entityData->get('cf_1340');
 
-			if ($moduleName == 'Joinee' &&  $status== 'Active') {
+			if ($moduleName == 'Joinee') {
 				global $log,$adb;
 				require_once("vtlib/Vtiger/Mailer.php");
 				global $site_URL,$HELPDESK_SUPPORT_EMAIL_ID,$HELPDESK_SUPPORT_NAME;

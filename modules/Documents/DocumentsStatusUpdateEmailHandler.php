@@ -19,8 +19,6 @@ class DocumentsStatusUpdateEmailHandler extends VTEventHandler
 
 			$rpquery = $adb->pquery("SELECT crmid FROM `vtiger_senotesrel` where notesid=".$entityId);
 			$recordId=$adb->query_result($rpquery,0,'crmid');
-
-			$log->debug('hello'.$recordId);
 			
 			if ($moduleName == 'Documents' && isset($recordId)) {
 

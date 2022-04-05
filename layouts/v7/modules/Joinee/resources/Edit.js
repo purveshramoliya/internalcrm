@@ -190,7 +190,7 @@ Vtiger_Edit_Js("Joinee_Edit_Js",{},{
 	JoineeDocumentsHandler: function() {
 		var offer = jQuery('#Joinee_editView_fieldName_cf_1336').val();
 		var verified = jQuery('#Joinee_editView_fieldName_cf_1346').val();
-		var status = $('.cf_1340 :selected').text();
+		/*var status = $('.cf_1340 :selected').text();
 
 		jQuery('.cf_1340').on('change', function(){
 			var status = $('.cf_1340 :selected').text();
@@ -202,7 +202,7 @@ Vtiger_Edit_Js("Joinee_Edit_Js",{},{
 			if(status == 'Active' && verified != 'on') {
 				app.helper.showAlertNotification({'message': app.vtranslate('Documents not verified')});
 			}
-		});
+		});*/
 	},
 
 	registerEvents: function(){

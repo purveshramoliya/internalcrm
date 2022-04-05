@@ -114,14 +114,15 @@ $mailer->AddAddress($email);
 $status = $mailer->Send(true);
 
 // send the email
+if(isset($status))
+{
+     $referer = $_SERVER['HTTP_REFERER'];
+     header("Location: $referer");
+}
+//error
 if(!$mailer->Send()) {
     echo "Message was not sent <br />PHPMailer Error: " . $mailer->ErrorInfo;
     die();
 }
-else{
-     $referer = $_SERVER['HTTP_REFERER'];
-     header("Location: $referer");
-}
-
 die(); 
 ?>
