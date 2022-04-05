@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2022-03-22 08:43:24
+<?php /* Smarty version Smarty-3.1.7, created on 2022-04-04 06:26:59
          compiled from "D:\wamp\www\internalcrm\includes\runtime/../../layouts/v7\modules\Vtiger\partials\EditViewContents.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:296562398c2c0f8b50-39670588%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:10432624a6fb1d4b760-66153130%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '6a2273687336c1b08cb4340201f6172ff330f033' => 
     array (
       0 => 'D:\\wamp\\www\\internalcrm\\includes\\runtime/../../layouts/v7\\modules\\Vtiger\\partials\\EditViewContents.tpl',
-      1 => 1625403224,
+      1 => 1649051967,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '296562398c2c0f8b50-39670588',
+  'nocache_hash' => '10432624a6fb1d4b760-66153130',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_624a6fb232b18',
   'variables' => 
   array (
     'PICKIST_DEPENDENCY_DATASOURCE' => 0,
@@ -36,13 +38,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'TAXCLASS_DETAILS' => 0,
     'taxCount' => 0,
     'FILE_LOCATION_TYPE_FIELD' => 0,
+    'GETROLEINFO' => 0,
+    'getRoleInfo_details' => 0,
+    'GETCURRENTROLEID' => 0,
+    'SELECTED_ROLEID' => 0,
     'FIELD_NAME' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_62398c2c6e083',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_62398c2c6e083')) {function content_62398c2c6e083($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_624a6fb232b18')) {function content_624a6fb232b18($_smarty_tpl) {?>
 <?php if (!empty($_smarty_tpl->tpl_vars['PICKIST_DEPENDENCY_DATASOURCE']->value)){?><input type="hidden" name="picklistDependency" value='<?php echo Vtiger_Util_Helper::toSafeHTML($_smarty_tpl->tpl_vars['PICKIST_DEPENDENCY_DATASOURCE']->value);?>
 ' /><?php }?><div name='editContent'><?php if ($_smarty_tpl->tpl_vars['DUPLICATE_RECORDS']->value){?><div class="fieldBlockContainer duplicationMessageContainer"><div class="duplicationMessageHeader"><b><?php echo vtranslate('LBL_DUPLICATES_DETECTED',$_smarty_tpl->tpl_vars['MODULE']->value);?>
 </b></div><div><?php echo getDuplicatesPreventionMessage($_smarty_tpl->tpl_vars['MODULE']->value,$_smarty_tpl->tpl_vars['DUPLICATE_RECORDS']->value);?>
@@ -78,7 +82,17 @@ $_smarty_tpl->tpl_vars['value']->_loop = true;
 &nbsp;<span class="redColor">*</span><?php }else{ ?><?php echo vtranslate($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->get('label'),$_smarty_tpl->tpl_vars['MODULE']->value);?>
 <?php }?><?php }else{ ?><?php echo vtranslate($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->get('label'),$_smarty_tpl->tpl_vars['MODULE']->value);?>
 <?php }?><?php }else{ ?><?php echo vtranslate($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->get('label'),$_smarty_tpl->tpl_vars['MODULE']->value);?>
-<?php }?><?php }?>&nbsp;<?php if ($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->isMandatory()==true){?> <span class="redColor">*</span> <?php }?></td><?php if ($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->get('uitype')!='83'){?><td data-id="<?php echo $_smarty_tpl->tpl_vars['FIELD_MODEL']->value->getFieldName();?>
+<?php }?><?php }?>&nbsp;<?php if ($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->isMandatory()==true){?> <span class="redColor">*</span> <?php }?></td><?php if ($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->getFieldName()=='cf_1328'){?><td><select class="select2" id="cf_1328" name="cf_1328" style="width:300px" ><?php  $_smarty_tpl->tpl_vars['getRoleInfo_details'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['getRoleInfo_details']->_loop = false;
+ $_smarty_tpl->tpl_vars['count'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['GETROLEINFO']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['getRoleInfo_details']->key => $_smarty_tpl->tpl_vars['getRoleInfo_details']->value){
+$_smarty_tpl->tpl_vars['getRoleInfo_details']->_loop = true;
+ $_smarty_tpl->tpl_vars['count']->value = $_smarty_tpl->tpl_vars['getRoleInfo_details']->key;
+?><?php if ($_smarty_tpl->tpl_vars['getRoleInfo_details']->value['rolename']-$_smarty_tpl->tpl_vars['getRoleInfo_details']->value['roleid']==$_smarty_tpl->tpl_vars['GETCURRENTROLEID']->value){?><?php $_smarty_tpl->tpl_vars['SELECTED_ROLEID'] = new Smarty_variable($_smarty_tpl->tpl_vars['GETCURRENTROLEID']->value, null, 0);?><?php }?><option value="<?php echo $_smarty_tpl->tpl_vars['getRoleInfo_details']->value['rolename'];?>
+-<?php echo $_smarty_tpl->tpl_vars['getRoleInfo_details']->value['roleid'];?>
+" class="textShadowNone" <?php if ($_smarty_tpl->tpl_vars['SELECTED_ROLEID']->value==$_smarty_tpl->tpl_vars['getRoleInfo_details']->value['roleid']){?> selected <?php }?>><?php echo $_smarty_tpl->tpl_vars['getRoleInfo_details']->value['rolename'];?>
+ (<?php echo $_smarty_tpl->tpl_vars['getRoleInfo_details']->value['roleid'];?>
+)</option><?php } ?></select></td><?php }elseif($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->get('uitype')!='83'){?><td data-id="<?php echo $_smarty_tpl->tpl_vars['FIELD_MODEL']->value->getFieldName();?>
 " id="<?php echo $_smarty_tpl->tpl_vars['FIELD_MODEL']->value->getFieldName();?>
 val" <?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['MODULE']->value;?>
 <?php $_tmp1=ob_get_clean();?><?php if (in_array($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->get('uitype'),array('19','69'))||$_smarty_tpl->tpl_vars['FIELD_NAME']->value=='description'||(($_smarty_tpl->tpl_vars['FIELD_NAME']->value=='recurringtype'||$_smarty_tpl->tpl_vars['FIELD_NAME']->value=='reminder_time')&&in_array($_tmp1,array('Events','Calendar')))){?> class="fieldValue fieldValueWidth80"  colspan="3" <?php $_smarty_tpl->tpl_vars['COUNTER'] = new Smarty_variable($_smarty_tpl->tpl_vars['COUNTER']->value+1, null, 0);?> <?php }elseif($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->get('uitype')=='56'){?> class="fieldValue checkBoxType" <?php }elseif($_smarty_tpl->tpl_vars['isReferenceField']->value=='reference'||$_smarty_tpl->tpl_vars['isReferenceField']->value=='multireference'){?> class="fieldValue p-t-8" <?php }else{ ?>class="fieldValue" <?php }?>><?php echo $_smarty_tpl->getSubTemplate (vtemplate_path($_smarty_tpl->tpl_vars['FIELD_MODEL']->value->getUITypeModel()->getTemplateName(),$_smarty_tpl->tpl_vars['MODULE']->value), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>

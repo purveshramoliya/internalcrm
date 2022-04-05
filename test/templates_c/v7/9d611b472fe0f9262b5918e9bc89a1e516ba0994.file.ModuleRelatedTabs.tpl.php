@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2022-03-22 09:55:00
+<?php /* Smarty version Smarty-3.1.7, created on 2022-04-02 08:30:44
          compiled from "D:\wamp\www\internalcrm\includes\runtime/../../layouts/v7\modules\Vtiger\ModuleRelatedTabs.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:387362399cf4472234-02535008%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:17823624809b42da302-35489556%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '387362399cf4472234-02535008',
+  'nocache_hash' => '17823624809b42da302-35489556',
   'function' => 
   array (
   ),
@@ -40,9 +40,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_62399cf48e6d4',
+  'unifunc' => 'content_624809b497e91',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_62399cf48e6d4')) {function content_62399cf48e6d4($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_624809b497e91')) {function content_624809b497e91($_smarty_tpl) {?>
 
 <div class='related-tabs row'><nav class="navbar margin0" role="navigation"><div class="navbar-header"><button type="button" class="navbar-toggle btn-group-justified collapsed border0" data-toggle="collapse" data-target="#nav-tabs" aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button></div><div class="collapse navbar-collapse" id="nav-tabs"><ul class="nav nav-tabs"><?php  $_smarty_tpl->tpl_vars['RELATED_LINK'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['RELATED_LINK']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['DETAILVIEW_LINKS']->value['DETAILVIEWTAB']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

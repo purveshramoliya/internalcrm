@@ -11,6 +11,13 @@
 class Joinee_Record_Model extends Vtiger_Record_Model {
 
 	/**
+	 * Function returns the url for converting lead
+	 */
+	function getConvertLeadUrl() {
+		return 'index.php?module='.$this->getModuleName().'&view=ConvertLead&record='.$this->getId();
+	}
+
+	/**
 	 * Function returns the url for create event
 	 * @return <String>
 	 */
@@ -32,38 +39,146 @@ class Joinee_Record_Model extends Vtiger_Record_Model {
 		return "index.php?module=".$this->getModuleName()."&action=BondLetter&record=".$this->getId();
 	}
 
-	public function getHoliday() {
+	/**
+	 * Function returns Account fields for Lead Convert
+	 * @return Array
+	 */
+	function getAccountFieldsForLeadConvert() {
+		$accountsFields = array();
+		$privilegeModel = Users_Privileges_Model::getCurrentUserPrivilegesModel();
+		$moduleName = 'Users';
 
-		 $body='hello';
-		
-		return $body; 
+		if(!Users_Privileges_Model::isPermitted($moduleName, 'CreateView')) {
+			return;
+		}
+
+		$moduleModel = Vtiger_Module_Model::getInstance($moduleName);
+		if ($moduleModel->isActive()) {
+			$fieldModels = $moduleModel->getFields();
+            //Fields that need to be shown
+            //$complusoryFields = array('');
+			foreach ($fieldModels as $fieldName => $fieldModel) {
+				if($fieldModel->isMandatory() && $fieldName != 'assigned_user_id') {
+                    $keyIndex = array_search($fieldName,$complusoryFields);
+                    if($keyIndex !== false) {
+                        unset($complusoryFields[$keyIndex]);
+                    }
+					$leadMappedField = $this->getConvertLeadMappedField($fieldName, $moduleName);
+                    if($this->get($leadMappedField)) {
+                        $fieldModel->set('fieldvalue', $this->get($leadMappedField));
+                    } else {
+                        $fieldModel->set('fieldvalue', $fieldModel->getDefaultFieldValue());
+                    } 
+					$accountsFields[] = $fieldModel;	
+				}
+			}
+            foreach($complusoryFields as $complusoryField) {
+                $fieldModel = Vtiger_Field_Model::getInstance($complusoryField, $moduleModel);
+				if($fieldModel->getPermissions('readwrite') && $fieldModel->isEditable()) {
+                    $industryFieldModel = $moduleModel->getField($complusoryField);
+                    $industryLeadMappedField = $this->getConvertLeadMappedField($complusoryField, $moduleName);
+                    if($this->get($industryLeadMappedField)) {
+                        $industryFieldModel->set('fieldvalue', $this->get($industryLeadMappedField));
+                    } else {
+                        $industryFieldModel->set('fieldvalue', $industryFieldModel->getDefaultFieldValue());
+                    }
+                    $accountsFields[] = $industryFieldModel;
+                }
+            }
+		}
+		return $accountsFields;
+	}
+
+	/**
+	 * Function returns field mapped to Leads field, used in Lead Convert for settings the field values
+	 * @param <String> $fieldName
+	 * @return <String>
+	 */
+	function getConvertLeadMappedField($fieldName, $moduleName) {
+		$mappingFields = $this->get('mappingFields');
+
+		if (!$mappingFields) {
+			$db = PearDatabase::getInstance();
+			$mappingFields = array();
+
+			$result = $db->pquery('SELECT * FROM vtiger_convertusermapping', array());
+			$numOfRows = $db->num_rows($result);
+
+			$accountInstance = Vtiger_Module_Model::getInstance('Users');
+			$accountFieldInstances = $accountInstance->getFieldsById();
+
+			$leadInstance = Vtiger_Module_Model::getInstance('Joinee');
+			$leadFieldInstances = $leadInstance->getFieldsById();
+
+			for($i=0; $i<$numOfRows; $i++) {
+				$row = $db->query_result_rowdata($result,$i);
+				if(empty($row['leadfid'])) continue;
+
+				$leadFieldInstance = $leadFieldInstances[$row['leadfid']];
+				if(!$leadFieldInstance) continue;
+
+				$leadFieldName = $leadFieldInstance->getName();
+				$accountFieldInstance = $accountFieldInstances[$row['accountfid']];
+				if ($row['accountfid'] && $accountFieldInstance) {
+					$mappingFields['Users'][$accountFieldInstance->getName()] = $leadFieldName;
+				}
+			}
+			$this->set('mappingFields', $mappingFields);
+		}
+		return $mappingFields[$moduleName][$fieldName];
+	}
+
+	/**
+	 * Function returns the fields required for Lead Convert
+	 * @return <Array of Vtiger_Field_Model>
+	 */
+	function getConvertLeadFields() {
+		$convertFields = array();
+		$accountFields = $this->getAccountFieldsForLeadConvert();
+		if(!empty($accountFields)) {
+			$convertFields['Accounts'] = $accountFields;
+		}
+		return $convertFields;
 	}
 
 
 	/**
-	 * Function to get List of Fields which are related from Contacts to Inventory Record
-	 * @return <array>
+	 * Function to check whether the lead is converted or not
+	 * @return True if the Lead is Converted false otherwise.
 	 */
-	public function getInventoryMappingFields() {
-		return array(
-				array('parentField'=>'account_id', 'inventoryField'=>'account_id', 'defaultValue'=>''),
+    function isLeadConverted() {
+        $db = PearDatabase::getInstance();
+        $id = $this->getId();
+        $sql = "select converted from vtiger_leaddetails where converted = 1 and leadid=?";
+        $result = $db->pquery($sql,array($id));
+        $rowCount = $db->num_rows($result);
+        if($rowCount > 0){
+            return true;
+        }
+        return false;
+    }
 
-				//Billing Address Fields
-				array('parentField'=>'mailingcity', 'inventoryField'=>'bill_city', 'defaultValue'=>''),
-				array('parentField'=>'mailingstreet', 'inventoryField'=>'bill_street', 'defaultValue'=>''),
-				array('parentField'=>'mailingstate', 'inventoryField'=>'bill_state', 'defaultValue'=>''),
-				array('parentField'=>'mailingzip', 'inventoryField'=>'bill_code', 'defaultValue'=>''),
-				array('parentField'=>'mailingcountry', 'inventoryField'=>'bill_country', 'defaultValue'=>''),
-				array('parentField'=>'mailingpobox', 'inventoryField'=>'bill_pobox', 'defaultValue'=>''),
+    function getRoleInfo() {
+		$adb = PearDatabase::getInstance();
+        $sql = "SELECT * FROM `vtiger_role` ORDER BY rolename ASC";
+		$result = $adb->pquery($sql, array());
+		$num_rows = $adb->num_rows($result);
+		$result_array = Array();
 
-				//Shipping Address Fields
-				array('parentField'=>'otherstreet', 'inventoryField'=>'ship_street', 'defaultValue'=>''),
-				array('parentField'=>'othercity', 'inventoryField'=>'ship_city', 'defaultValue'=>''),
-				array('parentField'=>'otherstate', 'inventoryField'=>'ship_state', 'defaultValue'=>''),
-				array('parentField'=>'otherzip', 'inventoryField'=>'ship_code', 'defaultValue'=>''),
-				array('parentField'=>'othercountry', 'inventoryField'=>'ship_country', 'defaultValue'=>''),
-				array('parentField'=>'otherpobox', 'inventoryField'=>'ship_pobox', 'defaultValue'=>'')
-		);
+		for ($i = 0; $i < $num_rows; $i++) {
+			$getRoleInfo_details[$i]['roleid'] = $adb->query_result($result, $i, 'roleid');
+			$getRoleInfo_details[$i]['rolename'] = $adb->query_result($result, $i, 'rolename');	
+		}
+		return $getRoleInfo_details;
 	}
 
+	function CurrentRoleId() {
+        $db = PearDatabase::getInstance();
+        $id = $this->getId();
+        $sql = "select cf_1328 from vtiger_joineecf where joineeid=?";
+        $result = $db->pquery($sql,array($id));
+        $role = $db->query_result($result,0,'cf_1328');
+        $getroleid=substr($role, strpos($role, '-') + 1);
+        return $getroleid;
+    }
 }

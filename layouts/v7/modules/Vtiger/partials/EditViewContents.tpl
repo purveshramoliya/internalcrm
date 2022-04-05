@@ -95,7 +95,21 @@
 										{/if}
 										&nbsp;{if $FIELD_MODEL->isMandatory() eq true} <span class="redColor">*</span> {/if}
 									</td>
-									{if $FIELD_MODEL->get('uitype') neq '83'}
+									{if $FIELD_MODEL->getFieldName() eq 'cf_1328'}
+									<td>
+
+									<select class="select2" id="cf_1328" name="cf_1328" style="width:300px" >
+									{foreach item=getRoleInfo_details key=count from=$GETROLEINFO}
+										    {if $getRoleInfo_details.rolename-$getRoleInfo_details.roleid eq $GETCURRENTROLEID}
+											{assign var=SELECTED_ROLEID value=$GETCURRENTROLEID}
+											{/if}
+										<option value="{$getRoleInfo_details.rolename}-{$getRoleInfo_details.roleid}" class="textShadowNone" {if $SELECTED_ROLEID eq $getRoleInfo_details.roleid} selected {/if}>
+										{$getRoleInfo_details.rolename} ({$getRoleInfo_details.roleid})
+										</option>
+									{/foreach}
+									</select>
+									</td>
+									{elseif $FIELD_MODEL->get('uitype') neq '83'}
 										<td data-id="{$FIELD_MODEL->getFieldName()}" id="{$FIELD_MODEL->getFieldName()}val" {if in_array($FIELD_MODEL->get('uitype'),array('19','69')) || $FIELD_NAME eq 'description' ||  (($FIELD_NAME eq 'recurringtype' or $FIELD_NAME eq 'reminder_time')  && in_array({$MODULE},array('Events','Calendar')))} class="fieldValue fieldValueWidth80"  colspan="3" {assign var=COUNTER value=$COUNTER+1} {elseif $FIELD_MODEL->get('uitype') eq '56'} class="fieldValue checkBoxType" {elseif $isReferenceField eq 'reference' or $isReferenceField eq 'multireference' } class="fieldValue p-t-8" {else}class="fieldValue" {/if}>
 											{include file=vtemplate_path($FIELD_MODEL->getUITypeModel()->getTemplateName(),$MODULE)}
 										</td>

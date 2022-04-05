@@ -26,6 +26,9 @@ class Joinee_Edit_View extends Vtiger_Edit_View {
 
 		$viewer = $this->getViewer($request);
 
+		$getRoleInfo = $recordModel->getRoleInfo();
+		$getCurrentRole = $recordModel->CurrentRoleId();
+
 		// $salutationFieldModel = Vtiger_Field_Model::getInstance('salutationtype', $recordModel->getModule());
 		// // Fix for http://trac.vtiger.com/cgi-bin/trac.cgi/ticket/7851
 		// $salutationType = $request->get('salutationtype');
@@ -34,7 +37,8 @@ class Joinee_Edit_View extends Vtiger_Edit_View {
 		// } else {
 		// 	$salutationFieldModel->set('fieldvalue', $recordModel->get('salutationtype')); 
 		// }
-		// $viewer->assign('SALUTATION_FIELD_MODEL', $salutationFieldModel);
+		$viewer->assign('GETROLEINFO', $getRoleInfo);
+		$viewer->assign('GETCURRENTROLEID', $getCurrentRole);
 
 		parent::process($request);
 	}

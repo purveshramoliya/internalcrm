@@ -14,8 +14,11 @@ class Joinee_DetailView_Model extends Vtiger_DetailView_Model {
 	public function getDetailViewLinks($linkParams) {
 		$currentUserModel = Users_Privileges_Model::getCurrentUserPrivilegesModel();
 
-		$linkModelList = parent::getDetailViewLinks($linkParams);
+		//$linkModelList = parent::getDetailViewLinks($linkParams);
+		$moduleModel = $this->getModule();
 		$recordModel = $this->getRecord();
+		$emailModuleModel = Vtiger_Module_Model::getInstance('Emails');
+		$linkModelList = Vtiger_DetailView_Model::getDetailViewLinks($linkParams);
 
 		$joineeModuleModel = Vtiger_Module_Model::getInstance('Joinee');
 		if($currentUserModel->hasModuleActionPermission($joineeModuleModel->getId(), 'CreateView')) {
@@ -26,6 +29,15 @@ class Joinee_DetailView_Model extends Vtiger_DetailView_Model {
 				'linkicon' => ''
 			);
 			$linkModelList['DETAILVIEW'][] = Vtiger_Link_Model::getInstanceFromValues($basicActionLink);
+		}
+		if(Users_Privileges_Model::isPermitted($moduleModel->getName(), 'ConvertLead', $recordModel->getId()) && Users_Privileges_Model::isPermitted($moduleModel->getName(), 'EditView', $recordModel->getId()) && !$recordModel->isLeadConverted()) {
+			$basicActionLink = array(
+				'linktype' => 'DETAILVIEWBASIC',
+				'linklabel' => 'LBL_CONVERT_USER',
+				'linkurl' => 'Javascript:Joinee_Detail_Js.convertLead("'.$recordModel->getConvertLeadUrl().'",this);',
+				'linkicon' => ''
+			);
+			$linkModelList['DETAILVIEWBASIC'][] = Vtiger_Link_Model::getInstanceFromValues($basicActionLink);
 		}
 
 		return $linkModelList;

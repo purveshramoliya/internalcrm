@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2022-03-22 09:32:10
+<?php /* Smarty version Smarty-3.1.7, created on 2022-04-02 08:30:20
          compiled from "D:\wamp\www\internalcrm\includes\runtime/../../layouts/v7\modules\Vtiger\dashboards\DashBoardHeader.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:33006239979a4b70c1-24438888%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:68916248099c1d0831-58521629%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '33006239979a4b70c1-24438888',
+  'nocache_hash' => '68916248099c1d0831-58521629',
   'function' => 
   array (
   ),
@@ -26,9 +26,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_6239979a62a2a',
+  'unifunc' => 'content_6248099c362f9',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_6239979a62a2a')) {function content_6239979a62a2a($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_6248099c362f9')) {function content_6248099c362f9($_smarty_tpl) {?>
 
 <div class='dashboardHeading container-fluid'>
 	<div class="buttonGroups pull-right">

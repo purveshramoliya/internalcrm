@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2022-03-22 08:27:47
+<?php /* Smarty version Smarty-3.1.7, created on 2022-04-04 11:39:57
          compiled from "D:\wamp\www\internalcrm\includes\runtime/../../layouts/v7\modules\Vtiger\ModuleHeader.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:27962623988836c6c24-55684223%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:231326248099ad76890-60627973%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'cd89d27f656d2e0adbcda89417f6aa10c7acaa76' => 
     array (
       0 => 'D:\\wamp\\www\\internalcrm\\includes\\runtime/../../layouts/v7\\modules\\Vtiger\\ModuleHeader.tpl',
-      1 => 1620058876,
+      1 => 1649072391,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '27962623988836c6c24-55684223',
+  'nocache_hash' => '231326248099ad76890-60627973',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_6248099b31f64',
   'variables' => 
   array (
     'MODULE' => 0,
@@ -37,10 +39,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'FIELDS_INFO' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_62398883aca29',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_62398883aca29')) {function content_62398883aca29($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_6248099b31f64')) {function content_6248099b31f64($_smarty_tpl) {?>
 
 <div class="col-sm-11 col-xs-10 padding0 module-action-bar clearfix coloredBorderTop"><div class="module-action-content clearfix <?php echo $_smarty_tpl->tpl_vars['MODULE']->value;?>
 -module-action-content"><div class="col-lg-7 col-md-6 col-sm-5 col-xs-11 padding0 module-breadcrumb module-breadcrumb-<?php echo $_REQUEST['view'];?>
@@ -65,9 +65,12 @@ $_smarty_tpl->tpl_vars['FILTERS']->_loop = true;
 ">&nbsp;&nbsp;<?php echo vtranslate('LBL_EDITING',$_smarty_tpl->tpl_vars['MODULE']->value);?>
  : <?php echo $_smarty_tpl->tpl_vars['RECORD']->value->get('label');?>
  &nbsp;&nbsp;</a></p><?php }elseif($_REQUEST['view']=='Edit'){?><p class="current-filter-name filter-name pull-left "><span class="fa fa-angle-right pull-left" aria-hidden="true"></span><a>&nbsp;&nbsp;<?php echo vtranslate('LBL_ADDING_NEW',$_smarty_tpl->tpl_vars['MODULE']->value);?>
-&nbsp;&nbsp;</a></p><?php }?><?php if ($_REQUEST['view']=='Detail'){?><p class="current-filter-name filter-name pull-left"><span class="fa fa-angle-right pull-left" aria-hidden="true"></span><a title="<?php echo $_smarty_tpl->tpl_vars['RECORD']->value->get('label');?>
+&nbsp;&nbsp;</a></p><?php }?><?php if ($_REQUEST['view']=='Detail'){?><?php if ($_smarty_tpl->tpl_vars['MODULE']->value=='Joinee'){?><p class="current-filter-name filter-name pull-left"><span class="fa fa-angle-right pull-left" aria-hidden="true"></span><a title="<?php echo $_smarty_tpl->tpl_vars['RECORD']->value->get('label');?>
+">&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['RECORD']->value->get('joinee_tks_firstname');?>
+&nbsp;<?php echo $_smarty_tpl->tpl_vars['RECORD']->value->get('joinee_tks_lastname');?>
+ &nbsp;&nbsp;</a></p><?php }else{ ?><p class="current-filter-name filter-name pull-left"><span class="fa fa-angle-right pull-left" aria-hidden="true"></span><a title="<?php echo $_smarty_tpl->tpl_vars['RECORD']->value->get('label');?>
 ">&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['RECORD']->value->get('label');?>
- &nbsp;&nbsp;</a></p><?php }?></div><div class="col-lg-5 col-md-6 col-sm-7 col-xs-1 padding0 pull-right"><div id="appnav" class="navbar-right"><nav class="navbar navbar-inverse border0 margin0"><?php if (count($_smarty_tpl->tpl_vars['MODULE_BASIC_ACTIONS']->value)>0){?><div class="container-fluid"><div class="navbar-header bg-white marginTop5px"><button type="button" class="navbar-toggle collapsed margin0" data-toggle="collapse" data-target="#appnavcontent" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></button></div><div class="navbar-collapse collapse" id="appnavcontent" aria-expanded="false" style="height: 1px;"><ul class="nav navbar-nav"><?php  $_smarty_tpl->tpl_vars['BASIC_ACTION'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['BASIC_ACTION']->_loop = false;
+ &nbsp;&nbsp;</a></p><?php }?><?php }?></div><div class="col-lg-5 col-md-6 col-sm-7 col-xs-1 padding0 pull-right"><div id="appnav" class="navbar-right"><nav class="navbar navbar-inverse border0 margin0"><?php if (count($_smarty_tpl->tpl_vars['MODULE_BASIC_ACTIONS']->value)>0){?><div class="container-fluid"><div class="navbar-header bg-white marginTop5px"><button type="button" class="navbar-toggle collapsed margin0" data-toggle="collapse" data-target="#appnavcontent" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></button></div><div class="navbar-collapse collapse" id="appnavcontent" aria-expanded="false" style="height: 1px;"><ul class="nav navbar-nav"><?php  $_smarty_tpl->tpl_vars['BASIC_ACTION'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['BASIC_ACTION']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['MODULE_BASIC_ACTIONS']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['BASIC_ACTION']->key => $_smarty_tpl->tpl_vars['BASIC_ACTION']->value){
 $_smarty_tpl->tpl_vars['BASIC_ACTION']->_loop = true;

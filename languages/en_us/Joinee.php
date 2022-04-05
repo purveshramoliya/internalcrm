@@ -26,5 +26,7 @@ $languageStrings = Array(
 	'LBL_BONDLETTER' => 'Bond Letter',
 	'Take-Home Salary' => 'Take-Home Salary / Stipend ',
 	'Candidate Review Status ' => 'Candidate Offer Review',
+	'LBL_CONVERT_USER' =>'Convert Joinee',
+	'JS_SELECT_JOINEE' => 'Select User to proceed',
 );	
 ?>

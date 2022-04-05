@@ -20,7 +20,8 @@ if($documenttype == 'Appointment')
     die();
 }
 elseif(isset($_POST['Accept']) && $adb->num_rows($rcheck_result)<=1){
-             $adb->pquery("UPDATE vtiger_joineecf SET cf_1350 ='Accepted' WHERE joineeid =".$record); //write this query according to your table schema
+             $adb->pquery("UPDATE vtiger_joineecf SET cf_1350 ='Accepted' WHERE joineeid =".$record); 
+             //write this query according to your table schema
              echo "You have Accepted The Appointment Letter.";
              die();
          }
@@ -52,7 +53,24 @@ elseif(isset($_POST['Accept']) && $adb->num_rows($rcheck_result)<=1){
     }
     elseif(isset($_POST['Accept']) && $adb->num_rows($rcheck_result)<=1){
              $adb->pquery("UPDATE vtiger_joineecf SET cf_1348 ='Accepted' WHERE joineeid =".$record); //write this query according to your table schema
-             echo "You have Accepted The Offer Letter";
+             //echo "You have Accepted The Offer Letter";
+             $contents='<html>
+               <head>
+               <title></title>
+               </head>
+               <body>
+               <table>
+               <tr><td>
+               <p>Congratulations,</p>
+               </td></tr>
+               <tr><td>
+               <p>This is to formally offer you the job from <b>BIZTECHNOSYS</b>. We strongly believe that your skill and expertise will help our company to reach great heights.</p>
+               </td></tr>
+               <br/>
+               </table>
+               </body>
+               </html>';
+               echo $contents;
              die();
          }
 

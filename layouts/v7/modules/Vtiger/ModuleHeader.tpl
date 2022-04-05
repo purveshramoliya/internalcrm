@@ -45,7 +45,11 @@
 					<p class="current-filter-name filter-name pull-left "><span class="fa fa-angle-right pull-left" aria-hidden="true"></span><a>&nbsp;&nbsp;{vtranslate('LBL_ADDING_NEW', $MODULE)}&nbsp;&nbsp;</a></p>
 				{/if}
 				{if $smarty.request.view eq 'Detail'}
+				    {if $MODULE eq 'Joinee'}
+					<p class="current-filter-name filter-name pull-left"><span class="fa fa-angle-right pull-left" aria-hidden="true"></span><a title="{$RECORD->get('label')}">&nbsp;&nbsp;{$RECORD->get('joinee_tks_firstname')}&nbsp;{$RECORD->get('joinee_tks_lastname')} &nbsp;&nbsp;</a></p>
+					{else}
 					<p class="current-filter-name filter-name pull-left"><span class="fa fa-angle-right pull-left" aria-hidden="true"></span><a title="{$RECORD->get('label')}">&nbsp;&nbsp;{$RECORD->get('label')} &nbsp;&nbsp;</a></p>
+					{/if}
 				{/if}
 			</div>
 			<div class="col-lg-5 col-md-6 col-sm-7 col-xs-1 padding0 pull-right">
