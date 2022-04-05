@@ -77,8 +77,9 @@ $httpc->post($endpointUrl.$urlArgs, $params, true);
 $response = $httpc->currentResponse();
 $jsonResponse = Zend_JSON::decode($response['body']);
 $savedObject = $jsonResponse['result']; 
-$setuserid = $jsonResponse['result']['id'];
-$adb->pquery("UPDATE `vtiger_crmentity` SET `smownerid` = '$setuserid' WHERE `vtiger_crmentity`.`crmid` =".$recordId); 
+$uId = $jsonResponse['result']['id'];
+$ex = explode('x', $uId);
+$adb->pquery("UPDATE `vtiger_crmentity` SET `smownerid` = $ex[1] WHERE `vtiger_crmentity`.`crmid` =".$recordId); 
 
 //sendmail on create profile
 $query=$adb->pquery("select joineeno,joinee_tks_firstname from vtiger_joinee inner join vtiger_crmentity on vtiger_crmentity.crmid=vtiger_joinee.joineeid where vtiger_crmentity.deleted=0 and vtiger_joinee.joineeid=".$recordId);
@@ -98,7 +99,7 @@ $contents = '
 Your Joining request has been approved and now you can login with the username and password by clicking on the link provided.</p>
 <p>Username : '.$username.' </p>
 <p>Password : '.$password.' </p>
-<a href="'.$site_URL.'">Login</a><br>
+<a href="'.$site_URL.'">Login</a><br/>
 Thanks<br>
 </body> 
 </html>'; 
