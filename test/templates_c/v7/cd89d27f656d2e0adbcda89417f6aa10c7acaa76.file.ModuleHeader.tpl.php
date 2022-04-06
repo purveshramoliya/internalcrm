@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2022-04-04 11:39:57
+<?php /* Smarty version Smarty-3.1.7, created on 2022-04-06 06:45:34
          compiled from "D:\wamp\www\internalcrm\includes\runtime/../../layouts/v7\modules\Vtiger\ModuleHeader.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:231326248099ad76890-60627973%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:5027624d370e2dfa17-71244210%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,12 +11,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '231326248099ad76890-60627973',
+  'nocache_hash' => '5027624d370e2dfa17-71244210',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_6248099b31f64',
   'variables' => 
   array (
     'MODULE' => 0,
@@ -39,8 +37,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'FIELDS_INFO' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_624d370e73344',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_6248099b31f64')) {function content_6248099b31f64($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_624d370e73344')) {function content_624d370e73344($_smarty_tpl) {?>
 
 <div class="col-sm-11 col-xs-10 padding0 module-action-bar clearfix coloredBorderTop"><div class="module-action-content clearfix <?php echo $_smarty_tpl->tpl_vars['MODULE']->value;?>
 -module-action-content"><div class="col-lg-7 col-md-6 col-sm-5 col-xs-11 padding0 module-breadcrumb module-breadcrumb-<?php echo $_REQUEST['view'];?>

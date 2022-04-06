@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2022-04-05 04:27:35
+<?php /* Smarty version Smarty-3.1.7, created on 2022-04-06 07:19:02
          compiled from "D:\wamp\www\internalcrm\includes\runtime/../../layouts/v7\modules\Joinee\ConvertLead.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2790624809f176ad16-95017686%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:11065624d3ee6ce5d99-79850473%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,12 +11,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2790624809f176ad16-95017686',
+  'nocache_hash' => '11065624d3ee6ce5d99-79850473',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_624809f1a78e1',
   'variables' => 
   array (
     'CONVERT_LEAD_FIELDS' => 0,
@@ -33,8 +31,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ASSIGN_TO' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_624d3ee700781',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_624809f1a78e1')) {function content_624809f1a78e1($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_624d3ee700781')) {function content_624d3ee700781($_smarty_tpl) {?>
 <div class="modal-dialog"><div id="convertLeadContainer" class='modelContainer modal-content'><?php if (!$_smarty_tpl->tpl_vars['CONVERT_LEAD_FIELDS']->value['Accounts']&&!$_smarty_tpl->tpl_vars['CONVERT_LEAD_FIELDS']->value['Contacts']){?><input type="hidden" id="convertLeadErrorTitle" value="<?php echo vtranslate('LBL_CONVERT_ERROR_TITLE',$_smarty_tpl->tpl_vars['MODULE']->value);?>
 "/><input id="convertLeadError" class="convertLeadError" type="hidden" value="<?php echo vtranslate('LBL_CONVERT_LEAD_ERROR',$_smarty_tpl->tpl_vars['MODULE']->value);?>
 "/><?php }else{ ?><?php ob_start();?><?php echo vtranslate('LBL_CONVERT_USER',$_smarty_tpl->tpl_vars['MODULE']->value);?>

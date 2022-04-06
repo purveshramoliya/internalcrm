@@ -10,20 +10,20 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 
 			$moduleName = $entityData->getModuleName();
 			$entityId = $entityData->getId();
+			$offer = $entityData->get('cf_1336');
 
-			if ($moduleName == 'Joinee') {
-				global $log,$adb;
-
+			if ($moduleName == 'Joinee' && $offer == 'on') {
 				require_once("vtlib/Vtiger/Mailer.php");
-				global $site_URL,$HELPDESK_SUPPORT_EMAIL_ID,$HELPDESK_SUPPORT_NAME;
+				global $log,$adb,$site_URL,$HELPDESK_SUPPORT_EMAIL_ID,$HELPDESK_SUPPORT_NAME;
 				$from=$HELPDESK_SUPPORT_EMAIL_ID;
 				$fromName=$HELPDESK_SUPPORT_NAME;
 
+				$query=$adb->pquery("select custom_offer from vtiger_joinee inner join vtiger_crmentity on vtiger_crmentity.crmid=vtiger_joinee.joineeid where vtiger_crmentity.deleted=0 and vtiger_joinee.joineeid=".$entityId);
+                $offer_notification=$adb->query_result($query,0,'custom_offer');
+
 			//Joinee details
 				$todaydate = date('d-m-Y');
-				$record=$entityData->get('record');
-				$documentlink=$site_URL.'UploadDocuments.php?record_id='.$record;
-				
+				$documentlink=$site_URL.'UploadDocuments.php?record_id='.$entityId;
 				$empno = $entityData->get('joinee_no');
 				$firstname = $entityData->get('joinee_tks_firstname');
 				$lastname = $entityData->get('joinee_tks_lastname');
@@ -34,172 +34,163 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 				$thsdigit = $entityData->get('cf_1332');
 				$allths = (int)str_replace(',', '', $thsdigit);
 				$thsvalue = number_format($allths, 2);
-
 				$Joiningdate = $entityData->get('cf_1334');
-				$offernotification = $entityData->get('cf_1336');
 
-				if( $type == 'Intern')
+				if( $type == 'Intern' && $offer_notification == 0)
 				{
-					if ($offernotification != 'on')
+					if(isset($allths))
 					{
-
-						if(isset($allths))
-						{
-							$number = round($allths);
-							$no = floor($number);
-							$point = round($number - $no, 2) * 100;
-							$hundred = null;
-							$digits_1 = strlen($no);
-							$i = 0;
-							$str = array();
-							$words = array('0' => '', '1' => 'one', '2' => 'two',
-								'3' => 'three', '4' => 'four', '5' => 'five', '6' => 'six',
-								'7' => 'seven', '8' => 'eight', '9' => 'nine',
-								'10' => 'ten', '11' => 'eleven', '12' => 'twelve',
-								'13' => 'thirteen', '14' => 'fourteen',
-								'15' => 'fifteen', '16' => 'sixteen', '17' => 'seventeen',
-								'18' => 'eighteen', '19' =>'nineteen', '20' => 'twenty',
-								'30' => 'thirty', '40' => 'forty', '50' => 'fifty',
-								'60' => 'sixty', '70' => 'seventy',
-								'80' => 'eighty', '90' => 'ninety');
-							$digits = array('', 'hundred', 'thousand', 'lakh', 'crore');
-							while ($i < $digits_1) {
-								$divider = ($i == 2) ? 10 : 100;
-								$number = floor($no % $divider);
-								$no = floor($no / $divider);
-								$i += ($divider == 10) ? 1 : 2;
-								if ($number) {
-									$plural = (($counter = count($str)) && $number > 9) ? 's' : null;
-									$hundred = ($counter == 1 && $str[0]) ? ' and ' : null;
-									$str [] = ($number < 21) ? $words[$number] .
-									" " . $digits[$counter] . $plural . " " . $hundred
-									:
-									$words[floor($number / 10) * 10]
-									. " " . $words[$number % 10] . " "
-									. $digits[$counter] . $plural . " " . $hundred;
-								} else $str[] = null;
-							}
-							$str = array_reverse($str);
-							$result = implode('', $str);
-							$thsword=$result . "Rupees";
+						$number = round($allths);
+						$no = floor($number);
+						$point = round($number - $no, 2) * 100;
+						$hundred = null;
+						$digits_1 = strlen($no);
+						$i = 0;
+						$str = array();
+						$words = array('0' => '', '1' => 'one', '2' => 'two',
+							'3' => 'three', '4' => 'four', '5' => 'five', '6' => 'six',
+							'7' => 'seven', '8' => 'eight', '9' => 'nine',
+							'10' => 'ten', '11' => 'eleven', '12' => 'twelve',
+							'13' => 'thirteen', '14' => 'fourteen',
+							'15' => 'fifteen', '16' => 'sixteen', '17' => 'seventeen',
+							'18' => 'eighteen', '19' =>'nineteen', '20' => 'twenty',
+							'30' => 'thirty', '40' => 'forty', '50' => 'fifty',
+							'60' => 'sixty', '70' => 'seventy',
+							'80' => 'eighty', '90' => 'ninety');
+						$digits = array('', 'hundred', 'thousand', 'lakh', 'crore');
+						while ($i < $digits_1) {
+							$divider = ($i == 2) ? 10 : 100;
+							$number = floor($no % $divider);
+							$no = floor($no / $divider);
+							$i += ($divider == 10) ? 1 : 2;
+							if ($number) {
+								$plural = (($counter = count($str)) && $number > 9) ? 's' : null;
+								$hundred = ($counter == 1 && $str[0]) ? ' and ' : null;
+								$str [] = ($number < 21) ? $words[$number] .
+								" " . $digits[$counter] . $plural . " " . $hundred
+								:
+								$words[floor($number / 10) * 10]
+								. " " . $words[$number % 10] . " "
+								. $digits[$counter] . $plural . " " . $hundred;
+							} else $str[] = null;
 						}
+						$str = array_reverse($str);
+						$result = implode('', $str);
+						$thsword=$result . "Rupees";
+					}
 
-						$body='<html>
-						<head>
-						<title></title>
-						</head>
-						<body>
-						<div>
-						<div>
-						<img  class="logo" src="includes/mpdf/header.png" alt="header">
-						</div>
-						<div>
-						<div class="div-left"><p>Date:'.$todaydate.'<p></div>           
-						<div class="a">
-						<h2><u>OFFER LETTER OF INTERNSHIP</u></h2>
-						</div>
-						<table>
-						<tr>
-						<td>
-						<div class="div-left">
-						<p>Dear '.$firstname.' '.$lastname.',<p>
-						</div>
-						</td>
-						</tr>
-						<tr>
-						<td>
-						<p>
-						With reference to your application and subsequent interview with us,we are pleased to extend an offer of Internship to you in our organization at the position of <b> “'.$position.'” <b/>, at a <b>stipend of INR '.$thsvalue.' Per Annum ('.$thsword.')</b>.
-						</p>
-						</td>
-						</tr>
-						<tr>
-						<td>
-						<p>
-						The first <b>3</b> months of your service will be on <b>Internship</b>, at the end of which, the company may confirm your services, subject to your performance meeting our requisite standards. You will be on <b>Internship</b> till the time you receive the confirmation letter. You have to serve <b>3</b> months’ notice period from the date of resignation <b>Internship confirmation letter</b> from the HR.
-						</p>
-						</td>
-						</tr>
-						<tr>
-						<td>
-						<p>
-						On the date Internship Confirmation, you will receive your <b>Appointment letter</b>. You may need to submit the essential documents requested by the HR.Kindly sign the copy as a token of your acceptance of the offer and return us the same.
-						</p>
-						</td>
-						</tr>
-						<tr>
-						<td>
-						<p>
-						We look forward to having a long-term association with you.
-						</p>
-						</td>
-						</tr>
-						<br/>
-						</table>
-						<div class="outerDiv">
-						<div class="leftDiv">
-						<p>Thanking You,</p>
-						<p>For Biztechnosys Infotech Pvt.Ltd.</p>
-						<img  class="sign" src="includes/mpdf/sign.png" alt="sign">
-						<p>Sathiaraj T</p>
-						<p>Manager - Human Resource & Admin<p>
-						</div>
-						<div class="rightDiv">
-						<p style="padding-left:150px;">Accepted the Offer</p>
-						<p>&nbsp;</p>
-						<p>&nbsp;</p>
-						<p style="padding-left:150px;">_____________________</p>
-						<p style="padding-left:150px;">Signature of the candidate</p>
-						</div>
-						<div style="clear: both;"></div>
-						</div>
-						</div>
-						</div>
-						</body>
-						</html>';
+					$body='<html>
+					<head>
+					<title></title>
+					</head>
+					<body>
+					<div>
+					<div>
+					<img  class="logo" src="includes/mpdf/header.png" alt="header">
+					</div>
+					<div>
+					<div class="div-left"><p>Date:'.$todaydate.'<p></div>           
+					<div class="a">
+					<h2><u>OFFER LETTER OF INTERNSHIP</u></h2>
+					</div>
+					<table>
+					<tr>
+					<td>
+					<div class="div-left">
+					<p>Dear '.$firstname.' '.$lastname.',<p>
+					</div>
+					</td>
+					</tr>
+					<tr>
+					<td>
+					<p>
+					With reference to your application and subsequent interview with us,we are pleased to extend an offer of Internship to you in our organization at the position of <b> “'.$position.'” <b/>, at a <b>stipend of INR '.$thsvalue.' Per Annum ('.$thsword.')</b>.
+					</p>
+					</td>
+					</tr>
+					<tr>
+					<td>
+					<p>
+					The first <b>3</b> months of your service will be on <b>Internship</b>, at the end of which, the company may confirm your services, subject to your performance meeting our requisite standards. You will be on <b>Internship</b> till the time you receive the confirmation letter. You have to serve <b>3</b> months’ notice period from the date of resignation <b>Internship confirmation letter</b> from the HR.
+					</p>
+					</td>
+					</tr>
+					<tr>
+					<td>
+					<p>
+					On the date Internship Confirmation, you will receive your <b>Appointment letter</b>. You may need to submit the essential documents requested by the HR.Kindly sign the copy as a token of your acceptance of the offer and return us the same.
+					</p>
+					</td>
+					</tr>
+					<tr>
+					<td>
+					<p>
+					We look forward to having a long-term association with you.
+					</p>
+					</td>
+					</tr>
+					<br/>
+					</table>
+					<div class="outerDiv">
+					<div class="leftDiv">
+					<p>Thanking You,</p>
+					<p>For Biztechnosys Infotech Pvt.Ltd.</p>
+					<img  class="sign" src="includes/mpdf/sign.png" alt="sign">
+					<p>Sathiaraj T</p>
+					<p>Manager - Human Resource & Admin<p>
+					</div>
+					<div class="rightDiv">
+					<p style="padding-left:150px;">Accepted the Offer</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p style="padding-left:150px;">_____________________</p>
+					<p style="padding-left:150px;">Signature of the candidate</p>
+					</div>
+					<div style="clear: both;"></div>
+					</div>
+					</div>
+					</div>
+					</body>
+					</html>';
 
-						ob_start();
-						$body = iconv("UTF-8","UTF-8//IGNORE",$body);
+					ob_start();
+					$body = iconv("UTF-8","UTF-8//IGNORE",$body);
+					include("includes/mpdf/mpdf/mpdf.php");
 
-						include("includes/mpdf/mpdf/mpdf.php");
-
-						$mpdf=new mPDF('c','A4','','',15,15,15,15,15,15);  
-						$stylesheet = file_get_contents('includes/mpdf/mpdfstyletables.css');
-						$mpdf->WriteHTML($stylesheet,1);
-         //write html to PDF
-						$m=$mpdf->WriteHTML($body,2);
-         //output pdf
-						$attachment=$mpdf->Output('Offer Letter-'.$empno.'.pdf','S');
-
+					$mpdf=new mPDF('c','A4','','',15,15,15,15,15,15);  
+					$stylesheet = file_get_contents('includes/mpdf/mpdfstyletables.css');
+					$mpdf->WriteHTML($stylesheet,1);
+                   //write html to PDF
+					$m=$mpdf->WriteHTML($body,2);
+                   //output pdf
+					$attachment=$mpdf->Output('Offer Letter-'.$empno.'.pdf','S');
 
 					//trigger send email
-		//if ($sendEmail && $entityData->get('emailoptout') == 0) {
-						$emailData = Joinee::getOfferLetterEmailContents($entityData,'OfferLetter');
-						$subject = $emailData['subject'];
-						if(empty($subject)) {
-							$subject = 'Offer Letter';
-						}
-						$subject = decode_html(getMergedDescription($subject, $entityId,'Joinee'));
-						$contents = $emailData['body'];
-						$contents= decode_html(getMergedDescription($contents, $entityId, 'Joinee'));
-						if(empty($contents)) {
-							$contents = 'Offer Letter';
-						}
+					$emailData = Joinee::getOfferLetterEmailContents($entityData,'OfferLetter');
+					$subject = $emailData['subject'];
+					if(empty($subject)) {
+						$subject = 'Offer Letter';
+					}
+					$subject = decode_html(getMergedDescription($subject, $entityId,'Joinee'));
+					$contents = $emailData['body'];
+					$contents= decode_html(getMergedDescription($contents, $entityId, 'Joinee'));
+					if(empty($contents)) {
+						$contents = 'Offer Letter';
+					}
 
-						$mail = new Vtiger_Mailer();
-						$mail->IsHTML(true);
-						$fromEmail = Emails_Record_Model::getFromEmailAddress();
-				//$fromEmail='lokesh.s@biztechnosys.com';
-						$fromName='HR Manager';
-						$mail->ConfigSenderInfo($fromEmail,$fromName);
-						$mail->Subject = $subject;
-						$mail->Body = $contents;
-						$mail->AddStringAttachment($attachment, 'Offer Letter', 'base64', 'application/pdf');
-						$mail->SendTo($to_email, 'Candidate', true, false, true);
+					$mail = new Vtiger_Mailer();
+					$mail->IsHTML(true);
+					$mail->ConfigSenderInfo($from,$fromName);
+					$mail->Subject = $subject;
+					$mail->Body = $contents;
+					$mail->AddStringAttachment($attachment, 'Offer Letter', 'base64', 'application/pdf');
+					//$mail->SendTo($to_email, 'Candidate', true, false, true);
+					$mail->AddAddress($to_email);
+					$status = $mail->Send(true);
 
-						if ($offernotification == 0) {
-							$adb->pquery('update vtiger_joineecf set cf_1336=1 where joineeid='.$entityId);
-						}
+					if(isset($status))
+					{
+						$adb->pquery("update vtiger_joinee set custom_offer=1 where joineeid=".$entityId);
 					}
 				}
 			}
