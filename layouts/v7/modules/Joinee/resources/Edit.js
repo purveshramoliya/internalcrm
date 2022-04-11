@@ -190,27 +190,27 @@
 	 JoineeDocumentsHandler: function() {
 	 	var offer = jQuery('#Joinee_editView_fieldName_cf_1336').val();
 	 	var appointment = jQuery('#Joinee_editView_fieldName_cf_1342').val();
-	 	var verified = jQuery('#Joinee_editView_fieldName_cf_1346').val();
+	 	var verified = jQuery('#Joinee_editView_fieldName_cf_1344').val();
+	 	
+	 	jQuery('#Joinee_editView_fieldName_cf_1342').on('click', function(){
+	 		console.log(offer);
+	 		console.log(verified);
+	 		if(jQuery('#Joinee_editView_fieldName_cf_1342').prop("checked") == true)
+	 		{
+	 			if(jQuery('#Joinee_editView_fieldName_cf_1336').prop("checked") == false){
+	 				app.helper.showAlertNotification({'message': app.vtranslate("Offer Letter hasn't Sent")});
+	 				jQuery('.saveButton').attr('disabled', true);
+	 			}
+	 			if(jQuery('#Joinee_editView_fieldName_cf_1344').prop("checked") == false){
+	 				app.helper.showAlertNotification({'message': app.vtranslate("Documents are not verified")});
+	 				jQuery('.saveButton').attr('disabled', true);
+	 			}
+	 		}
+	 	});
 
 	 	jQuery('.saveButton').on('click', function(){
-	 		if(offer != 'on') {
-	 			app.helper.showAlertNotification({'message': app.vtranslate('Offer Latter Not Sent')});
-	 		}
-
-	 		if(appointment == 'on')
-	 		{
-	 			if(offer != 'on') {
-	 				app.helper.showAlertNotification({'message': app.vtranslate('Offer Latter Not Sent')});
-	 				jQuery('.saveButton').attr('disabled', true);
-	 			}
-	 			if(verified != 'on') {
-	 				app.helper.showAlertNotification({'message': app.vtranslate('Documents are not verified')});
-	 				jQuery('.saveButton').attr('disabled', true);
-	 			}
-	 			if(offer != 'on' && verified != 'on') {
-	 				app.helper.showAlertNotification({'message': app.vtranslate('Offer Latter is Not Sent & Documents are not verified')});
-	 				jQuery('.saveButton').attr('disabled', true);
-	 			}
+	 		if(jQuery('#Joinee_editView_fieldName_cf_1336').prop("checked") == false){
+	 			app.helper.showAlertNotification({'message': app.vtranslate('Offer Letter Not Sent')});
 	 		}
 	 	});
 	 },
@@ -218,8 +218,9 @@
 	 registerEvents: function(){
 	 	this._super();	
 	 	this.JoineeDocumentsHandler();
-	 	jQuery('#EditView').find('[name="cf_1344"]').parent().css('pointer-events', 'none');
-	 	jQuery('#EditView').find('[name="cf_1344"]').css('background-color' , '#DEDEDE');
+	 	//jQuery('#EditView').find('[name="cf_1344"]').parent().css('pointer-events', 'none');
+	 	//jQuery('#EditView').find('[name="cf_1344"]').css('background-color' , '#DEDEDE');
+	 	jQuery('#EditView').find('[name="cf_1344"]').click(function() { return false; });
 	 	jQuery('#EditView').find('[name="cf_1348"]').parent().css('pointer-events', 'none');
 	 	jQuery('#EditView').find('[name="cf_1348"]').css('background-color' , '#DEDEDE');
 	 	jQuery('#EditView').find('[name="cf_1350"]').parent().css('pointer-events', 'none');

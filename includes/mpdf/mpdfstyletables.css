@@ -3,8 +3,11 @@ body { font-family: DejaVuSansCondensed; font-size: 11pt;  }
 div.a {
   text-align: center;
 }
-p
+/*tr
 {
+  margin-bottom: 1em;
+}*/
+p{
   margin-bottom: 1em;
 }
 /*td,th
@@ -32,6 +35,10 @@ p
   width: auto;
   float: right;
 }
+.rightdate
+{
+  text-align: right;
+}
 
 .outerDiv {
   max-width:980px;
@@ -57,4 +64,48 @@ p
 .downborder {
  border-bottom: 1px solid;
  border-collapse:collapse;border-spacing:0;width: 100%;
+}
+
+table.empDetail tr td th { font-size: 13px; }
+
+.salary-slip {
+  margin: 15px;
+}
+.salary-slip .empDetail {
+  width: 100%;
+  text-align: left;
+  border: 1px solid black;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 13px;
+}
+.salary-slip .table-border-bottom {
+  border-bottom: 1px solid;
+}
+.salary-slip .table-border-right {
+  border-right: 1px solid;
+}
+.salary-slip .myBackground {
+  padding-top: 10px;
+  text-align: left;
+  border: 1px solid black;
+  height: 40px;
+}
+.salary-slip .myAlign {
+  text-align: right;
+  border-right: 1px solid black;
+}
+.salary-slip .border-center th{
+  font-size: 14px;
+}
+.salary-slip .border-center td {
+  border: 1px solid black;
+}
+.salary-slip th,
+.salary-slip td {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+.salary-slip .text_right{
+  text-align: right;
 }

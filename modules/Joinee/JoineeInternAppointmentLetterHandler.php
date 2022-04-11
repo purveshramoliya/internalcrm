@@ -21,15 +21,16 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 
 			//Joinee details
 				$todaydate = date('d-m-Y');
-				$empno = $entityData->get('joinee_no');
+				$empno = $entityData->get('joineeno');
 				$firstname = $entityData->get('joinee_tks_firstname');
 				$lastname = $entityData->get('joinee_tks_lastname');
 				$position = $entityData->get('joinee_tks_positiontitle');
 				$to_email = $entityData->get('joinee_tks_emailid');
 				$type = $entityData->get('cf_1346');
+				$location = $entityData->get('cf_1362');
 				$address =$entityData->get('joinee_tks_address');
-				$Joiningdate = $entityData->get('cf_1334');
-				$managername = $entityData->get('assigned_user_id');
+				$joiningdate = $entityData->get('cf_1334');
+				$managername = $entityData->get('joinee_tks_reportto');
 				$ctcdigit = $entityData->get('cf_1330');
 				$thsdigit = $entityData->get('cf_1332');
 				$allctc = (int)str_replace(',', '', $ctcdigit);
@@ -100,28 +101,28 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 					<img  class="logo" src="includes/mpdf/header.png" alt="header">
 					</div>
 					<div>
-					<div class="rightdate"><p>Date:'.$todaydate.'<p></div>
+					<p style="text-align: right;"><b>Date:'.$todaydate.'</b></p>
 					<div class="a"><h2><u>INTERNSHIP - APPOINTMENT LETTER</u></h2></div>
 					<table>
 					<tr><td>
 					<div class="div-left">
-					<p>To,</p>
-					<p>Candidate Name:'.$firstname.' '.$lastname.',</p>
-					<p>Address:'.$address.',</p></br>
+					<p><b>To</b>,</p>
+					<p><b>'.$firstname.' '.$lastname.'</b>,</p>
+					<p><b>'.$address.'</b>,</p></br>
 					</div>
 					</td></tr>
 					<tr><td>
 					<div class="div-left">
-					<p>Dear '.$firstname.' '.$lastname.',</p></br>
+					<p>Dear <b>'.$firstname.' '.$lastname.'</b>,</p></br>
 					</div>
 					</td></tr>
 					<tr><td>
-					<p>We are pleased to appoint you as “'.$position.'” with effect from '.$joiningdate.' in our organization.</p>
+					<p>We are pleased to appoint you as “<b>'.$position.'</b>” with effect from <b>'.$joiningdate.'</b> in our organization.</p>
 					</br>
 					</td></tr>
 					<tr><td>
 					<p><b>1. Stipend</b></p>
-					<p>You’re eligible for a Stipend of INR '.$thsdigit.' /- per month for the first 3 months of Internship.</p>
+					<p>You’re eligible for a <b>Stipend of INR '.$thsdigit.'</b> /- per month for the first 3 months of Internship.</p>
 					</br>
 					</td></tr>
 					<tr><td>
@@ -132,17 +133,17 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 					</td></tr>
 					<tr><td>
 					<p><b>3. Location:</b></p>
-					<p>You will be initially based in India at our Bangalore office. You must however be prepared to work at such other headquarters or locations of company within India or abroad (USA, Europe, other Locations) depending upon the exigencies of work. Your employment is subject to transfer to any of the companys affiliates, subsidiaries or sister concerns.</p>
+					<p>You will be initially based in India at our <b>'.$location.' office</b>. You must however be prepared to work at such other headquarters or locations of company within India or abroad (USA, Europe, other Locations) depending upon the exigencies of work. Your employment is subject to transfer to any of the companys affiliates, subsidiaries or sister concerns.</p>
 					</br>
 					</td></tr>
 					<tr><td>
 					<p><b>4. Reporting Line and Performance Assessment:</b></p>
-					<p>Initially you will be reporting to the '.$managername.' who will assess your performance on a daily basis.</p>
+					<p>Initially you will be reporting to the <b>'.$managername.'</b> who will assess your performance on a daily basis.</p>
 					</br>
 					</td></tr>
 					<tr><td>
 					<p><b>5. Working Hours/Days:</b></p>
-					<p>Currently we work from Monday to Friday 10:00 am to 7.00 pm. You are expected to work with us from Our Office at Bangalore. Your work time may be changed based on the requirements of projects executed and/or as decided by the company.</p>
+					<p>Currently we work from <b>Monday to Friday 10:00 am to 7.00 pm.</b> You are expected to work with us from Our Office at Bangalore. Your work time may be changed based on the requirements of projects executed and/or as decided by the company.</p>
 					</br>
 					</td></tr>
 					<tr><td>
@@ -160,8 +161,6 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 					</br>
 					</td></tr>
 					<tr><td>
-
-					<tr><td>
 					<p>We welcome you at our organization for a long-term association.</p>
 					</td></tr>
 					</br>
@@ -175,11 +174,11 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 					<p>Signature:_________________</p>
 					</div>
 					<div class="rightDiv">
-					<p>&nbsp;</p>
-					<p>&nbsp;</p>
+				    <p>&nbsp;</p>
+					<img  class="sign" alt="sign">
 					<p>&nbsp;</p>
 					<p>&nbsp;</p><br/><br/>
-					<p style="padding-left:150px;">Date:_________________</p>
+					<p style="padding-left:150px;padding-top:38px;">Date:_________________</p>
 					</div>
 					</div>
 					</body>
@@ -194,7 +193,7 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
                         //write html to PDF
 					$m=$mpdf->WriteHTML($body,2);
                         //output pdf
-					$attachment=$mpdf->Output('Offerlatter-'.$empno.'.pdf','S');
+					$attachment=$mpdf->Output('AppointmentLetter-'.$empno.'.pdf','S');
 
 					   //trigger send email
 					$emailData = Joinee::getAppointmentLetterEmailContents($entityData,'AppointmentLetter');
@@ -214,7 +213,7 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 					$mail->ConfigSenderInfo($from,$fromName);
 					$mail->Subject = $subject;
 					$mail->Body = $contents;
-					$mail->AddStringAttachment($attachment, 'Appointment Letter', 'base64', 'application/pdf');
+					$mail->AddStringAttachment($attachment, 'AppointmentLetter.pdf', 'base64', 'application/pdf');
 					$mail->AddAddress($to_email);
 					$status = $mail->Send(true);
 

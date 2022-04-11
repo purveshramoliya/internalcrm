@@ -21,19 +21,20 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 				$fromName=$HELPDESK_SUPPORT_NAME;
 
 				$query=$adb->pquery("select custom_appointment from vtiger_joinee inner join vtiger_crmentity on vtiger_crmentity.crmid=vtiger_joinee.joineeid where vtiger_crmentity.deleted=0 and vtiger_joinee.joineeid=".$entityId);
-                $appointment_notification=$adb->query_result($query,0,'custom_appointment');
+				$appointment_notification=$adb->query_result($query,0,'custom_appointment');
 
 			//Joinee details
 				$todaydate = date('d-m-Y');
-				$empno = $entityData->get('joinee_no');
+				$empno = $entityData->get('joineeno');
 				$firstname = $entityData->get('joinee_tks_firstname');
 				$lastname = $entityData->get('joinee_tks_lastname');
 				$position = $entityData->get('joinee_tks_positiontitle');
 				$to_email = $entityData->get('joinee_tks_emailid');
 				$type = $entityData->get('cf_1346');
+				$location = $entityData->get('cf_1362');
 				$address =$entityData->get('joinee_tks_address');
-				$Joiningdate = $entityData->get('cf_1334');
-				$managername = $entityData->get('assigned_user_id');
+				$joiningdate = $entityData->get('cf_1334');
+				$managername = $entityData->get('joinee_tks_reportto');
 				$ctcdigit = $entityData->get('cf_1330');
 				$thsdigit = $entityData->get('cf_1332');
 				$allctc = (int)str_replace(',', '', $ctcdigit);
@@ -42,19 +43,24 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 				$thsvalue = number_format($allths, 2);
 
 				//salary breakdown
-				$basic= ROUND($allths*40/100);
-				$hra= ROUND($basic*50/100);
-				$conveyance=1800;
-				$medicalallowance=1250;
-				$totalspend=$basic+$hra+$conveyance+$medicalallowance;
-				$specialallowance=ROUND($allths-$totalspend);
-				$totalerning=$basic+$hra+$conveyance+$medicalallowance+$specialallowance;
+				$basicvalue = ROUND($allctc*40/100);
+				$basic =  number_format($basicvalue, 2, '.', ',');
+				$hravalue = ROUND($basic*50/100);
+				$hra =  number_format($hravalue, 2, '.', ',');
+				$proftax = $entityData->get('cf_1374');
+				$conveyance = $entityData->get('cf_1368');
+				$medicalallowance = $entityData->get('cf_1370');
+				$totalspend = $basic+$hra+$conveyance+$medicalallowance;
+				$specialallowancevalue = ROUND($allctc-$totalspend);
+				$specialallowance =  number_format($specialallowancevalue, 2, '.', ',');
 
-				$netpay=$totalerning-200;
+				$totalerning = $basicvalue+$hravalue+$conveyance+$medicalallowance+$specialallowancevalue;
+				$netpayvalue = $allctc-$proftax;
+				$netpay =  number_format($netpayvalue, 2, '.', ',');
 
 				if( $type == 'Employee' && $appointment_notification == 0)
 				{
-					if(isset($netpay))
+					if(isset($netpayvalue))
 					{
 						$number = round($netpay);
 						$no = floor($netpay);
@@ -105,23 +111,23 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 					<img  class="logo" src="includes/mpdf/header.png" alt="header">
 					</div>
 					<div>
-					<div class="rightdate"><p>Date:'.$todaydate.'<p></div>
+					<p style="text-align: right;"><b>Date :'.$todaydate.'</b></p>
 					<div class="a"><h2><u>APPOINTMENT LETTER</u></h2></div>
 					<table>
 					<tr><td>
 					<div class="div-left">
-					<p>To,</p>
-					<p>Candidate Name:'.$firstname.' '.$lastname.',</p>
-					<p>Address:'.$address.',</p></br>
+					<p><b>To</b>,</p>
+					<p><b>'.$firstname.' '.$lastname.'</b>,</p>
+					<p><b>'.$address.',</b></p></br>
 					</div>
 					</td></tr>
 					<tr><td>
 					<div class="div-left">
-					<p>Dear '.$firstname.' '.$lastname.',</p></br>
+					<p>Dear <b>'.$firstname.' '.$lastname.'</b>,</p></br>
 					</div>
 					</td></tr>
 					<tr><td>
-					<p>We are pleased to appoint you as “'.$position.'” with effect from '.$joiningdate.' in our organization.</p>
+					<p>We are pleased to appoint you as “<b>'.$position.'</b>” with effect from <b>'.$joiningdate.'</b> in our organization.</p>
 					</br>
 					</td></tr>
 					<tr><td>
@@ -131,36 +137,36 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 					</td></tr>
 					<tr><td>
 					<p><b>2. Probation:</b></p>
-					<p>You will be on probation for a period of 3 months (the probation period), which may be extended by the company at its discretion. At the end of the probation period, the Company may confirm your services for a permanent appointment subject to your performance meeting the requisite standard set by the company. You will be on probation till the time the Company issues you a confirmation letter.</p>
-					<p>Before leaving the organization by your own decision, need to serve three-month notice period after submitting the resignation letter.</p>
+					<p>You will be on probation for a period of <b>3</b> months (the probation period), which may be extended by the company at its discretion. At the end of the probation period, the Company may confirm your services for a permanent appointment subject to your performance meeting the requisite standard set by the company. You will be on probation till the time the Company issues you a confirmation letter.</p>
+					<p>Before leaving the organization by your own decision, need to serve <b>three</b>-month notice period after submitting the resignation letter.</p>
 					</br>
 					</td></tr>
 					<tr><td>
 					<p><b>3. Location:</b></p>
-					<p>You will be initially based in India at our Bangalore office. You must however be prepared to work at such other headquarters or locations of company within India or abroad (USA, Europe, other Locations) depending upon the exigencies of work. Your employment is subject to transfer to any of the companys affiliates, subsidiaries or sister concerns.</p>
+					<p>You will be initially based in India at our <b>'.$location.' office</b>. You must however be prepared to work at such other headquarters or locations of company within India or abroad (USA, Europe, other Locations) depending upon the exigencies of work. Your employment is subject to transfer to any of the companys affiliates, subsidiaries or sister concerns.</p>
 					</br>
 					</td></tr>
 					<tr><td>
 					<p><b>4. Reporting Line and Performance Assessment:</b></p>
-					<p>Initially you will be reporting to the '.$managername.' who will assess your performance on a daily basis.</p>
+					<p>Initially you will be reporting to the <b>'.$managername.'</b> who will assess your performance on a daily basis.</p>
 					</br>
 					</td></tr>
 					<tr><td>
 					<p><b>5. Working Hours/Days:</b></p>
-					<p>Currently we work from Monday to Friday 10:00 am to 7.00 pm. You are expected to work with us from Our Office at Bangalore. Your work time may be changed based on the requirements of projects executed and/or as decided by the company.</p>
+					<p>Currently we work from Monday to Friday <b>10:00 am to 7.00 pm.</b> You are expected to work with us from Our Office at Bangalore. Your work time may be changed based on the requirements of projects executed and/or as decided by the company.</p>
 					</br>
 					</td></tr>
 					<tr><td>
 					<p><b>6. Leave benefits:</b></p>
-					<p>As per the current policy, you are entitled to a total of Twenty-Four Leaves per annum. Leaves will be updated on a monthly basis in your login portal. Unused leaves can be accumulated and used as per the company policy.</p>
+					<p>As per the current policy, you are entitled to a total of <b>Twenty-Four Leaves</b> per annum. Leaves will be updated on a monthly basis in your login portal. Unused leaves can be accumulated and used as per the company policy.</p>
 					</br>
 					</td></tr>
 					<tr><td>
 					<p><b>7. Termination:</b></p>
 					<p>Your employment may be terminated as under – </p>
-					<p><b>I.</b> During the probation period, either party may terminate the employment agreement at any time upon Ninety Days’ notice, with or without cause.</p>
-					<p><b>II.</b> During the probation period, you may terminate the employment agreement, upon 90 days prior written notice.</p>
-					<p><b>III.</b> Upon your confirmation, you shall be free to terminate the employment agreement at will and at any time, with or without cause, upon three months prior written notice from you & company can terminate the employment agreement at will and at any time, with or without cause, upon three months prior written notice desirous of terminating this employment agreement or payment of equivalent salary in lieu thereof.</p>
+					<p><b>I.</b> During the probation period, either party may terminate the employment agreement at any time upon <b>Ninety Days</b>’ notice, with or without cause.</p>
+					<p><b>II.</b> During the probation period, you may terminate the employment agreement, upon <b>90 days</b> prior written notice.</p>
+					<p><b>III.</b> Upon your confirmation, you shall be free to terminate the employment agreement at will and at any time, with or without cause, upon <b>three</b> months prior written notice from you & company can terminate the employment agreement at will and at any time, with or without cause, upon three months prior written notice desirous of terminating this employment agreement or payment of equivalent salary in lieu thereof.</p>
 					<p><b>IV.</b> Company at its sole discretion can roll-out termination of employment with immediate effect in the case of any behavioral issues or performance issues.</p>
 					<p>The above policy is subjected to revision from time to time at the sole discretion of the company.</p>
 					</br>
@@ -195,66 +201,72 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 					</div>
 					</div>
 					<div>
-					<div class="a"><h2><u>Annexure I</u></h2></div></br>
-					<div class="a"><h2>Salary Breakup</h2></div>
+					<div class="a"><h2><b><u>Annexure I</u></b></h2></div></br>
+					<div class="a"><h2><b>Salary Breakup</b></h2></div>
 					<div class="div-left">
 					<p>To,</p>
-					<p>Candidate Name:'.$firstname.' '.$lastname.',</p>
-					<p>Designation:'.$position.',</p>
+					<p><b>Candidate Name:'.$firstname.' '.$lastname.'</b>,</p>
+					<p><b>Designation:'.$position.'</b>,</p>
 					</div>
-
-					<div style="Width:auto">
-					<div class="leftDiv">
-					<table style="border-collapse:collapse;border-spacing:0;border: 1px solid;width: 100%;border-bottom: none;">
-					<tr><td><b>Earnings</b></td><td>&nbsp;</td><td><b>Actual</b></td></tr>
+					<div class="salary-slip">
+					<table class="empDetail">
+					<tr class="myBackground">
+					<th colspan="2">Earning</th>
+					<th class="text_right"></th>
+					<th class="table-border-right text_right">Actual</th>
+					<th colspan="3">Deductions</th>
+					<th class="text_right">Actual</th>
+					</tr>
+					<tr>
+					<th colspan="2">Basic</th>
+					<td class="text_right">&nbsp;</td>
+					<td class="myAlign">'.$basic.'</td>
+					<th colspan="3">PROF TAX</th>
+					<td class="myAlign">'.$proftax.'</td>
+					</tr>
+					<tr>
+					<th colspan="2">HRA</th>
+					<td class="text_right">&nbsp;</td>
+					<td class="myAlign">'.$hra.'</td>
+					<td colspan="4" class="table-border-right text_right">&nbsp;</td>
+					</tr>
+					<tr>
+					<th colspan="2">CONVEYANCE</th>
+					<td class="text_right">&nbsp;</td>
+					<td class="myAlign">'.$conveyance.'</td>
+					<td colspan="4" class="table-border-right text_right">&nbsp;</td>
+					</tr>
+					<tr>
+					<th colspan="2">MEDICAL ALLOWANCE</th>
+					<td class="text_right">&nbsp;</td>
+					<td class="myAlign">'.$medicalallowance.'</td>
+					<td colspan="4" class="table-border-right text_right">&nbsp;</td>
+					</tr>
+					<tr>
+					<th colspan="2">SPECIAL ALLOWANCE</th>
+					<td class="text_right">&nbsp;</td>
+					<td class="myAlign">'.$specialallowance.'</td>
+					<td colspan="4" class="table-border-right text_right">&nbsp;</td>
+					</tr>
+					<tr class="myBackground">
+					<th colspan="2">Total Earning: INR</th>
+					<td class="text_right">&nbsp;</td>
+					<td class="myAlign">'.$ctcdigit.'</td>
+					<th colspan="3">Total Deductions: INR</th>
+					<td class="myAlign">'.$proftax.'</td></tr>
+					<tr height="40px">
+					<th colspan="5">Net Pay for the month ( Total Earnings - Total Deductions):</th>
+					<th colspan="3" >'.$netpay.'</th>
+					</tr>
+					<tr height="40px">
+					<th colspan="5" style="font-style: italic">(IN words - '.$netpayword.')
+					</th>
+					<th colspan="3" class="table-border-bottom"></th>
+					</tr>
 					</table>
 					</div>
-					<div class="rightDiv">
-					<table style="border-collapse:collapse;border-spacing:0;border: 1px solid;width: 100%;border-bottom: none;border-left:none;">
-					<tr><td><b>Deducation</b></td><td><b>Actual</b></td></tr>
-					</table>
 					</div>
 					</div>
-
-					<div style="Width:auto">
-					<div class="leftDiv">
-					<table style="border-collapse:collapse;border-spacing:0;border: 1px solid;width: 100%;border-bottom: none;">
-					<tr><td>BASIC</td><td>&nbsp;</td><td>'.$basic.'</td></tr>
-					<tr><td>HRA</td><td>&nbsp;</td><td>'.$hra.'</td></tr>
-					<tr><td>CONVEYANCE</td><td>&nbsp;</td><td>'.$conveyance.'</td></tr>
-					<tr><td>MEDICAL ALLOWANCE</td><td>&nbsp;</td><td>'.$medicalallowance.'</td></tr>
-					<tr><td>SPECIAL ALLOWANCE</td><td>&nbsp;</td><td>'.$specialallowance.'</td></tr>
-					</table>
-					</div>
-					<div class="rightDiv">
-					<table style="border-collapse:collapse;border-spacing:0;border: 1px solid;width: 100%;border-bottom: none;border-left:none;">
-					<tr><td>PROF TAX</td><td>&nbsp;</td><td>200</td></tr>
-					<tr><td >&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-					<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-					<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-					<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-					</table>
-					</div>
-					</div>
-					<div style="Width:auto">
-					<div class="leftDiv">
-					<table style="border-collapse:collapse;border-spacing:0;border: 1px solid;width: 100%;border-bottom: none;">
-					<tr class="bordertop"><td>Total Earnings: INR.</td><td>00000</td><td>'.$totalerning.'</td></tr>
-					</table>
-					</div>
-					<div class="rightDiv">
-					<table style="border-collapse:collapse;border-spacing:0;border: 1px solid;width: 100%;border-bottom: none;border-left:none;">
-					<tr class="bordertop"><td>Total Deductions: INR.</td><td>200</td></tr>
-					</table>
-					</div>
-					</div>
-					<div style="Width:auto">
-					<table style="border-collapse:collapse;border-spacing:0;border: 1px solid;width: 100%;">
-					<tr class="bordertop"><td>Net Pay for the month (Total Earnings - Total Deductions):</td><td>'.$netpay.'</td></tr>
-					<tr><td>IN words -</td><td>'.$netpayword.'</td></tr>
-					</table>
-					</div>
-
 					</br>
 					<div class="outerDiv">
 					<div class="leftDiv">
@@ -269,17 +281,17 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 					<p>&nbsp;</p>
 					<p>&nbsp;</p>
 					<p>&nbsp;</p>
-					<p style="padding-left:150px;">Date:</p>
+					<p style="padding-left:150px;"><b>Date :'.$todaydate.'</b></p>
 					</div>
 					</div>
 					</div>
 					<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-					<div class="a"><h2><u>Annexure II</u></h2></div></br>
+					<div class="a"><h2><b><u>Annexure II</u></b></h2></div></br>
 					<div class="a"><u><b>Terms & conditions of the Employment</u></b></div>
 					<div class="div-left">
-					<p>date : </p>
-					<p>Candidate Name:'.$firstname.' '.$lastname.',</p>
-					<p>Designation:'.$position.',</p>
+					<p><b>date :'.$todaydate.'</b></p>
+					<p><b>Candidate Name:'.$firstname.' '.$lastname.'</b>,</p>
+					<p><b>Designation:'.$position.'</b>,</p>
 					<table>
 					<tr><td></br>
 					<p><b>1. Confidentiality / IPR / Employee Non-Disclosure Agreement:</b></p>
@@ -321,9 +333,9 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 					</td></tr>
 					<tr><td>
 					<p><b>6. Restrictions after cessation of employment with us:</b></p>
-					<p>For a period of 24 months after the termination of this employment, you shall not directly or indirectly, either on your behalf or on behalf of any other person, any firm or company in relation to the business activities of this company in which you have been engaged or involved directly or indirectly:- </p>
+					<p>For a period of <b>24</b> months after the termination of this employment, you shall not directly or indirectly, either on your behalf or on behalf of any other person, any firm or company in relation to the business activities of this company in which you have been engaged or involved directly or indirectly:- </p>
 					<p>-   Solicit, approach or offer goods or services or to entice away from the Company, person, firm or company who was a client, customer or trading partner of the Company and in each case with whom you have been actively engaged or involved by virtue of your employment at any time during the period of 24 months prior to the termination date. </p>
-					<p>-   Deal with or accept custom from any person, firm or company who was a client or customer of the Company and in each case with whom you have been actively engaged or involved by virtue of your employment at any time during the period of 24 months prior to the termination date. </p>
+					<p>-   Deal with or accept custom from any person, firm or company who was a client or customer of the Company and in each case with whom you have been actively engaged or involved by virtue of your employment at any time during the period of <b>24</b> months prior to the termination date. </p>
 					<p>-   Either on your behalf or on behalf of any person, firm or company in relation to the activities of the Company in which you have been employed or involved directly or indirectly approach, solicit, endeavor to entice away, employ, procure the employment of any person who was or is an employee or who is or was engaged as a consultant or whose services were provided by way of consultancy to the Company, and with whom you had dealings within the period of 24 months prior to the termination date, whether or not such person would commit any breach of his contract of employment or engagement by reason of so leaving the service of the Company or otherwise. </p>
 					</br>
 					</td></tr>
@@ -353,16 +365,16 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 					<p><b>11. Applicable Law:</b></p>
 					<p>The applicable Indian laws shall govern this contract. The court of jurisdiction will be at Bangalore. Please sign on every page of this Terms and Conditions signifying your acceptance.</p>
 					</td></tr>
-					</br>
+					<br/><br/>
 					</table>
 					<div class="outerDiv">
 					<div class="leftDiv">
 					<p><b>Signature:_________________</b></p>
-					<p><b>Name of the Candidate:</b>'.$firstname.''.$lastname.'</p>
-					<p><b>Address:'.$address.'</p>
+					<p><b>Name of the Candidate :'.$firstname.''.$lastname.'</b></p>
+					<p><b>Address :'.$address.'</b></p>
 					</div>
 					<div class="rightDiv">
-					<p style="padding-left:150px;">Date:</p>
+					<p style="padding-left:150px;"><b>Date :'.$todaydate.'</b></p>
 					<p>&nbsp;</p>
 					<p>&nbsp;</p>
 					</div>
@@ -381,7 +393,7 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
                     //write html to PDF
 					$m=$mpdf->WriteHTML($body,2);
                     //output pdf
-					$attachment=$mpdf->Output('Appointment Letter-'.$empno.'.pdf','S');
+					$attachment=$mpdf->Output('AppointmentLetter-'.$empno.'.pdf','S');
 
 					//trigger send email
 					$emailData = Joinee::getAppointmentLetterEmailContents($entityData,'AppointmentLetter');
@@ -401,7 +413,7 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 					$mail->ConfigSenderInfo($from,$fromName);
 					$mail->Subject = $subject;
 					$mail->Body = $contents;
-					$mail->AddStringAttachment($attachment, 'Appointment Letter', 'base64', 'application/pdf');
+					$mail->AddStringAttachment($attachment, 'AppointmentLetter.pdf', 'base64', 'application/pdf');
 					$mail->AddAddress($to_email);
 					$status = $mail->Send(true);
 

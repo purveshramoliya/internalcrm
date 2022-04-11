@@ -21,9 +21,9 @@ class JoineeEmployeeOfferLetterHandler extends VTEventHandler
 
 			//Joinee details
 				$todaydate = date('d-m-Y');
-				$Joiningdate = $entityData->get('cf_1334');
+				$joiningdate = $entityData->get('cf_1334');
 				$documentlink=$site_URL.'UploadDocuments.php?record_id='.$entityId;
-				$empno = $entityData->get('joinee_no');
+				$empno = $entityData->get('joineeno');
 				$firstname = $entityData->get('joinee_tks_firstname');
 				$lastname = $entityData->get('joinee_tks_lastname');
 				$position = $entityData->get('joinee_tks_positiontitle');
@@ -128,29 +128,29 @@ class JoineeEmployeeOfferLetterHandler extends VTEventHandler
 					<div><div>
 					<img  class="logo" src="includes/mpdf/header.png" alt="header">
 					</div>
-					<div><div class="div-left"><p>Date:'.$todaydate.'<p></div><div class="a">
+					<div>
+					<p style="text-align: right;"><b>Date:'.$todaydate.'</b></p>
+					<div class="a">
 					<h2><u>OFFER LETTER</u></h2>
 					</div>
 					<table>
 					<tr><td>
 					<div class="div-left">
-					<p>Dear '.$firstname.' '.$lastname.',<p>
+					<p>Dear <b>'.$firstname.' '.$lastname.'</b>,</p>
 					</div>
 					</td></tr>
 					<tr><td>
 					<p>
-					With reference to your application and subsequent interview with us,we are pleased to extend an offer of employment to you in our organization at the position of “'.$position.'”, at a fixed Annual CTC of INR '.$ctcvalue.'/- Per Annum ('.$ctcword.') with a take home salary of Rs.'.$thsvalue.'/- ('.$thsword.') per month.
+					With reference to your application and subsequent interview with us,we are pleased to extend an offer of employment to you in our organization at the position of “<b>'.$position.'</b>”, at a fixed Annual <b>CTC of INR '.$ctcvalue.' Per Annum</b> ('.$ctcword.') with a take home salary of <b>Rs.'.$thsvalue.'/-</b> ('.$thsword.') per month.
 					</p>
 					</td></tr>
 					<tr><td>
 					<p>
-					The first 3 months of your service will be on probation, at the end of which, the company may confirm your services, subject to your performance meeting our requisite standards. You will be on probation till the time you receive the confirmation letter. You have to serve 3 months’ notice period from the date of resignation submission.
+					The first <b>3</b> months of your service will be on probation, at the end of which, the company may confirm your services, subject to your performance meeting our requisite standards. You will be on probation till the time you receive the confirmation letter. You have to serve <b>3</b> months’ notice period from the date of resignation submission.
 					</p>
 					</td></tr>
 					<tr><td>
-					<p>
-					We would expect you to join as early as possible confirming us on your date of joining to be'.$Joiningdate.'
-					</p>
+					<p>We would expect you to join as early as possible confirming us on your date of joining to be not later than<b>'.$joiningdate.'</b></p>
 					</td></tr>
 					<tr><td>
 					<p>
@@ -158,26 +158,27 @@ class JoineeEmployeeOfferLetterHandler extends VTEventHandler
 					</p>
 					</td></tr>
 					<tr><td>
-					<p>
-					We look forward to having a long-term association with you.
-					</p>
+					<p>We look forward to having a long-term association with you.</p>
 					</td></tr>
 					<br/>
 					</table>
 					<div class="outerDiv">
 					<div class="leftDiv">
 					<p>Thanking You,</p>
-					<p>For Biztechnosys Infotech Pvt.Ltd.</p>
+					<p><b>For Biztechnosys Infotech Pvt.Ltd.</b></p>
 					<img  class="sign" src="includes/mpdf/sign.png" alt="sign">
-					<p>Sathiaraj T</p>
-					<p>Manager - Human Resource & Admin<p>
+					<p><b>Sathiaraj T</b></p>
+					<p><b>Manager - Human Resource & Admin</b></p>
+					<p></p>
 					</div>
 					<div class="rightDiv">
-					<p style="padding-left:150px;">Accepted the Offer</p>
+					<p></p>
+					<p style="padding-left:150px;"><b>Accepted the Offer</b></p>
 					<p>&nbsp;</p>
 					<p>&nbsp;</p>
-					<p style="padding-left:150px;">_____________________</p>
-					<p style="padding-left:150px;">Signature of the candidate</p>
+					<p style="padding-left:150px;"><b>_____________________</b></p>
+					<p style="padding-left:150px;"><b>Signature of the candidate</b></p>
+					<p style="padding-left:150px;"><b>I will join on:</b></p>
 					</div>
 					<div style="clear: both;"></div>
 					</div>
@@ -195,7 +196,7 @@ class JoineeEmployeeOfferLetterHandler extends VTEventHandler
                        //write html to PDF
 					$m=$mpdf->WriteHTML($body,2);
                        //output pdf
-					$attachment=$mpdf->Output('Offer Letter-'.$empno.'.pdf','S');
+					$attachment=$mpdf->Output('OfferLetter-'.$empno.'.pdf','S');
 
 					//trigger send email
 					$emailData = Joinee::getOfferLetterEmailContents($entityData,'OfferLetter');
@@ -215,7 +216,7 @@ class JoineeEmployeeOfferLetterHandler extends VTEventHandler
 					$mail->ConfigSenderInfo($from,$fromName);
 					$mail->Subject = $subject;
 					$mail->Body = $contents;
-					$mail->AddStringAttachment($attachment, 'Offer Letter', 'base64', 'application/pdf');
+					$mail->AddStringAttachment($attachment, 'OfferLetter.pdf', 'base64', 'application/pdf');
 					//$mail->SendTo($to_email, 'Candidate', true, false, true);
 					$mail->AddAddress($to_email);
 					$status = $mail->Send(true);

@@ -24,7 +24,7 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 			//Joinee details
 				$todaydate = date('d-m-Y');
 				$documentlink=$site_URL.'UploadDocuments.php?record_id='.$entityId;
-				$empno = $entityData->get('joinee_no');
+				$empno = $entityData->get('joineeno');
 				$firstname = $entityData->get('joinee_tks_firstname');
 				$lastname = $entityData->get('joinee_tks_lastname');
 				$position = $entityData->get('joinee_tks_positiontitle');
@@ -34,7 +34,7 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 				$thsdigit = $entityData->get('cf_1332');
 				$allths = (int)str_replace(',', '', $thsdigit);
 				$thsvalue = number_format($allths, 2);
-				$Joiningdate = $entityData->get('cf_1334');
+				$joiningdate = $entityData->get('cf_1334');
 
 				if( $type == 'Intern' && $offer_notification == 0)
 				{
@@ -89,7 +89,7 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 					<img  class="logo" src="includes/mpdf/header.png" alt="header">
 					</div>
 					<div>
-					<div class="div-left"><p>Date:'.$todaydate.'<p></div>           
+					<p style="text-align: right;"><b>Date:'.$todaydate.'</b></p>          
 					<div class="a">
 					<h2><u>OFFER LETTER OF INTERNSHIP</u></h2>
 					</div>
@@ -97,15 +97,13 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 					<tr>
 					<td>
 					<div class="div-left">
-					<p>Dear '.$firstname.' '.$lastname.',<p>
+					<p>Dear <b>'.$firstname.' '.$lastname.'</b>,</p>
 					</div>
 					</td>
 					</tr>
 					<tr>
 					<td>
-					<p>
-					With reference to your application and subsequent interview with us,we are pleased to extend an offer of Internship to you in our organization at the position of <b> “'.$position.'” <b/>, at a <b>stipend of INR '.$thsvalue.' Per Annum ('.$thsword.')</b>.
-					</p>
+					<p>With reference to your application and subsequent interview with us,we are pleased to extend an offer of Internship to you in our organization at the position of “<b>'.$position.'</b>”, at a <b>stipend of INR '.$thsvalue.'/- Per Month (INR '.$thsword.').</b></p>
 					</td>
 					</tr>
 					<tr>
@@ -134,17 +132,20 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 					<div class="outerDiv">
 					<div class="leftDiv">
 					<p>Thanking You,</p>
-					<p>For Biztechnosys Infotech Pvt.Ltd.</p>
+					<p><b>For Biztechnosys Infotech Pvt.Ltd.</b></p>
 					<img  class="sign" src="includes/mpdf/sign.png" alt="sign">
-					<p>Sathiaraj T</p>
-					<p>Manager - Human Resource & Admin<p>
+					<p><b>Sathiaraj T</b></p>
+					<p><b>Manager - Human Resource & Admin</b></p>
+					<p></p>
 					</div>
 					<div class="rightDiv">
-					<p style="padding-left:150px;">Accepted the Offer</p>
+					<p></p>
+					<p style="padding-left:150px;"><b><u>Accepted the Offer</u></b></p>
 					<p>&nbsp;</p>
 					<p>&nbsp;</p>
-					<p style="padding-left:150px;">_____________________</p>
-					<p style="padding-left:150px;">Signature of the candidate</p>
+					<p style="padding-left:150px;"><b>_____________________</b></p>
+					<p style="padding-left:150px;"><b>Signature of the candidate</b></p>
+					<p style="padding-left:150px;"><b>I will join on:</b></p>
 					</div>
 					<div style="clear: both;"></div>
 					</div>
@@ -163,7 +164,7 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
                    //write html to PDF
 					$m=$mpdf->WriteHTML($body,2);
                    //output pdf
-					$attachment=$mpdf->Output('Offer Letter-'.$empno.'.pdf','S');
+					$attachment=$mpdf->Output('OfferLetter-'.$empno.'.pdf','S');
 
 					//trigger send email
 					$emailData = Joinee::getOfferLetterEmailContents($entityData,'OfferLetter');
@@ -183,7 +184,7 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 					$mail->ConfigSenderInfo($from,$fromName);
 					$mail->Subject = $subject;
 					$mail->Body = $contents;
-					$mail->AddStringAttachment($attachment, 'Offer Letter', 'base64', 'application/pdf');
+					$mail->AddStringAttachment($attachment, 'OfferLetter.pdf', 'base64', 'application/pdf');
 					//$mail->SendTo($to_email, 'Candidate', true, false, true);
 					$mail->AddAddress($to_email);
 					$status = $mail->Send(true);
