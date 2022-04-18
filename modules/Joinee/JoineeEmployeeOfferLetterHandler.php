@@ -28,6 +28,7 @@ class JoineeEmployeeOfferLetterHandler extends VTEventHandler
 				$lastname = $entityData->get('joinee_tks_lastname');
 				$position = $entityData->get('joinee_tks_positiontitle');
 				$to_email = $entityData->get('joinee_tks_emailid');
+				$note = $entityData->get('cf_1354');
 				$type = $entityData->get('cf_1346');
 				$ctcdigit = $entityData->get('cf_1330');
 				$thsdigit = $entityData->get('cf_1332');
@@ -150,7 +151,7 @@ class JoineeEmployeeOfferLetterHandler extends VTEventHandler
 					</p>
 					</td></tr>
 					<tr><td>
-					<p>We would expect you to join as early as possible confirming us on your date of joining to be not later than<b>'.$joiningdate.'</b></p>
+					<p>We would expect you to join as early as possible confirming us on your date of joining to be not later than <b>'.$joiningdate.'</b></p>
 					</td></tr>
 					<tr><td>
 					<p>
@@ -159,6 +160,9 @@ class JoineeEmployeeOfferLetterHandler extends VTEventHandler
 					</td></tr>
 					<tr><td>
 					<p>We look forward to having a long-term association with you.</p>
+					</td></tr>
+					<tr><td>
+					<p><b> NOTE: </b> '.$note.'</p>
 					</td></tr>
 					<br/>
 					</table>

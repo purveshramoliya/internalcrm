@@ -30,13 +30,19 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 				$location = $entityData->get('cf_1362');
 				$address =$entityData->get('joinee_tks_address');
 				$joiningdate = $entityData->get('cf_1334');
-				$managername = $entityData->get('joinee_tks_reportto');
+				$managerid = $entityData->get('joinee_tks_reportto');
+				$note = $entityData->get('cf_1356');
 				$ctcdigit = $entityData->get('cf_1330');
 				$thsdigit = $entityData->get('cf_1332');
 				$allctc = (int)str_replace(',', '', $ctcdigit);
 				$allths = (int)str_replace(',', '', $thsdigit);
 				$ctcvalue = number_format($allctc, 2);
 				$thsvalue = number_format($allths, 2);
+
+				$mquery=$adb->pquery('SELECT `first_name`,`last_name` FROM `vtiger_users`where id='.$managerid);
+				$mfname=$adb->query_result($mquery,0,'first_name');
+				$mlname=$adb->query_result($mquery,0,'last_name');
+				$managername=$mfname.' '.$mlname;
 
 				//salary breakdown
 				$basic= ROUND($allths*40/100);
@@ -162,6 +168,9 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 					</td></tr>
 					<tr><td>
 					<p>We welcome you at our organization for a long-term association.</p>
+					</td></tr>
+					<tr><td>
+					<p><b>NOTE: </b>'.$note.'</p>
 					</td></tr>
 					</br>
 					</table>

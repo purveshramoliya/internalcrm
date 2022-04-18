@@ -10,12 +10,12 @@
 *************************************************************************************************/
 
 $languageStrings = Array(
-	'Joinee' => 'Joinee',
-	'SINGLE_Joinee' => 'Joinee',
-	'ModuleName ID' => 'Joinee ID',
+	'Joinee' => 'Employee',
+	'SINGLE_Joinee' => 'Employee',
+	'ModuleName ID' => 'Employee ID',
 	
-	'LBL_ADD_RECORD' => 'Add Joinee',
-	'LBL_RECORDS_LIST' => 'Joinee List',
+	'LBL_ADD_RECORD' => 'Add Employee',
+	'LBL_RECORDS_LIST' => 'Employees List',
 	
 	'LBL_CUSTOM_INFORMATION' => 'Custom Information',
 	'LBL_MODULEBLOCK_INFORMATION' => 'ModuleBlock Information',
@@ -25,7 +25,7 @@ $languageStrings = Array(
 	'LBL_INTERNOFFERLETTER' => 'Intern Offer Letter',
 	'LBL_BONDLETTER' => 'Bond Letter',
 	'Take-Home Salary' => 'Take-Home Salary / Stipend ',
-	'Candidate Review Status ' => 'Candidate Offer Review',
+	'Candidate Review Status' => 'Candidate Offer Review',
 	'LBL_CONVERT_USER' =>'Convert Joinee',
 	'JS_SELECT_JOINEE' => 'Select User to proceed',
 );	

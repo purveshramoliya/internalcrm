@@ -65,6 +65,8 @@ class Users_Login_View extends Vtiger_View_Controller {
 
 		$mailStatus = $request->get('mailStatus');
 		$error = $request->get('error');
+		$pagemessage = $request->get('success');
+		$pmessage = 'Documents Uploaded Sucessfully...!!!';
 		$message = '';
 		if ($error) {
 			switch ($error) {
@@ -78,6 +80,8 @@ class Users_Login_View extends Vtiger_View_Controller {
 
 		$viewer->assign('ERROR', $error);
 		$viewer->assign('MESSAGE', $message);
+		$viewer->assign('PAGEMESSAGE_STATUS', $pagemessage);
+		$viewer->assign('PAGEMESSAGE', $pmessage);
 		$viewer->assign('MAIL_STATUS', $mailStatus);
 		$viewer->view('Login.tpl', 'Users');
 	}

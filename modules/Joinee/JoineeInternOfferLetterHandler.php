@@ -29,6 +29,7 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 				$lastname = $entityData->get('joinee_tks_lastname');
 				$position = $entityData->get('joinee_tks_positiontitle');
 				$to_email = $entityData->get('joinee_tks_emailid');
+				$note = $entityData->get('cf_1354');
 				$type = $entityData->get('cf_1346');
 				$ctcdigit = $entityData->get('cf_1330');
 				$thsdigit = $entityData->get('cf_1332');
@@ -125,6 +126,10 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 					<p>
 					We look forward to having a long-term association with you.
 					</p>
+					</td>
+					<tr>
+					<td>
+					<p><b> NOTE: </b> '.$note.'</p>
 					</td>
 					</tr>
 					<br/>

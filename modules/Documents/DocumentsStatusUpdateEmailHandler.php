@@ -59,16 +59,15 @@ class DocumentsStatusUpdateEmailHandler extends VTEventHandler
 					<body>
 					<table>
 					<tr><td>
-					<p>Dear '.$firstname.' '.$lastname.',<p>
-					</td></tr>
-					<tr><td>
+					<p>Dear '.$firstname.' '.$lastname.',</p>
+					<p>&nbsp;</p>
 					<p>Document-'.$title.' has been Rejected by HR,Please update documents.</p>
 					</td></tr>
 					<br/>
 					</table>
 					</body>
 					</html>';
-					$subject='Documents-'.$title.' Rejected By - HR';
+					$subject= $title.' Document Rejected By - HR';
 					$description = $contents;
 					$mailer = new Vtiger_Mailer();
 					$mailer->IsHTML(true);
@@ -88,16 +87,15 @@ class DocumentsStatusUpdateEmailHandler extends VTEventHandler
 					<body>
 					<table>
 					<tr><td>
-					<p>Dear '.$firstname.' '.$lastname.',<p>
-					</td></tr>
-					<tr><td>
-					<p>Document-'.$title.' has been Pending by HR,Please Review documents.</p>
+					<p>Dear '.$firstname.' '.$lastname.',</p>
+					<p>&nbsp;</p>
+					<p>'.$title.' Document has been Pending by HR,Please Review documents.</p>
 					</td></tr>
 					<br/>
 					</table>
 					</body>
 					</html>';
-					$subject='Documents-'.$title.' Pending By - HR';
+					$subject=$title.' Document Pending By - HR';
 					$description = $contents;
 					$mailer = new Vtiger_Mailer();
 					$mailer->IsHTML(true);

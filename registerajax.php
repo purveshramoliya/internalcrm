@@ -95,12 +95,12 @@ $contents = '
 </head> 
 <body> 
 <p>Dear '.$firstname.' '.$lastname.',<p>
-<p>Thank you for Joining BizTechnoSys,<br>
+<p>Thank you for Joining BizTechnoSys,<br/>
 Your Joining request has been approved and now you can login with the username and password by clicking on the link provided.</p>
 <p>Username : '.$username.' </p>
 <p>Password : '.$password.' </p>
 <a href="'.$site_URL.'">Login</a><br/>
-Thanks<br>
+Thanks
 </body> 
 </html>'; 
 
@@ -114,9 +114,8 @@ $mailer->AddAddress($email);
 $status = $mailer->Send(true);
 
 // send the email
-if(isset($status))
-{
-     $referer = $_SERVER['HTTP_REFERER'];
+if($mailer->Send()) {
+     $referer = $site_URL;
      header("Location: $referer");
 }
 //error

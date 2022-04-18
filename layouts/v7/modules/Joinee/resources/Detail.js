@@ -224,7 +224,7 @@ Vtiger_Detail_Js("Joinee_Detail_Js", {
 
                 if (organizationElement != '0') {
                     if (jQuery.inArray('Accounts', moduleArray) == -1) {
-                       app.helper.showErrorNotification({message:app.vtranslate('JS_SELECT_JOINEE')});
+                       app.helper.showErrorNotification({message:app.vtranslate('Select User to proceed')});
                         return false;
                     }
                 } 

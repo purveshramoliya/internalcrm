@@ -205,6 +205,7 @@
 	<span class="app-nav"></span>
 	<div class="container-fluid loginPageContainer">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<span class="{if !$PAGEMESSAGE_STATUS && $MODULE eq 'Users'}hide{/if} successMessage"><b>{$PAGEMESSAGE}</b></span>
 			<div class="loginDiv widgetHeight">
 				<img class="img-responsive user-logo">
 				<div>

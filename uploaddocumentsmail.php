@@ -19,9 +19,7 @@ $contents='<html>
 <body>
 <table>
 <tr><td>
-<p>Dear HR,<p>
-</td></tr>
-<tr><td>
+<p>Dear HR,</p>
 <p>Document has been Uploaded by candidate,Please update status of documents.</p>
 </td></tr>
 <br/>
