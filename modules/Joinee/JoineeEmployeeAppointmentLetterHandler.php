@@ -75,17 +75,17 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 						$digits_1 = strlen($no);
 						$i = 0;
 						$str = array();
-						$words = array('0' => '', '1' => 'one', '2' => 'two',
-							'3' => 'three', '4' => 'four', '5' => 'five', '6' => 'six',
-							'7' => 'seven', '8' => 'eight', '9' => 'nine',
-							'10' => 'ten', '11' => 'eleven', '12' => 'twelve',
-							'13' => 'thirteen', '14' => 'fourteen',
-							'15' => 'fifteen', '16' => 'sixteen', '17' => 'seventeen',
-							'18' => 'eighteen', '19' =>'nineteen', '20' => 'twenty',
-							'30' => 'thirty', '40' => 'forty', '50' => 'fifty',
-							'60' => 'sixty', '70' => 'seventy',
-							'80' => 'eighty', '90' => 'ninety');
-						$digits = array('', 'hundred', 'thousand', 'lakh', 'crore');
+						$words = array('0' => '', '1' => 'One', '2' => 'Two',
+							'3' => 'Three', '4' => 'Four', '5' => 'Five', '6' => 'Six',
+							'7' => 'Seven', '8' => 'Eight', '9' => 'Nine',
+							'10' => 'Ten', '11' => 'Eleven', '12' => 'Twelve',
+							'13' => 'Thirteen', '14' => 'Fourteen',
+							'15' => 'Fifteen', '16' => 'sixteen', '17' => 'Seventeen',
+							'18' => 'Eighteen', '19' =>'Nineteen', '20' => 'Twenty',
+							'30' => 'Thirty', '40' => 'Forty', '50' => 'Fifty',
+							'60' => 'Sixty', '70' => 'Seventy',
+							'80' => 'Eighty', '90' => 'Ninety');
+						$digits = array('', 'Hundred', 'Thousand', 'Lakh', 'Crore');
 						while ($i < $digits_1) {
 							$divider = ($i == 2) ? 10 : 100;
 							$number = floor($no % $divider);
@@ -104,7 +104,7 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 						}
 						$str = array_reverse($str);
 						$result = implode('', $str);
-						$netpayword=$result . "Rupees";
+						$netpayword=$result . "Rupees Only";
 					}
 
 					$body='
@@ -113,59 +113,61 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 					<title></title>
 					</head>
 					<body>
-					<div>
-					<img  class="logo" src="includes/mpdf/header.png" alt="header">
+					<hr>
+					<div class="page">
+					<div class="rdate">
+					<b>Date:'.$todaydate.'</b>
 					</div>
-					<div>
-					<p style="text-align: right;"><b>Date :'.$todaydate.'</b></p>
 					<div class="a"><h2><u>APPOINTMENT LETTER</u></h2></div>
 					<table>
 					<tr><td>
 					<div class="div-left">
 					<p><b>To</b>,</p>
 					<p><b>'.$firstname.' '.$lastname.'</b>,</p>
-					<p><b>'.$address.',</b></p></br>
+					<p><b>'.$address.',</b></p>
+					<p>&nbsp;</p>
 					</div>
 					</td></tr>
 					<tr><td>
 					<div class="div-left">
-					<p>Dear <b>'.$firstname.' '.$lastname.'</b>,</p></br>
+					<p>Dear <b>'.$firstname.' '.$lastname.'</b>,</p>
+					<p>&nbsp;</p>
 					</div>
 					</td></tr>
 					<tr><td>
 					<p>We are pleased to appoint you as “<b>'.$position.'</b>” with effect from <b>'.$joiningdate.'</b> in our organization.</p>
-					</br>
+					<p>&nbsp;</p>
 					</td></tr>
 					<tr><td>
 					<p><b>1. Salary</b></p>
 					<p>Your eligible gross salary on a cost to the company basis is as detailed in Annexure I.</p>
-					</br>
+					<p>&nbsp;</p>
 					</td></tr>
 					<tr><td>
 					<p><b>2. Probation:</b></p>
 					<p>You will be on probation for a period of <b>3</b> months (the probation period), which may be extended by the company at its discretion. At the end of the probation period, the Company may confirm your services for a permanent appointment subject to your performance meeting the requisite standard set by the company. You will be on probation till the time the Company issues you a confirmation letter.</p>
 					<p>Before leaving the organization by your own decision, need to serve <b>three</b>-month notice period after submitting the resignation letter.</p>
-					</br>
+					<p>&nbsp;</p>
 					</td></tr>
 					<tr><td>
 					<p><b>3. Location:</b></p>
 					<p>You will be initially based in India at our <b>'.$location.' office</b>. You must however be prepared to work at such other headquarters or locations of company within India or abroad (USA, Europe, other Locations) depending upon the exigencies of work. Your employment is subject to transfer to any of the companys affiliates, subsidiaries or sister concerns.</p>
-					</br>
+					<p>&nbsp;</p>
 					</td></tr>
 					<tr><td>
 					<p><b>4. Reporting Line and Performance Assessment:</b></p>
 					<p>Initially you will be reporting to the <b>'.$managername.'</b> who will assess your performance on a daily basis.</p>
-					</br>
+					<p>&nbsp;</p>
 					</td></tr>
 					<tr><td>
 					<p><b>5. Working Hours/Days:</b></p>
 					<p>Currently we work from Monday to Friday <b>10:00 am to 7.00 pm.</b> You are expected to work with us from Our Office at Bangalore. Your work time may be changed based on the requirements of projects executed and/or as decided by the company.</p>
-					</br>
+					<p>&nbsp;</p>
 					</td></tr>
 					<tr><td>
 					<p><b>6. Leave benefits:</b></p>
 					<p>As per the current policy, you are entitled to a total of <b>Twenty-Four Leaves</b> per annum. Leaves will be updated on a monthly basis in your login portal. Unused leaves can be accumulated and used as per the company policy.</p>
-					</br>
+					<p>&nbsp;</p>
 					</td></tr>
 					<tr><td>
 					<p><b>7. Termination:</b></p>
@@ -175,107 +177,108 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 					<p><b>III.</b> Upon your confirmation, you shall be free to terminate the employment agreement at will and at any time, with or without cause, upon <b>three</b> months prior written notice from you & company can terminate the employment agreement at will and at any time, with or without cause, upon three months prior written notice desirous of terminating this employment agreement or payment of equivalent salary in lieu thereof.</p>
 					<p><b>IV.</b> Company at its sole discretion can roll-out termination of employment with immediate effect in the case of any behavioral issues or performance issues.</p>
 					<p>The above policy is subjected to revision from time to time at the sole discretion of the company.</p>
-					</br>
+					<p>&nbsp;</p>
 					</td></tr>
 					<tr><td>
 					<p><b>8. Taxation:</b></p>
 					<p>Any amount payable by the company towards compensation, allowances, and benefits and / or any other payment would be liable to Income tax, as applicable, in your hands as per the provision of the Income-tax Act, 1961 and / or any other taxes under applicable law and the rules framed there under. Income tax as applicable will be withheld from your salary and paid to the Government of India every month. All requirements under Indian tax laws, including tax compliance and filing of tax returns, assessment etc. of your personal income, PAN No. etc. shall have to be fulfilled by you.</p>
-					</br>
+					<p>&nbsp;</p>
 					</td></tr>
 					<tr><td>
 					<p><b>9A. </b>The terms and conditions of this employment are contained in Annexure II. You are requested to sign on its duplicate copy signifying your acceptance.</p>
 					<p><b>9B. </b>You shall execute the Employee Non-Disclosure Agreement (NDA) enclosed in schedule Annexure III hereof, and shall be bound by all the terms and conditions contained therein.</p>
-					</br>
+					<p>&nbsp;</p><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 					</td></tr>
 					<tr><td>
 					<p><b>10. Applicable Law:</b></p>
 					<p>The applicable Indian laws shall govern this contract. The court of jurisdiction will be at Bangalore. Please return to us the duplicate copy of this letter duly signed by you signifying your acceptance of the terms and conditions stated herein.</p>
-					</br>
+					<p>&nbsp;</p>
 					</td></tr>
 					<tr><td>
 					<p>We welcome you at our organization for a long-term association.</p>
+                    <p>&nbsp;</p>
 					</td></tr>
-					</br>
 					</table>
 					<div class="leftDiv">
 					<p><b>For Biztechnosys Infotech Pvt.Ltd.</b></p>
 					<img  class="sign" src="includes/mpdf/sign.png" alt="sign">
 					<p><b>Mr. Sathiaraj T</b></p>
-					<p><b>Manager - Human Resource Manger& Admin</b></p><br/><br/><br/><br/><br/><br/><br/>
+					<p><b>Human Resource Manager & Admin</b></p>
 					</div>
-					<div style="clear: both;"></div>
+					<div class="pagebreak"> </div>
 					</div>
-					</div>
-					<div>
+					<div class="page">
 					<div class="a"><h2><b><u>Annexure I</u></b></h2></div></br>
 					<div class="a"><h2><b>Salary Breakup</b></h2></div>
 					<div class="div-left">
-					<p>To,</p>
-					<p><b>Candidate Name:'.$firstname.' '.$lastname.'</b>,</p>
-					<p><b>Designation:'.$position.'</b>,</p>
+					<p><b>Candidate Name:'.$firstname.' '.$lastname.'</b></p>
+					<p><b>Designation:'.$position.'</b></p>
 					</div>
 					<div class="salary-slip">
-					<table class="empDetail">
+					<table class="empDetail leftsidetext">
 					<tr class="myBackground">
-					<th colspan="2">Earning</th>
+					<th colspan="2" class="text_left">Earning</th>
 					<th class="text_right"></th>
 					<th class="table-border-right text_right">Actual</th>
-					<th colspan="3">Deductions</th>
+					<th colspan="3" class="text_left">Deductions</th>
 					<th class="text_right">Actual</th>
 					</tr>
 					<tr>
-					<th colspan="2">Basic</th>
+					<th colspan="2" class="text_left">Basic</th>
 					<td class="text_right">&nbsp;</td>
 					<td class="myAlign">'.$basic.'</td>
-					<th colspan="3">PROF TAX</th>
+					<th colspan="3" class="text_left">PROF TAX</th>
 					<td class="myAlign">'.$proftax.'</td>
 					</tr>
 					<tr>
-					<th colspan="2">HRA</th>
+					<th colspan="2" class="text_left">HRA</th>
 					<td class="text_right">&nbsp;</td>
 					<td class="myAlign">'.$hra.'</td>
 					<td colspan="4" class="table-border-right text_right">&nbsp;</td>
 					</tr>
 					<tr>
-					<th colspan="2">CONVEYANCE</th>
+					<th colspan="2" class="text_left">CONVEYANCE</th>
 					<td class="text_right">&nbsp;</td>
 					<td class="myAlign">'.$conveyance.'</td>
 					<td colspan="4" class="table-border-right text_right">&nbsp;</td>
 					</tr>
 					<tr>
-					<th colspan="2">MEDICAL ALLOWANCE</th>
+					<th colspan="2" class="text_left">MEDICAL ALLOWANCE</th>
 					<td class="text_right">&nbsp;</td>
 					<td class="myAlign">'.$medicalallowance.'</td>
 					<td colspan="4" class="table-border-right text_right">&nbsp;</td>
 					</tr>
 					<tr>
-					<th colspan="2">SPECIAL ALLOWANCE</th>
+					<th colspan="2" class="text_left">SPECIAL ALLOWANCE</th>
 					<td class="text_right">&nbsp;</td>
 					<td class="myAlign">'.$specialallowance.'</td>
 					<td colspan="4" class="table-border-right text_right">&nbsp;</td>
 					</tr>
 					<tr class="myBackground">
-					<th colspan="2">Total Earning: INR</th>
+					<th colspan="2" class="text_left">Total Earning: INR</th>
 					<td class="text_right">&nbsp;</td>
 					<td class="myAlign">'.$ctcdigit.'</td>
-					<th colspan="3">Total Deductions: INR</th>
+					<th colspan="3" class="text_left">Total Deductions: INR</th>
 					<td class="myAlign">'.$proftax.'</td></tr>
 					<tr height="40px">
-					<th colspan="5">Net Pay for the month ( Total Earnings - Total Deductions):</th>
+					<th colspan="5" class="text_left">Net Pay for the month ( Total Earnings - Total Deductions):</th>
 					<th colspan="3" >'.$netpay.'</th>
 					</tr>
 					<tr height="40px">
-					<th colspan="5" style="font-style: italic">(IN words - '.$netpayword.')
+					<th colspan="5" style="font-style: italic" class="text_left">(IN words - '.$netpayword.')
 					</th>
 					<th colspan="3" class="table-border-bottom"></th>
 					</tr>
-					</table>
-					<p><b>NOTE: </b>'.$note.'</p>
-				    </div>
-					</div>
-					</div>
+					</table>';
+					if(!empty($note))
+					{
+					$body .='<p><b> NOTE: </b> '.$note.'</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>';
+				    }
+					$body .='</div>
 					</br>
-					<div class="outerDiv">
 					<div class="leftDiv">
 					<p><b>Understood and Accepted</b></p>
 					<p>&nbsp;</p>
@@ -288,15 +291,14 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 					<p>&nbsp;</p>
 					<p>&nbsp;</p>
 					<p>&nbsp;</p>
-					<p style="padding-left:150px;"><b>Date :'.$todaydate.'</b></p>
+					<p style="padding-left:150px;"><b>Date:'.$todaydate.'</b></p>
 					</div>
-					</div>
-					</div>
-					<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+					<div class="pagebreak"> </div>
+					<div class="page">
 					<div class="a"><h2><b><u>Annexure II</u></b></h2></div></br>
 					<div class="a"><u><b>Terms & conditions of the Employment</u></b></div>
 					<div class="div-left">
-					<p><b>date :'.$todaydate.'</b></p>
+					<p><b>Date:'.$todaydate.'</b></p>
 					<p><b>Candidate Name:'.$firstname.' '.$lastname.'</b>,</p>
 					<p><b>Designation:'.$position.'</b>,</p>
 					<table>
@@ -374,14 +376,13 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 					</td></tr>
 					<br/><br/>
 					</table>
-					<div class="outerDiv">
 					<div class="leftDiv">
 					<p><b>Signature:_________________</b></p>
-					<p><b>Name of the Candidate :'.$firstname.''.$lastname.'</b></p>
+					<p><b>Name of the CandiDate:'.$firstname.''.$lastname.'</b></p>
 					<p><b>Address :'.$address.'</b></p>
 					</div>
 					<div class="rightDiv">
-					<p style="padding-left:150px;"><b>Date :'.$todaydate.'</b></p>
+					<p style="padding-left:150px;"><b>Date:'.$todaydate.'</b></p>
 					<p>&nbsp;</p>
 					<p>&nbsp;</p>
 					</div>
@@ -394,13 +395,17 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 					$body = iconv("UTF-8","UTF-8//IGNORE",$body);
 
 					include("includes/mpdf/mpdf/mpdf.php");
-					$mpdf=new mPDF('c','A4','','',15,15,15,15,15,15);  
+					$mpdf=new mPDF('c','A4','','',0,0,15,15,0,0,0,0); 
+					$mpdf->setAutoTopMargin = 'stretch';
+					$mpdf->SetHTMLHeader('<img src="includes/mpdf/header.png"/>');
+					$mpdf->setAutoBottomMargin = 'stretch';
+                    $mpdf->SetHTMLFooter('<img src="includes/mpdf/footer.png"/>');    
 					$stylesheet = file_get_contents('includes/mpdf/mpdfstyletables.css');
 					$mpdf->WriteHTML($stylesheet,1);
                     //write html to PDF
 					$m=$mpdf->WriteHTML($body,2);
                     //output pdf
-					$attachment=$mpdf->Output('AppointmentLetter-'.$empno.'.pdf','S');
+					$attachment=$mpdf->Output('Appointment Letter-'.$empno.'.pdf','S');
 
 					//trigger send email
 					$emailData = Joinee::getAppointmentLetterEmailContents($entityData,'AppointmentLetter');
@@ -420,7 +425,7 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 					$mail->ConfigSenderInfo($from,$fromName);
 					$mail->Subject = $subject;
 					$mail->Body = $contents;
-					$mail->AddStringAttachment($attachment, 'AppointmentLetter.pdf', 'base64', 'application/pdf');
+					$mail->AddStringAttachment($attachment, 'Appointment Letter.pdf', 'base64', 'application/pdf');
 					$mail->AddAddress($to_email);
 					$status = $mail->Send(true);
 

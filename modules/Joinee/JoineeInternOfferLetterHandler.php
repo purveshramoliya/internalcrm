@@ -34,7 +34,7 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 				$ctcdigit = $entityData->get('cf_1330');
 				$thsdigit = $entityData->get('cf_1332');
 				$allths = (int)str_replace(',', '', $thsdigit);
-				$thsvalue = number_format($allths, 2);
+				$thsvalue = number_format($allths, 0);
 				$joiningdate = $entityData->get('cf_1334');
 
 				if( $type == 'Intern' && $offer_notification == 0)
@@ -48,24 +48,24 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 						$digits_1 = strlen($no);
 						$i = 0;
 						$str = array();
-						$words = array('0' => '', '1' => 'one', '2' => 'two',
-							'3' => 'three', '4' => 'four', '5' => 'five', '6' => 'six',
-							'7' => 'seven', '8' => 'eight', '9' => 'nine',
-							'10' => 'ten', '11' => 'eleven', '12' => 'twelve',
-							'13' => 'thirteen', '14' => 'fourteen',
-							'15' => 'fifteen', '16' => 'sixteen', '17' => 'seventeen',
-							'18' => 'eighteen', '19' =>'nineteen', '20' => 'twenty',
-							'30' => 'thirty', '40' => 'forty', '50' => 'fifty',
-							'60' => 'sixty', '70' => 'seventy',
-							'80' => 'eighty', '90' => 'ninety');
-						$digits = array('', 'hundred', 'thousand', 'lakh', 'crore');
+						$words = array('0' => '', '1' => 'One', '2' => 'Two',
+							'3' => 'Three', '4' => 'Four', '5' => 'Five', '6' => 'Six',
+							'7' => 'Seven', '8' => 'Eight', '9' => 'Nine',
+							'10' => 'Ten', '11' => 'Eleven', '12' => 'Twelve',
+							'13' => 'Thirteen', '14' => 'Fourteen',
+							'15' => 'Fifteen', '16' => 'sixteen', '17' => 'Seventeen',
+							'18' => 'Eighteen', '19' =>'Nineteen', '20' => 'Twenty',
+							'30' => 'Thirty', '40' => 'Forty', '50' => 'Fifty',
+							'60' => 'Sixty', '70' => 'Seventy',
+							'80' => 'Eighty', '90' => 'Ninety');
+						$digits = array('', 'Hundred', 'Thousand', 'Lakh', 'Crore');
 						while ($i < $digits_1) {
 							$divider = ($i == 2) ? 10 : 100;
 							$number = floor($no % $divider);
 							$no = floor($no / $divider);
 							$i += ($divider == 10) ? 1 : 2;
 							if ($number) {
-								$plural = (($counter = count($str)) && $number > 9) ? 's' : null;
+								$plural = (($counter = count($str)) && $number > 9) ? '' : null;
 								$hundred = ($counter == 1 && $str[0]) ? ' and ' : null;
 								$str [] = ($number < 21) ? $words[$number] .
 								" " . $digits[$counter] . $plural . " " . $hundred
@@ -77,7 +77,7 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 						}
 						$str = array_reverse($str);
 						$result = implode('', $str);
-						$thsword=$result . "Rupees";
+						$thsword=$result . "Rupees Only";
 					}
 
 					$body='<html>
@@ -85,12 +85,11 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 					<title></title>
 					</head>
 					<body>
-					<div>
-					<div>
-					<img  class="logo" src="includes/mpdf/header.png" alt="header">
-					</div>
-					<div>
-					<p style="text-align: right;"><b>Date:'.$todaydate.'</b></p>          
+					<hr>
+					<div class="page">
+					<div class="ldate">
+					<b>Date:'.$todaydate.'</b>
+					</div>      
 					<div class="a">
 					<h2><u>OFFER LETTER OF INTERNSHIP</u></h2>
 					</div>
@@ -99,61 +98,55 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 					<td>
 					<div class="div-left">
 					<p>Dear <b>'.$firstname.' '.$lastname.'</b>,</p>
+					<p>&nbsp;</p>
 					</div>
 					</td>
 					</tr>
 					<tr>
 					<td>
-					<p>With reference to your application and subsequent interview with us,we are pleased to extend an offer of Internship to you in our organization at the position of “<b>'.$position.'</b>”, at a <b>stipend of INR '.$thsvalue.'/- Per Month (INR '.$thsword.').</b></p>
+					<p>With reference to your application and subsequent interview with us,we are pleased to extend an offer of <b>Internship</b> to you in our organization at the position of “ <b>'.$position.'</b> ”, at a <b>stipend of INR '.$thsvalue.'/- Per Month ('.$thsword.').</b></p>
+					<p>&nbsp;</p>
 					</td>
 					</tr>
 					<tr>
 					<td>
-					<p>
-					The first <b>3</b> months of your service will be on <b>Internship</b>, at the end of which, the company may confirm your services, subject to your performance meeting our requisite standards. You will be on <b>Internship</b> till the time you receive the confirmation letter. You have to serve <b>3</b> months’ notice period from the date of resignation <b>Internship confirmation letter</b> from the HR.
-					</p>
+					<p>The first <b>6</b> months of your service will be on <b>Internship</b>, at the end of which, the company may confirm your services, subject to your performance meeting our requisite standards. You will be on <b>Internship</b> till the time you receive the confirmation letter. You have to serve <b>3</b> months’ notice period from the date of resignation <b>Internship confirmation letter</b> from the HR.</p>
+					<p>&nbsp;</p>
 					</td>
 					</tr>
 					<tr>
 					<td>
-					<p>
-					On the date Internship Confirmation, you will receive your <b>Appointment letter</b>. You may need to submit the essential documents requested by the HR.Kindly sign the copy as a token of your acceptance of the offer and return us the same.
-					</p>
+					<p>On the date Internship Confirmation, you will receive your <b>Appointment letter</b>. You may need to submit the essential documents requested by the HR. Kindly sign the copy as a token of your acceptance of the offer and return us the same.</p>
+					<p>&nbsp;</p>
 					</td>
 					</tr>
 					<tr>
 					<td>
-					<p>
-					We look forward to having a long-term association with you.
-					</p>
-					</td>
-					<tr>
-					<td>
-					<p><b> NOTE: </b> '.$note.'</p>
-					</td>
-					</tr>
-					<br/>
+					<p>We look forward to having a long-term association with you.</p>
+					<p>&nbsp;</p>
+					</td></tr>
+					<tr><td>';
+					if(!empty($note))
+					{
+					$body .='<p class="pera"><b> NOTE: </b> '.$note.'</p>';
+				    }
+					$body .='</td></tr>
 					</table>
-					<div class="outerDiv">
 					<div class="leftDiv">
 					<p>Thanking You,</p>
 					<p><b>For Biztechnosys Infotech Pvt.Ltd.</b></p>
-					<img  class="sign" src="includes/mpdf/sign.png" alt="sign">
+					<img class="sign" src="includes/mpdf/sign.png" alt="sign">
 					<p><b>Sathiaraj T</b></p>
 					<p><b>Manager - Human Resource & Admin</b></p>
-					<p></p>
+					<p>&nbsp;</p>
 					</div>
 					<div class="rightDiv">
-					<p></p>
-					<p style="padding-left:150px;"><b><u>Accepted the Offer</u></b></p>
 					<p>&nbsp;</p>
-					<p>&nbsp;</p>
+					<p style="padding-left:150px;"><b>Accepted the Offer</b></p>
+					<img class="sign" src="includes/mpdf/sign.png" alt="sign" style="display:none;">
 					<p style="padding-left:150px;"><b>_____________________</b></p>
 					<p style="padding-left:150px;"><b>Signature of the candidate</b></p>
 					<p style="padding-left:150px;"><b>I will join on:</b></p>
-					</div>
-					<div style="clear: both;"></div>
-					</div>
 					</div>
 					</div>
 					</body>
@@ -163,13 +156,17 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 					$body = iconv("UTF-8","UTF-8//IGNORE",$body);
 					include("includes/mpdf/mpdf/mpdf.php");
 
-					$mpdf=new mPDF('c','A4','','',15,15,15,15,15,15);  
+					$mpdf=new mPDF('c','A4','','',0,0,15,15,0,0,0,0); 
+					$mpdf->setAutoTopMargin = 'stretch';
+					$mpdf->SetHTMLHeader('<img src="includes/mpdf/header.png"/>');
+					$mpdf->setAutoBottomMargin = 'stretch';
+                    $mpdf->SetHTMLFooter('<img src="includes/mpdf/footer.png"/>'); 
 					$stylesheet = file_get_contents('includes/mpdf/mpdfstyletables.css');
 					$mpdf->WriteHTML($stylesheet,1);
                    //write html to PDF
-					$m=$mpdf->WriteHTML($body,2);
+					$mpdf->WriteHTML($body,2);
                    //output pdf
-					$attachment=$mpdf->Output('OfferLetter-'.$empno.'.pdf','S');
+					$attachment=$mpdf->Output('Offer Letter-'.$empno.'.pdf','S');
 
 					//trigger send email
 					$emailData = Joinee::getOfferLetterEmailContents($entityData,'OfferLetter');
@@ -189,7 +186,7 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 					$mail->ConfigSenderInfo($from,$fromName);
 					$mail->Subject = $subject;
 					$mail->Body = $contents;
-					$mail->AddStringAttachment($attachment, 'OfferLetter.pdf', 'base64', 'application/pdf');
+					$mail->AddStringAttachment($attachment, 'Offer Letter.pdf', 'base64', 'application/pdf');
 					//$mail->SendTo($to_email, 'Candidate', true, false, true);
 					$mail->AddAddress($to_email);
 					$status = $mail->Send(true);

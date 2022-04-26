@@ -1,20 +1,31 @@
-body { font-family: DejaVuSansCondensed; font-size: 11pt;  }
-.tg  {border-collapse:collapse;border-spacing:0;border: 1px solid;width: 100%;}
+body { font-family: Georgia, serif; font-size: 12pt;}
+
 div.a {
   text-align: center;
 }
-/*tr
-{
-  margin-bottom: 1em;
-}*/
-p{
-  margin-bottom: 1em;
+
+hr{
+  width: 650px;
+  border: 1px solid black;
+}
+.ldate{
+  text-align: left;
+}
+.rdate{
+  text-align: right;
 }
 /*td,th
 {
   text-align: left;
 }
 */
+.page {
+        margin-top: 4mm; 
+        margin-left: 15mm;
+        margin-right: 15mm;
+        position: relative;
+}
+
 .bondheader {
   margin-bottom: 10px;
   margin-top: 20px;
@@ -41,10 +52,8 @@ p{
 }
 
 .outerDiv {
-  max-width:980px;
-  height: 400px;
+  height: auto;
   margin: 0px auto;
-  max-width:980px;
   padding-top:5px;
 }
 
@@ -64,6 +73,13 @@ p{
 .downborder {
  border-bottom: 1px solid;
  border-collapse:collapse;border-spacing:0;width: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
 }
 
 table.empDetail tr td th { font-size: 13px; }
@@ -108,4 +124,18 @@ table.empDetail tr td th { font-size: 13px; }
 }
 .salary-slip .text_right{
   text-align: right;
+}
+.salary-slip .text_left{
+  text-align: left;
+}
+.page .subheader{
+        margin-bottom:2.2em;
+}
+
+.salary-slip .empDetail .leftsidetext{
+  text-align: left;
+}
+
+@media print {
+    .pagebreak { page-break-before: always; } /* page-break-after works, as well */
 }

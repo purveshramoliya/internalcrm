@@ -36,8 +36,8 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 				$thsdigit = $entityData->get('cf_1332');
 				$allctc = (int)str_replace(',', '', $ctcdigit);
 				$allths = (int)str_replace(',', '', $thsdigit);
-				$ctcvalue = number_format($allctc, 2);
-				$thsvalue = number_format($allths, 2);
+				$ctcvalue = number_format($allctc);
+				$thsvalue = number_format($allths);
 
 				$mquery=$adb->pquery('SELECT `first_name`,`last_name` FROM `vtiger_users`where id='.$managerid);
 				$mfname=$adb->query_result($mquery,0,'first_name');
@@ -65,24 +65,24 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 						$digits_1 = strlen($no);
 						$i = 0;
 						$str = array();
-						$words = array('0' => '', '1' => 'one', '2' => 'two',
-							'3' => 'three', '4' => 'four', '5' => 'five', '6' => 'six',
-							'7' => 'seven', '8' => 'eight', '9' => 'nine',
-							'10' => 'ten', '11' => 'eleven', '12' => 'twelve',
-							'13' => 'thirteen', '14' => 'fourteen',
-							'15' => 'fifteen', '16' => 'sixteen', '17' => 'seventeen',
-							'18' => 'eighteen', '19' =>'nineteen', '20' => 'twenty',
-							'30' => 'thirty', '40' => 'forty', '50' => 'fifty',
-							'60' => 'sixty', '70' => 'seventy',
-							'80' => 'eighty', '90' => 'ninety');
-						$digits = array('', 'hundred', 'thousand', 'lakh', 'crore');
+						$words = array('0' => '', '1' => 'One', '2' => 'Two',
+							'3' => 'Three', '4' => 'Four', '5' => 'Five', '6' => 'Six',
+							'7' => 'Seven', '8' => 'Eight', '9' => 'Nine',
+							'10' => 'Ten', '11' => 'Eleven', '12' => 'Twelve',
+							'13' => 'Thirteen', '14' => 'Fourteen',
+							'15' => 'Fifteen', '16' => 'sixteen', '17' => 'Seventeen',
+							'18' => 'Eighteen', '19' =>'Nineteen', '20' => 'Twenty',
+							'30' => 'Thirty', '40' => 'Forty', '50' => 'Fifty',
+							'60' => 'Sixty', '70' => 'Seventy',
+							'80' => 'Eighty', '90' => 'Ninety');
+						$digits = array('', 'Hundred', 'Thousand', 'Lakh', 'Crore');
 						while ($i < $digits_1) {
 							$divider = ($i == 2) ? 10 : 100;
 							$number = floor($no % $divider);
 							$no = floor($no / $divider);
 							$i += ($divider == 10) ? 1 : 2;
 							if ($number) {
-								$plural = (($counter = count($str)) && $number > 9) ? 's' : null;
+								$plural = (($counter = count($str)) && $number > 9) ? '' : null;
 								$hundred = ($counter == 1 && $str[0]) ? ' and ' : null;
 								$str [] = ($number < 21) ? $words[$number] .
 								" " . $digits[$counter] . $plural . " " . $hundred
@@ -94,7 +94,7 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 						}
 						$str = array_reverse($str);
 						$result = implode('', $str);
-						$netpayword=$result . "Rupees";
+						$netpayword=$result . "Rupees Only";
 					}
 
 					$body='
@@ -103,18 +103,24 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 					<title></title>
 					</head>
 					<body>
-					<div>
-					<img  class="logo" src="includes/mpdf/header.png" alt="header">
+					<hr>
+					<div class="page">
+					<div class="rdate">
+					<b>Date:'.$todaydate.'</b>
 					</div>
-					<div>
-					<p style="text-align: right;"><b>Date:'.$todaydate.'</b></p>
-					<div class="a"><h2><u>INTERNSHIP - APPOINTMENT LETTER</u></h2></div>
+					<div class="a">
+					<h2><u>INTERNSHIP - APPOINTMENT LETTER</u></h2>
+					</div>
 					<table>
 					<tr><td>
 					<div class="div-left">
 					<p><b>To</b>,</p>
 					<p><b>'.$firstname.' '.$lastname.'</b>,</p>
 					<p><b>'.$address.'</b>,</p></br>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
 					</div>
 					</td></tr>
 					<tr><td>
@@ -128,12 +134,12 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 					</td></tr>
 					<tr><td>
 					<p><b>1. Stipend</b></p>
-					<p>You’re eligible for a <b>Stipend of INR '.$thsdigit.'</b> /- per month for the first 3 months of Internship.</p>
+					<p>You’re eligible for a <b>Stipend of INR '.$thsvalue.'</b>/- per month for the first 6 months of Internship.</p>
 					</br>
 					</td></tr>
 					<tr><td>
 					<p><b>2. Internship Period</b></p>
-					<p>You will be on Internship for a period of <b>3-months</b> which may be extended by the company at its discretion. At the end of the internship period, the Company may confirm your services for a permanent appointment subject to your performance meeting the requisite standard set by the company. Post Internship Confirmation, you will be on probation for a period of 3 months.</p>
+					<p>You will be on Internship for a period of <b>6-months</b> which may be extended by the company at its discretion. At the end of the internship period, the Company may confirm your services for a permanent appointment subject to your performance meeting the requisite standard set by the company. Post Internship Confirmation, you will be on probation for a period of 3 months.</p>
 					<p>During your Internship, before leaving the organization by your own decision, need to serve <b>1 month (one month)</b> notice period after submitting the resignation letter.</p>
 					</br>
 					</td></tr>
@@ -168,27 +174,28 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 					</td></tr>
 					<tr><td>
 					<p>We welcome you at our organization for a long-term association.</p>
+					<p>&nbsp;</p>
 					</td></tr>
-					<tr><td>
-					<p><b>NOTE: </b>'.$note.'</p>
-					</td></tr>
-					</br>
+					<tr><td>';
+					if(!empty($note))
+					{
+					$body .='<p class="pera"><b> NOTE: </b> '.$note.'</p>';
+				    }
+					$body .='</td></tr>
 					</table>
 					<div class="outerDiv">
 					<div class="leftDiv">
 					<p><b>For Biztechnosys Infotech Pvt.Ltd.</b></p>
-					<img  class="sign" src="includes/mpdf/sign.png" alt="sign">
+					<img class="sign" src="includes/mpdf/sign.png" alt="sign">
 					<p><b>Mr. Sathiaraj T</b></p>
-					<p><b>Manager - Human Resource Manger& Admin</b></p><br/><br/>
+					<p><b>Manager - Human Resource & Admin</b></p><br/>
+					</div>
+					</div>
+					<div class="leftDiv">
 					<p>Signature:_________________</p>
 					</div>
 					<div class="rightDiv">
-				    <p>&nbsp;</p>
-					<img  class="sign" alt="sign">
-					<p>&nbsp;</p>
-					<p>&nbsp;</p><br/><br/>
-					<p style="padding-left:150px;padding-top:38px;">Date:_________________</p>
-					</div>
+					<p style="padding-left:150px;">Date:_________________</p>
 					</div>
 					</body>
 					</html>';
@@ -196,13 +203,17 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 					ob_start();
 					$body = iconv("UTF-8","UTF-8//IGNORE",$body);
 					include("includes/mpdf/mpdf/mpdf.php");
-					$mpdf=new mPDF('c','A4','','',15,15,15,15,15,15);  
+				    $mpdf=new mPDF('c','A4','','',0,0,15,15,0,0,0,0); 
+					$mpdf->setAutoTopMargin = 'stretch';
+					$mpdf->SetHTMLHeader('<img src="includes/mpdf/header.png"/>');
+					$mpdf->setAutoBottomMargin = 'stretch';
+                    $mpdf->SetHTMLFooter('<img src="includes/mpdf/footer.png"/>');    
 					$stylesheet = file_get_contents('includes/mpdf/mpdfstyletables.css');
 					$mpdf->WriteHTML($stylesheet,1);
                         //write html to PDF
-					$m=$mpdf->WriteHTML($body,2);
+					$mpdf->WriteHTML($body,2);
                         //output pdf
-					$attachment=$mpdf->Output('AppointmentLetter-'.$empno.'.pdf','S');
+					$attachment=$mpdf->Output('Appointment Letter-'.$empno.'.pdf','S');
 
 					   //trigger send email
 					$emailData = Joinee::getAppointmentLetterEmailContents($entityData,'AppointmentLetter');
@@ -222,7 +233,7 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 					$mail->ConfigSenderInfo($from,$fromName);
 					$mail->Subject = $subject;
 					$mail->Body = $contents;
-					$mail->AddStringAttachment($attachment, 'AppointmentLetter.pdf', 'base64', 'application/pdf');
+					$mail->AddStringAttachment($attachment, 'Appointment Letter.pdf', 'base64', 'application/pdf');
 					$mail->AddAddress($to_email);
 					$status = $mail->Send(true);
 
