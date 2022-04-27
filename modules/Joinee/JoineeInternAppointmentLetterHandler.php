@@ -44,22 +44,13 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 				$mlname=$adb->query_result($mquery,0,'last_name');
 				$managername=$mfname.' '.$mlname;
 
-				//salary breakdown
-				$basic= ROUND($allths*40/100);
-				$hra= ROUND($basic*50/100);
-				$conveyance=1800;
-				$medicalallowance=1250;
-				$totalspend=$basic+$hra+$conveyance+$medicalallowance;
-				$specialallowance=ROUND($allths-$totalspend);
-				$totalerning=$basic+$hra+$conveyance+$medicalallowance+$specialallowance;
-				$netpay=$totalerning-200;
 
 				if( $type == 'Intern' && $appointment_notification == 0)
 				{
-					if(isset($netpay))
+					if(isset($allths))
 					{
-						$number = round($netpay);
-						$no = floor($netpay);
+						$number = round($allths);
+						$no = floor($allths);
 						$point = round($number - $no, 2) * 100;
 						$hundred = null;
 						$digits_1 = strlen($no);
@@ -94,7 +85,7 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 						}
 						$str = array_reverse($str);
 						$result = implode('', $str);
-						$netpayword=$result . "Rupees Only";
+						$thsword=$result . "Rupees Only";
 					}
 
 					$body='
@@ -106,7 +97,7 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 					<hr>
 					<div class="page">
 					<div class="rdate">
-					<b>Date:'.$todaydate.'</b>
+					<b>Date: '.$todaydate.'</b>
 					</div>
 					<div class="a">
 					<h2><u>INTERNSHIP - APPOINTMENT LETTER</u></h2>
@@ -192,10 +183,10 @@ class JoineeInternAppointmentLetterHandler extends VTEventHandler
 					</div>
 					</div>
 					<div class="leftDiv">
-					<p>Signature:_________________</p>
+					<p>Signature: _________________</p>
 					</div>
 					<div class="rightDiv">
-					<p style="padding-left:150px;">Date:_________________</p>
+					<p style="padding-left:150px;">Date: _________________</p>
 					</div>
 					</body>
 					</html>';

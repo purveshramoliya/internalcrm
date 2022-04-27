@@ -88,7 +88,7 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 					<hr>
 					<div class="page">
 					<div class="ldate">
-					<b>Date:'.$todaydate.'</b>
+					<b>Date: '.$todaydate.'</b>
 					</div>      
 					<div class="a">
 					<h2><u>OFFER LETTER OF INTERNSHIP</u></h2>
@@ -146,7 +146,7 @@ class JoineeInternOfferLetterHandler extends VTEventHandler
 					<img class="sign" src="includes/mpdf/sign.png" alt="sign" style="display:none;">
 					<p style="padding-left:150px;"><b>_____________________</b></p>
 					<p style="padding-left:150px;"><b>Signature of the candidate</b></p>
-					<p style="padding-left:150px;"><b>I will join on:</b></p>
+					<p style="padding-left:150px;"><b>I will join on: </b></p>
 					</div>
 					</div>
 					</body>

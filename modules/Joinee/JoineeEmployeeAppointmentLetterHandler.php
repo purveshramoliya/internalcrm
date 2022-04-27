@@ -62,14 +62,15 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 
 				$totalerning = $basicvalue+$hravalue+$conveyance+$medicalallowance+$specialallowancevalue;
 				$netpayvalue = $allctc-$proftax;
-				$netpay =  number_format($netpayvalue, 2, '.', ',');
+				$netpay =  number_format($netpayvalue);
+
 
 				if( $type == 'Employee' && $appointment_notification == 0)
 				{
 					if(isset($netpayvalue))
 					{
-						$number = round($netpay);
-						$no = floor($netpay);
+						$number = round($netpayvalue);
+						$no = floor($netpayvalue);
 						$point = round($number - $no, 2) * 100;
 						$hundred = null;
 						$digits_1 = strlen($no);
@@ -92,7 +93,7 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 							$no = floor($no / $divider);
 							$i += ($divider == 10) ? 1 : 2;
 							if ($number) {
-								$plural = (($counter = count($str)) && $number > 9) ? 's' : null;
+								$plural = (($counter = count($str)) && $number > 9) ? '' : null;
 								$hundred = ($counter == 1 && $str[0]) ? ' and ' : null;
 								$str [] = ($number < 21) ? $words[$number] .
 								" " . $digits[$counter] . $plural . " " . $hundred
@@ -116,7 +117,7 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 					<hr>
 					<div class="page">
 					<div class="rdate">
-					<b>Date:'.$todaydate.'</b>
+					<b>Date: '.$todaydate.'</b>
 					</div>
 					<div class="a"><h2><u>APPOINTMENT LETTER</u></h2></div>
 					<table>
@@ -211,8 +212,8 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 					<div class="a"><h2><b><u>Annexure I</u></b></h2></div></br>
 					<div class="a"><h2><b>Salary Breakup</b></h2></div>
 					<div class="div-left">
-					<p><b>Candidate Name:'.$firstname.' '.$lastname.'</b></p>
-					<p><b>Designation:'.$position.'</b></p>
+					<p><b>Name: '.$firstname.' '.$lastname.'</b></p>
+					<p><b>Designation: '.$position.'</b></p>
 					</div>
 					<div class="salary-slip">
 					<table class="empDetail leftsidetext">
@@ -291,16 +292,16 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 					<p>&nbsp;</p>
 					<p>&nbsp;</p>
 					<p>&nbsp;</p>
-					<p style="padding-left:150px;"><b>Date:'.$todaydate.'</b></p>
+					<p style="padding-left:150px;"><b>Date: '.$todaydate.'</b></p>
 					</div>
 					<div class="pagebreak"> </div>
 					<div class="page">
 					<div class="a"><h2><b><u>Annexure II</u></b></h2></div></br>
 					<div class="a"><u><b>Terms & conditions of the Employment</u></b></div>
 					<div class="div-left">
-					<p><b>Date:'.$todaydate.'</b></p>
-					<p><b>Candidate Name:'.$firstname.' '.$lastname.'</b>,</p>
-					<p><b>Designation:'.$position.'</b>,</p>
+					<p><b>Date: '.$todaydate.'</b></p>
+					<p><b>Name: '.$firstname.' '.$lastname.'</b>,</p>
+					<p><b>Designation: '.$position.'</b>,</p>
 					<table>
 					<tr><td></br>
 					<p><b>1. Confidentiality / IPR / Employee Non-Disclosure Agreement:</b></p>
@@ -377,12 +378,12 @@ class JoineeEmployeeAppointmentLetterHandler extends VTEventHandler
 					<br/><br/>
 					</table>
 					<div class="leftDiv">
-					<p><b>Signature:_________________</b></p>
-					<p><b>Name of the CandiDate:'.$firstname.''.$lastname.'</b></p>
-					<p><b>Address :'.$address.'</b></p>
+					<p><b>Signature: _________________</b></p>
+					<p><b>Name of the CandiDate: '.$firstname.''.$lastname.'</b></p>
+					<p><b>Address : '.$address.'</b></p>
 					</div>
 					<div class="rightDiv">
-					<p style="padding-left:150px;"><b>Date:'.$todaydate.'</b></p>
+					<p style="padding-left:150px;"><b>Date: '.$todaydate.'</b></p>
 					<p>&nbsp;</p>
 					<p>&nbsp;</p>
 					</div>
